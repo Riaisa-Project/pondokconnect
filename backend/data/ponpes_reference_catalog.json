@@ -1,0 +1,323 @@
+[
+  {
+    "slug": "al-aman-payaman",
+    "nama_ponpes": "Pondok Pesantren Al Aman Payaman",
+    "kecamatan": "Solokuro",
+    "alamat_lengkap": "Desa Payaman, Kecamatan Solokuro, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://solokuro.lamongankab.go.id/posting/37329",
+    "deskripsi": "Pondok pesantren di Desa Payaman, Kecamatan Solokuro, yang menjadi tempat kegiatan dzikir dan sholawat bersama santri serta masyarakat sekitar.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "al-amin-tunggul-paciran",
+    "nama_ponpes": "Pondok Pesantren Al Amin Tunggul",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Jl. Raya Deandles No. 113, Desa Tunggul, Kecamatan Paciran, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://tatib.smpalaminpaciran.sch.id/server/PROPOSAL%20BLK/PROPOSAL%20BLK/revisi%20terbaru/2PROPOSAL%20BLK%20YAYASAN%20AL%20AMIN%202020.pdf",
+    "sumber_profil_url": "https://tatib.smpalaminpaciran.sch.id/server/PROPOSAL%20BLK/PROPOSAL%20BLK/revisi%20terbaru/2PROPOSAL%20BLK%20YAYASAN%20AL%20AMIN%202020.pdf",
+    "deskripsi": "Pesantren di Desa Tunggul yang didirikan pada 1936 oleh KH. M. Amin Musthofa dan dikelola oleh Yayasan Pendidikan Pondok Pesantren Al Amin Paciran.",
+    "diperiksa_pada": "2026-10-15",
+    "latitude": -6.8744,
+    "longitude": 112.3743,
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20506306",
+    "referensi_titik": "SMA Al Amin Paciran di lingkungan Yayasan Pendidikan Pondok Pesantren Al Amin",
+    "ketelitian": "kompleks_pendidikan"
+  },
+  {
+    "slug": "al-ikhlas-babat",
+    "nama_ponpes": "Pondok Pesantren Al Ikhlas",
+    "kecamatan": "Babat",
+    "alamat_lengkap": "Desa Gendongkulon, Kecamatan Babat, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/documents/portal/LPPD_Kabupaten_Lamongan_TA_2021.pdf#page=142",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2021.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2021
+  },
+  {
+    "slug": "al-mizan-muhammadiyah-lamongan",
+    "nama_ponpes": "Pondok Pesantren Al Mizan Muhammadiyah Lamongan",
+    "kecamatan": "Lamongan",
+    "alamat_lengkap": "Jl. Jend. Sudirman No. 01, Banjarmendalan, Kecamatan Lamongan, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://mtsm15lamongan.sch.id/",
+    "sumber_profil_url": "https://referensi.data.kemendikdasmen.go.id/tabs.php?npsn=20582811",
+    "deskripsi": "Pesantren Muhammadiyah yang berada dalam kompleks Panti Asuhan dan Pondok Pesantren Al Mizan. MTs Muhammadiyah 15 Lamongan merupakan salah satu unit pendidikannya.",
+    "diperiksa_pada": "2026-10-15",
+    "latitude": -7.1137,
+    "longitude": 112.4262,
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20582811",
+    "referensi_titik": "MTs Muhammadiyah 15 Lamongan di kompleks Panti Asuhan dan Pondok Pesantren Al Mizan",
+    "ketelitian": "kompleks_pendidikan"
+  },
+  {
+    "slug": "al-munawarrah-brondong",
+    "nama_ponpes": "Pondok Pesantren Al Munawarrah",
+    "kecamatan": "Brondong",
+    "alamat_lengkap": "Desa Brondong, Kecamatan Brondong, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "al-musaaadah-tikung",
+    "nama_ponpes": "Pondok Pesantren Al Musaa'adah",
+    "kecamatan": "Tikung",
+    "alamat_lengkap": "Desa Takeranklanting, Kecamatan Tikung, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "al-faruq-sugio",
+    "nama_ponpes": "Pondok Pesantren Al-Faruq",
+    "kecamatan": "Sugio",
+    "alamat_lengkap": "Dusun Jladriasri, Desa Gondanglor, Kecamatan Sugio, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://sugio.lamongankab.go.id/posting/62117",
+    "deskripsi": "Pesantren di Gondanglor yang menjadi tempat haul, majelis zikir, dan peringatan maulid pada September 2026.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2026
+  },
+  {
+    "slug": "al-fattah-siman",
+    "nama_ponpes": "Pondok Pesantren Al-Fattah Siman",
+    "kecamatan": "Sekaran",
+    "alamat_lengkap": "Kompleks Yayasan Pondok Pesantren Al-Fattah, Jl. KH Abdul Fattah, Kembangan, Siman, Kecamatan Sekaran, Kabupaten Lamongan, Jawa Timur 62261",
+    "sumber_alamat_url": "https://yppalfattahsiman.or.id/pendidikan",
+    "deskripsi": "Pesantren di Siman yang menaungi lembaga pendidikan madrasah dan sekolah. Kecamatan Sekaran melaporkan peringatan milad ke-84 pada Juni 2026.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2026,
+    "sumber_profil_url": "https://sekaran.lamongankab.go.id/posting/55043",
+    "website_url": "https://yppalfattahsiman.or.id/"
+  },
+  {
+    "slug": "al-fattah-sugihan",
+    "nama_ponpes": "Pondok Pesantren Al-Fattah Sugihan",
+    "kecamatan": "Solokuro",
+    "alamat_lengkap": "Desa Sugihan, Kecamatan Solokuro, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://solokuro.lamongankab.go.id/posting/38441",
+    "deskripsi": "Pondok pesantren yang berlokasi di Desa Sugihan, Kecamatan Solokuro, Kabupaten Lamongan.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "al-ishlah-sendangagung",
+    "nama_ponpes": "Pondok Pesantren Al-Ishlah Sendangagung",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Desa Sendangagung, Kecamatan Paciran, Kabupaten Lamongan, Jawa Timur 62264",
+    "sumber_alamat_url": "https://alishlah.ac.id/identitas/",
+    "sumber_profil_url": "https://alishlah.ac.id/identitas/",
+    "website_url": "https://alishlah.ac.id/",
+    "deskripsi": "Pesantren di Sendangagung yang didirikan pada 13 September 1986 oleh Muhammad Dawam Saleh dan berada di bawah Yayasan Al-Ishlah.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "al-ismaili-laren",
+    "nama_ponpes": "Pondok Pesantren Al-Ismaili",
+    "kecamatan": "Laren",
+    "alamat_lengkap": "Desa Bulubrangsi, Kecamatan Laren, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "al-qodiriyah-sambeng",
+    "nama_ponpes": "Pondok Pesantren Al-Qodiriyah",
+    "kecamatan": "Sambeng",
+    "alamat_lengkap": "Dusun Keduk, Desa Kedungwangi, Kecamatan Sambeng, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://sambeng.lamongankab.go.id/posting/49458",
+    "deskripsi": "Pesantren di Kedungwangi dengan koperasi pondok. Kecamatan Sambeng melaporkan rapat anggota tahunan koperasinya pada Mei 2026.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2026
+  },
+  {
+    "slug": "ar-roudloh-sekaran",
+    "nama_ponpes": "Pondok Pesantren Ar Roudloh",
+    "kecamatan": "Sekaran",
+    "alamat_lengkap": "Desa Miru, Kecamatan Sekaran, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "ath-thohiriyyah-kedungpring",
+    "nama_ponpes": "Pondok Pesantren Ath-Thohiriyyah",
+    "kecamatan": "Kedungpring",
+    "alamat_lengkap": "Blawirejo, Kecamatan Kedungpring, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://disnakeswan.lamongankab.go.id/posting/52064",
+    "deskripsi": "Pesantren di Blawirejo yang menjadi tempat pelatihan penyembelihan hewan kurban oleh MWCNU Kedungpring pada Mei 2026.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2026
+  },
+  {
+    "slug": "baitussalam-bluluk",
+    "nama_ponpes": "Pondok Pesantren Baitussalam",
+    "kecamatan": "Bluluk",
+    "alamat_lengkap": "Desa Bluluk, Kecamatan Bluluk, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/documents/portal/ASPEK_TRANSPARANSI_12_PENYALURAN_HIBAH_TAHUN_2025_APPROVE_ATAU_TIDAK_01122025_94981792708160e29d560f99af3ba438.pdf#page=1",
+    "deskripsi": "Nama dan lokasi pesantren tercantum dalam dokumen usulan hibah Kabupaten Lamongan tahun 2025.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2025
+  },
+  {
+    "slug": "bustanul-thullab-siwalanrejo",
+    "nama_ponpes": "Pondok Pesantren Bustanul Thullab",
+    "kecamatan": "Sukodadi",
+    "alamat_lengkap": "Desa Siwalanrejo, Kecamatan Sukodadi, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://prokopim.lamongankab.go.id/posting/17130",
+    "deskripsi": "Pondok pesantren yang berlokasi di Desa Siwalanrejo, Kecamatan Sukodadi, Kabupaten Lamongan.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "daarun-najah-ahmad-yani-sukorame",
+    "nama_ponpes": "Pondok Pesantren Daarun Najah Ahmad Yani",
+    "kecamatan": "Sukorame",
+    "alamat_lengkap": "Desa Sukorame, Kecamatan Sukorame, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "darul-maarif-payaman",
+    "nama_ponpes": "Pondok Pesantren Darul Ma'arif Payaman",
+    "kecamatan": "Solokuro",
+    "alamat_lengkap": "Payaman, Kecamatan Solokuro, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://solokuro.lamongankab.go.id/posting/60725",
+    "deskripsi": "Pondok pesantren yang berada di Payaman, Kecamatan Solokuro, Kabupaten Lamongan.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "darussalam-kedungmegarih",
+    "nama_ponpes": "Pondok Pesantren Darussalam Kedungmegarih",
+    "kecamatan": "Kembangbahu",
+    "alamat_lengkap": "Desa Kedungmegarih, Kecamatan Kembangbahu, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "ihyaul-ulum-modo",
+    "nama_ponpes": "Pondok Pesantren Ihya'ul Ulum",
+    "kecamatan": "Modo",
+    "alamat_lengkap": "Desa Jegreg, Kecamatan Modo, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "karangasem-muhammadiyah-paciran",
+    "nama_ponpes": "Pondok Pesantren Karangasem Muhammadiyah Paciran",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Kompleks Pondok Pesantren Karangasem, RT 02/RW 06, Paciran, Lamongan, Jawa Timur 62264",
+    "sumber_alamat_url": "https://www.ponpeskarangasem.com/p/contact-us_8.html",
+    "sumber_profil_url": "https://www.ponpeskarangasem.com/2013/06/sejarah-nama-karangasem.html",
+    "website_url": "https://www.ponpeskarangasem.com/",
+    "deskripsi": "Pesantren Muhammadiyah di Paciran yang didirikan oleh KH. Abdurrahman Syamsuri pada 18 Oktober 1948. Nama Karangasem berasal dari pohon asam di pekarangan tempat pemondokan awal santri.",
+    "diperiksa_pada": "2026-10-15",
+    "latitude": -6.8763,
+    "longitude": 112.3404,
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/60730167",
+    "referensi_titik": "MAS Muhammadiyah 1 Paciran di kompleks Pesantren Karangasem",
+    "ketelitian": "kompleks_pendidikan"
+  },
+  {
+    "slug": "kebon-dalem-pucuk",
+    "nama_ponpes": "Pondok Pesantren Kebon Dalem",
+    "kecamatan": "Pucuk",
+    "alamat_lengkap": "Desa Tanggungan, Kecamatan Pucuk, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "mbs-nurul-huda-brangsi",
+    "nama_ponpes": "Pondok Pesantren MBS Nurul Huda Brangsi",
+    "kecamatan": "Laren",
+    "alamat_lengkap": "Desa Brangsi, Kecamatan Laren, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/dokpub/bag-pemerintahan/BUKU_LPPD_KAB_LAMONGAN_TAHUN_2023_DENGAN_LAMPIRAN_6800749bc290f.pdf#page=113",
+    "deskripsi": "Pesantren yang tercatat dalam LPPD Kabupaten Lamongan 2023.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2023
+  },
+  {
+    "slug": "modern-muhammadiyah-paciran",
+    "nama_ponpes": "Pondok Pesantren Modern Muhammadiyah Paciran",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Jl. Pondok RT 04/RW 06, Paciran, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://www.modernpaciran.sch.id/alamat",
+    "website_url": "https://www.modernpaciran.sch.id/",
+    "deskripsi": "Pesantren Muhammadiyah di Paciran yang menaungi lembaga pendidikan formal dari madrasah ibtidaiyah hingga perguruan tinggi serta pendidikan informal.",
+    "diperiksa_pada": "2026-10-15",
+    "latitude": -6.8726,
+    "longitude": 112.3413,
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/pendidikan/npsn/20580793",
+    "referensi_titik": "MAS Muhammadiyah 02 Pondok Modern di lingkungan Pondok Modern Muhammadiyah Paciran",
+    "ketelitian": "kompleks_pendidikan"
+  },
+  {
+    "slug": "nurul-huda-sumberwudi",
+    "nama_ponpes": "Pondok Pesantren Nurul Huda Sumberwudi",
+    "kecamatan": "Karanggeneng",
+    "alamat_lengkap": "Sumberwudi, Kecamatan Karanggeneng, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://puskesmas-karanggeneng.lamongankab.go.id/posting/22829",
+    "sumber_profil_url": "https://karanggeneng.lamongankab.go.id/posting/33821",
+    "deskripsi": "Pesantren di Sumberwudi, Karanggeneng, yang memiliki Pos Kesehatan Pesantren Tasyfiya untuk mendukung kesehatan santri dan lingkungan pesantren.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "putri-al-fathimiyah-banjarwati",
+    "nama_ponpes": "Pondok Pesantren Putri Al-Fathimiyah",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Desa Banjarwati, Kecamatan Paciran, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://al-fathimiyah.com/wisuda-quran-ypppi-al-fathimiyah/",
+    "sumber_profil_url": "https://al-fathimiyah.com/wisuda-quran-ypppi-al-fathimiyah/",
+    "website_url": "https://al-fathimiyah.com/",
+    "deskripsi": "Pesantren putri di Banjarwati yang berfokus pada pendidikan Al-Qur'an. Lembaga formalnya mencakup MTs dan MA Tahfidzul Qur'an.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "raudhatul-jannah-kebonsari",
+    "nama_ponpes": "Pondok Pesantren Raudhatul Jannah",
+    "kecamatan": "Sukodadi",
+    "alamat_lengkap": "Dusun Singosari, Desa Kebonsari, Kecamatan Sukodadi, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://prokopim.lamongankab.go.id/posting/3684",
+    "deskripsi": "Pondok pesantren di Dusun Singosari, Desa Kebonsari, Kecamatan Sukodadi, Kabupaten Lamongan.",
+    "diperiksa_pada": "2026-10-15"
+  },
+  {
+    "slug": "nurur-rohmah-mantup",
+    "nama_ponpes": "Pondok Pesantren Salafiyah Nurur Rohmah",
+    "kecamatan": "Mantup",
+    "alamat_lengkap": "Desa Mojosari, Kecamatan Mantup, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://mantup.lamongankab.go.id/posting/43115",
+    "deskripsi": "Pesantren di Mojosari yang menjadi tempat penyelenggaraan Nurur Rohmah Islamic Festival 2026.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2026
+  },
+  {
+    "slug": "spmaa-turi",
+    "nama_ponpes": "Pondok Pesantren Sumber Pendidikan Mental Agama Allah (SPMAA)",
+    "kecamatan": "Turi",
+    "alamat_lengkap": "Desa Turi, Kecamatan Turi, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/documents/portal/LPPD_Kabupaten_Lamongan_TA_2021.pdf#page=142",
+    "deskripsi": "SPMAA bergerak dalam pendidikan dan kegiatan sosial. Pemkab Lamongan mencatat yayasannya didirikan oleh Kyai Abdullah Muchtar pada 1961.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2021,
+    "sumber_profil_url": "https://portal.lamongankab.go.id/posting/10130"
+  },
+  {
+    "slug": "al-kusmini-ngimbang",
+    "nama_ponpes": "Pondok Pesantren Tahfidul Quran Al Kusmini",
+    "kecamatan": "Ngimbang",
+    "alamat_lengkap": "Jalan Pendidikan No. 114, Desa Ngimbang, Kecamatan Ngimbang, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://lamongankab.go.id/beranda/documents/portal/ASPEK_TRANSPARANSI_12_PENYALURAN_HIBAH_TAHUN_2025_APPROVE_ATAU_TIDAK_01122025_94981792708160e29d560f99af3ba438.pdf#page=1",
+    "deskripsi": "Nama dan alamat pesantren tercantum dalam dokumen usulan hibah Kabupaten Lamongan tahun 2025.",
+    "diperiksa_pada": "2026-10-15",
+    "tahun_sumber": 2025
+  }
+]

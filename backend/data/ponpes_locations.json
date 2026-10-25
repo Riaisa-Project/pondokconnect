@@ -1,0 +1,38 @@
+{
+  "sunan-drajat": {
+    "nspp_demo": "000000000001",
+    "nama_ponpes": "Pondok Pesantren Sunan Drajat Paciran",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Jl. Raden Qosim, Dusun Banjaranyar, Desa Banjarwati, Kecamatan Paciran, Kabupaten Lamongan, Jawa Timur 62264",
+    "sumber_alamat_url": "https://ppsd.id/hubungi-kami/",
+    "latitude": "-6.88080000",
+    "longitude": "112.39020000",
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/tabs.php?npsn=20548724",
+    "referensi_titik": "SMK Sunan Drajat Lamongan di kompleks pesantren",
+    "diperiksa_pada": "2026-10-15"
+  },
+  "tarbiyatut-tholabah": {
+    "nspp_demo": "000000000002",
+    "nama_ponpes": "Ponpes Tarbiyatut Tholabah Kranji Paciran",
+    "kecamatan": "Paciran",
+    "alamat_lengkap": "Jl. KH. Musthofa No. 40, Desa Kranji, Kecamatan Paciran, Kabupaten Lamongan, Jawa Timur 62264",
+    "sumber_alamat_url": "https://spp.ypptabah.or.id/kontak",
+    "latitude": "-6.87900000",
+    "longitude": "112.38160000",
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/tabs.php?npsn=60718676",
+    "referensi_titik": "MI Tarbiyatut Tholabah di lingkungan yayasan pesantren",
+    "diperiksa_pada": "2026-10-15"
+  },
+  "matholiul-anwar": {
+    "nspp_demo": "000000000004",
+    "nama_ponpes": "Ponpes Matholi’ul Anwar Simo Sungelebak",
+    "kecamatan": "Karanggeneng",
+    "alamat_lengkap": "Jl. Raya Simo, Dusun Simo, Desa Sungelebak, Kecamatan Karanggeneng, Kabupaten Lamongan, Jawa Timur",
+    "sumber_alamat_url": "https://spmb.mamawar.sch.id/",
+    "latitude": "-7.03540000",
+    "longitude": "112.35070000",
+    "sumber_koordinat_url": "https://referensi.data.kemendikdasmen.go.id/tabs.php?npsn=20580791",
+    "referensi_titik": "MA Matholi’ul Anwar di lingkungan pesantren",
+    "diperiksa_pada": "2026-10-15"
+  }
+}

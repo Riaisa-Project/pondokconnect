@@ -1,0 +1,21 @@
+# Only runtime build inputs belong in the Docker context.
+**
+!Dockerfile
+!backend/
+!backend/**
+!frontend/
+!frontend/**
+!scripts/
+!scripts/start_render.py
+!alembic.ini
+
+**/.env
+**/.env.*
+**/__pycache__
+**/*.pyc
+**/node_modules
+**/dist
+**/test-results
+**/playwright-report
+backend/tests
+frontend/tests
