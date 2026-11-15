@@ -8,7 +8,7 @@ from backend.auth import ponpes_only
 from backend.database import get_db
 from backend.limiter import limiter
 from backend.models.models import Chat, User
-from backend.schemas.schemas import ChatCreate, ChatOut, ChatRead, ChatReply
+from backend.schemas.schemas import ChatCreate, ChatOut, ChatRead, ChatReply, ChatSessionOut, Paginated
 from backend.services import get_ponpes, own_ponpes, require_service
 
 router = APIRouter(tags=["Konsultasi"])
@@ -70,7 +70,7 @@ def history(
     }
 
 
-@router.get("/admin/chat")
+@router.get("/admin/chat", response_model=Paginated[ChatSessionOut])
 def inbox(
     limit: int = Query(20, ge=1, le=100),
     offset: int = Query(0, ge=0),

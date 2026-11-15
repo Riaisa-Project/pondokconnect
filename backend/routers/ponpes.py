@@ -8,8 +8,16 @@ from sqlalchemy.orm import Session
 from backend.auth import ponpes_only
 from backend.database import get_db
 from backend.models.models import Kecamatan, Pendaftaran, Ponpes, User
-from backend.schemas.schemas import LayananInput, PonpesOut, PonpesUpdate, Tipe
-from backend.services import active_filter, audit, occupied, own_ponpes, ponpes_view, public_filter
+from backend.schemas.schemas import LayananInput, Paginated, PonpesOut, PonpesUpdate, Tipe
+from backend.services import (
+    active_filter,
+    audit,
+    occupied,
+    own_ponpes,
+    ponpes_view,
+    ponpes_views,
+    public_filter,
+)
 
 router = APIRouter(tags=["Direktori ponpes"])
 
@@ -22,7 +30,7 @@ def kecamatan(db: Session = Depends(get_db)):
     ]
 
 
-@router.get("/ponpes/")
+@router.get("/ponpes/", response_model=Paginated[PonpesOut])
 def directory(
     q: str = Query("", max_length=150),
     kecamatan_id: int | None = Query(None, gt=0),
@@ -64,8 +72,9 @@ def directory(
         query = query.order_by(Ponpes.created_at.desc(), Ponpes.id.desc())
     else:
         query = query.order_by(Ponpes.nama_ponpes, Ponpes.id)
+    rows = list(db.scalars(query.offset(offset).limit(limit)))
     return {
-        "items": [ponpes_view(db, p) for p in db.scalars(query.offset(offset).limit(limit))],
+        "items": ponpes_views(db, rows),
         "total": total,
         "limit": limit,
         "offset": offset,

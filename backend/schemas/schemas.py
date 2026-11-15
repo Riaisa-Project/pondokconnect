@@ -1,6 +1,6 @@
 import re
 from datetime import date, datetime
-from typing import Annotated, Literal
+from typing import Annotated, Generic, Literal, TypeVar
 from urllib.parse import urlsplit
 
 from pydantic import (
@@ -311,7 +311,15 @@ class PendaftaranCreate(Input):
     jenis_kelamin: Literal["L", "P"]
     nama_wali: Name
     no_hp_wali: Phone
+    consent: bool
     file_kk: Attachment | None = None
+
+    @field_validator("consent")
+    @classmethod
+    def require_consent(cls, value: bool) -> bool:
+        if not value:
+            raise ValueError("Persetujuan penggunaan data diperlukan")
+        return value
 
 
 class PendaftaranStatus(Input):
@@ -385,9 +393,8 @@ class PengaduanTracking(Output):
     created_at: datetime
 
 
-class PengaduanOut(PengaduanTracking):
+class PengaduanListItemOut(PengaduanTracking):
     nama_ponpes: str | None = None
-    riwayat: list[PerkembanganOut] = Field(default_factory=list)
     id: int
     ponpes_id: int
     kategori_kasus: str
@@ -400,12 +407,23 @@ class PengaduanOut(PengaduanTracking):
     has_bukti_lampiran: bool = False
 
 
+class PengaduanOut(PengaduanListItemOut):
+    riwayat: list[PerkembanganOut] = Field(default_factory=list)
+
+
 class ChatCreate(Input):
     ponpes_id: int = Field(gt=0)
     session_id: SessionId | None = None
-    nama_warga: Name
-    kontak_warga: str = Field(min_length=1, max_length=50)
+    nama_warga: Name | None = None
+    kontak_warga: str | None = Field(default=None, min_length=1, max_length=50)
     pesan: str = Field(min_length=1, max_length=4000)
+
+    @model_validator(mode="after")
+    def validate_identity(self):
+        if not self.session_id:
+            if not self.nama_warga or not self.kontak_warga:
+                raise ValueError("Nama dan kontak wajib untuk memulai sesi konsultasi")
+        return self
 
 
 class ChatReply(Input):
@@ -430,7 +448,27 @@ class ChatOut(Output):
 class AuditOut(Output):
     id: int
     user_id: int | None
+    nama_user: str | None = None
+    email_user: str | None = None
     aksi: str
     detail: str | None
     ip_address: str | None
     created_at: datetime
+
+
+class ChatSessionOut(Output):
+    session_id: str
+    nama_warga: str
+    kontak_warga: str
+    last_message: ChatOut
+    unread_count: int
+
+
+T = TypeVar("T")
+
+
+class Paginated(Output, Generic[T]):
+    items: list[T]
+    total: int
+    limit: int
+    offset: int

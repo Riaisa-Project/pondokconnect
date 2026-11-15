@@ -26,7 +26,7 @@ def test_empty_oversight_migration_roundtrip_and_schema_match(tmp_path):
     engine = create_engine(url)
     try:
         with engine.connect() as connection:
-            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "a3c7d9e1b642"
+            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == "b4d8e2f1c053"
         assert {"pengawasan_pesantren", "pengaduan_perkembangan"} <= set(inspect(engine).get_table_names())
     finally:
         engine.dispose()

@@ -51,7 +51,12 @@ def test_authenticated_quota_change_observes_commit_while_waiting(client, admin,
     try:
         with factory() as blocker:
             blocker.execute(select(Ponpes).where(Ponpes.id == 1).with_for_update())
-            blocker.add(Pendaftaran(**registration(), nomor_registrasi="REG-202610-RACETEST00000001"))
+            blocker.add(
+                Pendaftaran(
+                    **{k: v for k, v in registration().items() if k != "consent"},
+                    nomor_registrasi="REG-202610-RACETEST00000001",
+                )
+            )
             blocker.flush()
             with ThreadPoolExecutor(max_workers=1) as pool:
                 future = pool.submit(client.put, "/admin/ponpes/my", headers=admin, json={"kuota_putra": 0})

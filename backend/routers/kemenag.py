@@ -7,8 +7,15 @@ from sqlalchemy.orm import Session
 from backend.auth import hash_password, satgas_only
 from backend.database import get_db
 from backend.models.models import AuditLog, Kecamatan, Pengawasan, Ponpes, User
-from backend.schemas.schemas import AuditOut, PengawasanInput, PonpesCreate, PonpesOut, ResetPassword
-from backend.services import audit, get_ponpes, ponpes_view, slugify
+from backend.schemas.schemas import (
+    AuditOut,
+    Paginated,
+    PengawasanInput,
+    PonpesCreate,
+    PonpesOut,
+    ResetPassword,
+)
+from backend.services import audit, get_ponpes, ponpes_view, ponpes_views, slugify
 
 router = APIRouter(prefix="/admin", tags=["Pengawasan pesantren"])
 
@@ -53,7 +60,7 @@ def create_ponpes(
     }
 
 
-@router.get("/kemenag/ponpes")
+@router.get("/kemenag/ponpes", response_model=Paginated[PonpesOut])
 def list_ponpes(
     q: str = Query("", max_length=150),
     limit: int = Query(20, ge=1, le=100),
@@ -70,9 +77,9 @@ def list_ponpes(
                 Ponpes.slug.contains(q, autoescape=True),
             )
         )
-    rows = db.scalars(query.order_by(Ponpes.id).offset(offset).limit(limit))
+    rows = list(db.scalars(query.order_by(Ponpes.id).offset(offset).limit(limit)))
     return {
-        "items": [ponpes_view(db, row) for row in rows],
+        "items": ponpes_views(db, rows),
         "total": db.scalar(select(func.count()).select_from(query.subquery())),
         "limit": limit,
         "offset": offset,
@@ -164,16 +171,25 @@ def reset_password(
     return {"email_admin": account.email, "temporary_password": temporary, "must_change_password": True}
 
 
-@router.get("/audit-logs")
+@router.get("/audit-logs", response_model=Paginated[AuditOut])
 def audit_logs(
     limit: int = Query(20, ge=1, le=100),
     offset: int = Query(0, ge=0),
     user: User = Depends(satgas_only),
     db: Session = Depends(get_db),
 ):
-    query = select(AuditLog).order_by(AuditLog.id.desc()).offset(offset).limit(limit)
+    query = (
+        select(AuditLog, User.nama_lengkap, User.email)
+        .outerjoin(User, User.id == AuditLog.user_id)
+        .order_by(AuditLog.id.desc())
+        .offset(offset)
+        .limit(limit)
+    )
+    items = []
+    for log, nama, email in db.execute(query):
+        items.append(AuditOut.model_validate(log).model_copy(update={"nama_user": nama, "email_user": email}))
     return {
-        "items": [AuditOut.model_validate(row) for row in db.scalars(query)],
+        "items": items,
         "total": db.scalar(select(func.count(AuditLog.id))),
         "limit": limit,
         "offset": offset,

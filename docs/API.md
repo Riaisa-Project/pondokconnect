@@ -1,6 +1,6 @@
 # Kontrak API Pondok Connect — pengawasan dan pelaporan
 
-Backend lokal default `http://127.0.0.1:8000`; frontend `http://127.0.0.1:5173` meneruskan `/api` ke backend. Produksi menggunakan satu origin. Semua endpoint juga tersedia langsung tanpa prefix `/api`. Semua POST/PUT memakai JSON, validasi menolak field asing dan tidak mengulang input sensitif dalam error. Daftar memakai `items`, `total`, `limit` (1–100), `offset`. Token lewat `Authorization: Bearer <token>`.
+Backend lokal default `http://127.0.0.1:8000`; frontend `http://127.0.0.1:5173` meneruskan `/api` ke backend. Produksi menggunakan satu origin. Semua endpoint juga tersedia langsung tanpa prefix `/api`. Semua POST/PUT memakai JSON, validasi menolak field asing dan tidak mengulang input sensitif dalam error. Daftar paginasi memakai `items`, `total`, `limit` (1–100), `offset` (kecuali `/kecamatan/` yang mengembalikan array objek polos tanpa paginasi). Token lewat `Authorization: Bearer <token>`.
 
 ## Autentikasi
 
@@ -92,7 +92,7 @@ Admin ponpes tidak bisa membaca/mengubah laporan maupun bukti. Catatan internal 
 - `GET /admin/pendaftaran`, `PUT /admin/pendaftaran/{id}/status`, `GET /admin/pendaftaran/{id}/berkas`: seleksi/KK hanya untuk ponpes sendiri.
 - `GET /admin/chat`, `POST /admin/chat/reply`, `PUT /admin/chat/read`: konsultasi milik sendiri.
 
-Publik `POST /pendaftaran/kirim` menerima identitas santri/wali dan KK opsional. NIK 16 digit unik per ponpes, kuota per gender dihitung dengan lock/transaksi; 409 jika penuh atau layanan belum dibuka. `GET /pendaftaran/lacak/{nomor}` dan `/pendaftaran/kartu/{nomor}` memberikan status/PDF bukti, tanpa NIK/kontak. Riwayat tetap tersedia ketika penerimaan ditutup.
+Publik `POST /pendaftaran/kirim` menerima identitas santri/wali, KK opsional, dan **wajib** `consent: true` (persetujuan penggunaan data; disimpan sebagai `consent_at` pada baris pendaftaran — nilai `false` atau field yang hilang ditolak 422). NIK 16 digit unik per ponpes, kuota per gender dihitung dengan lock/transaksi; 409 jika penuh atau layanan belum dibuka. `GET /pendaftaran/lacak/{nomor}` dan `/pendaftaran/kartu/{nomor}` memberikan status/PDF bukti, tanpa NIK/kontak. Riwayat tetap tersedia ketika penerimaan ditutup.
 
 Publik `POST /chat/kirim` memerlukan layanan konsultasi dibuka. Sesi baru menghasilkan `session_id` acak; kiriman lanjutan memakai identitas awal. `GET /chat/{ponpes_id}/{session_id}` membaca riwayat dengan `after_id`/`limit`. Layanan ditutup menghentikan kiriman baru; sesi yang sedang terbuka di browser tetap bisa membaca riwayat. Polling REST, bukan WebSocket.
 

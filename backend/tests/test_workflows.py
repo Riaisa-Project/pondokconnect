@@ -13,6 +13,7 @@ def registration(**changes):
         "jenis_kelamin": "L",
         "nama_wali": "Wali Test",
         "no_hp_wali": "08123456789",
+        "consent": True,
         **changes,
     }
 

@@ -6,6 +6,7 @@ from sqlalchemy import (
     Boolean,
     CheckConstraint,
     Date,
+    DateTime,
     Enum,
     ForeignKey,
     Index,
@@ -125,6 +126,7 @@ class Pendaftaran(Timestamp, Base):
     status_seleksi: Mapped[str] = mapped_column(
         enum(SELEKSI, "status_seleksi"), default="menunggu_verifikasi", server_default="menunggu_verifikasi"
     )
+    consent_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
 
 
 class Pengawasan(Timestamp, Base):

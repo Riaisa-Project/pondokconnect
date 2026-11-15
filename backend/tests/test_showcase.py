@@ -83,7 +83,7 @@ def test_legacy_slug_from_non_latin_name_remains_filterable(client, db):
     from backend.services import slugify
 
     slug = slugify("مدرسة", "000000000001")
-    assert slug == "-000000000001"
+    assert slug == "ponpes-000000000001"
     row = db.scalar(select(Ponpes).where(Ponpes.id == 1))
     row.slug = slug
     db.commit()

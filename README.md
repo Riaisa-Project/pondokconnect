@@ -39,7 +39,11 @@ Buka http://127.0.0.1:5173. Dokumentasi API: http://127.0.0.1:8000/docs. Health 
 
 ### Akun demo lokal
 
-Hanya untuk seed demo baru: Satgas `satgas@kemenag.go.id` / `satgas123`; pengurus `admin@sunandrajat.id` / `admin123`. Nilai ini adalah fixture pengujian, bukan kredensial produksi. Seed demo ditolak pada mode production. Katalog demo memuat 34 profil, termasuk satu profil simulasi yang alamat nyatanya belum dikonfirmasi. Instalasi produksi hanya memasukkan 33 profil bersumber.
+Hanya berlaku **tepat setelah `backend.seeds --demo`**: Satgas `satgas@kemenag.go.id` / `satgas123`; pengurus `admin@sunandrajat.id` / `admin123`. Nilai ini adalah fixture pengujian, bukan kredensial produksi. Seed demo ditolak pada mode production. Katalog demo memuat 34 profil, termasuk satu profil simulasi yang alamat nyatanya belum dikonfirmasi. Instalasi produksi hanya memasukkan 33 profil bersumber.
+
+> Bila database ini pernah di-*bootstrap* (`backend.bootstrap`), password demo di atas sudah **tidak berlaku** —
+> akun memakai password acak yang hanya ditulis ke berkas privat `storage/private/` dan wajib diganti saat
+> login pertama.
 
 Untuk akun terpisah bagi setiap pengurus pada database pengembangan, lakukan bootstrap dengan ekspor privat setelah migrasi:
 

@@ -1,7 +1,6 @@
 import json
 import re
 import unicodedata
-from datetime import date
 
 from fastapi import HTTPException, Request
 from sqlalchemy import exists, func, literal, or_, select
@@ -58,21 +57,6 @@ def occupied(db: Session, ponpes_id: int, gender: str) -> int:
     )
 
 
-def effective_status(row: Ponpes) -> str:
-    if row.status_ijop == "aktif":
-        today = date.today()
-        if row.tanggal_ijop_selesai and row.tanggal_ijop_selesai < today:
-            return "kedaluwarsa"
-        if (
-            not row.no_sk_ijop
-            or not row.tanggal_ijop_mulai
-            or not row.tanggal_ijop_selesai
-            or row.tanggal_ijop_mulai > today
-        ):
-            return "proses_verifikasi"
-    return row.status_ijop
-
-
 def active_filter():
     return (
         or_(Ponpes.pendaftaran_dibuka.is_(True), Ponpes.konsultasi_dibuka.is_(True)),
@@ -99,39 +83,73 @@ def require_service(db: Session, row: Ponpes, service: str):
         raise HTTPException(409, "Layanan ini belum dibuka oleh pengurus pesantren")
 
 
-def ponpes_view(db: Session, row: Ponpes, *, editing=False) -> PonpesOut:
-    district = db.get(Kecamatan, row.kecamatan_id)
-    oversight = db.get(Pengawasan, row.id)
-    evidence = PengawasanOut.model_validate(oversight) if oversight else PengawasanOut()
-    operating = evidence.status_operasional != "tidak_beroperasi"
-    registration = bool(row.pendaftaran_dibuka and operating)
-    consultation = bool(row.konsultasi_dibuka and operating)
-    show_quota = editing or row.pendaftaran_dibuka
-    return PonpesOut.model_validate(row).model_copy(
-        update={
-            "pengawasan": evidence,
-            "lokasi": LokasiOut.model_validate(
-                location_view(row, district.nama_kecamatan if district else "")
-            ),
-            "status_ijop": None,
-            "no_sk_ijop": None,
-            "tanggal_ijop_mulai": None,
-            "tanggal_ijop_selesai": None,
-            "pendaftaran_tersedia": registration,
-            "konsultasi_tersedia": consultation,
-            "layanan_tersedia": registration or consultation,
-            "referensi": reference_view(row, district.nama_kecamatan if district else ""),
-            "profil_publik": public_profile_view(row, district.nama_kecamatan if district else ""),
-            "demo": settings.demo_mode and not row.profil_referensi,
-            "kuota_putra": row.kuota_putra if show_quota else None,
-            "kuota_putri": row.kuota_putri if show_quota else None,
-            "sisa_kuota_putra": max(0, row.kuota_putra - occupied(db, row.id, "L")) if show_quota else None,
-            "sisa_kuota_putri": max(0, row.kuota_putri - occupied(db, row.id, "P")) if show_quota else None,
-            "verifikasi_url": f"{settings.public_frontend_url.rstrip('/')}/status-pesantren/{row.slug}",
-        }
+def ponpes_views(db: Session, rows: list[Ponpes], *, editing=False) -> list[PonpesOut]:
+    if not rows:
+        return []
+    district_ids = {r.kecamatan_id for r in rows if r.kecamatan_id}
+    districts = (
+        {d.id: d.nama_kecamatan for d in db.scalars(select(Kecamatan).where(Kecamatan.id.in_(district_ids)))}
+        if district_ids
+        else {}
     )
+    ponpes_ids = [r.id for r in rows]
+    oversights = {
+        o.ponpes_id: o for o in db.scalars(select(Pengawasan).where(Pengawasan.ponpes_id.in_(ponpes_ids)))
+    }
+    quota_ids = [r.id for r in rows if editing or r.pendaftaran_dibuka]
+    occupied_counts: dict[tuple[int, str], int] = {}
+    if quota_ids:
+        for pid, gender, count in db.execute(
+            select(Pendaftaran.ponpes_id, Pendaftaran.jenis_kelamin, func.count(Pendaftaran.id))
+            .where(Pendaftaran.ponpes_id.in_(quota_ids), Pendaftaran.status_seleksi != "ditolak")
+            .group_by(Pendaftaran.ponpes_id, Pendaftaran.jenis_kelamin)
+        ):
+            occupied_counts[(pid, gender)] = count
+
+    results = []
+    for row in rows:
+        district_name = districts.get(row.kecamatan_id, "")
+        oversight = oversights.get(row.id)
+        evidence = PengawasanOut.model_validate(oversight) if oversight else PengawasanOut()
+        operating = evidence.status_operasional != "tidak_beroperasi"
+        registration = bool(row.pendaftaran_dibuka and operating)
+        consultation = bool(row.konsultasi_dibuka and operating)
+        show_quota = editing or row.pendaftaran_dibuka
+        occ_l = occupied_counts.get((row.id, "L"), 0)
+        occ_p = occupied_counts.get((row.id, "P"), 0)
+        results.append(
+            PonpesOut.model_validate(row).model_copy(
+                update={
+                    "pengawasan": evidence,
+                    "lokasi": LokasiOut.model_validate(location_view(row, district_name)),
+                    "status_ijop": None,
+                    "no_sk_ijop": None,
+                    "tanggal_ijop_mulai": None,
+                    "tanggal_ijop_selesai": None,
+                    "pendaftaran_tersedia": registration,
+                    "konsultasi_tersedia": consultation,
+                    "layanan_tersedia": registration or consultation,
+                    "referensi": reference_view(row, district_name),
+                    "profil_publik": public_profile_view(row, district_name),
+                    "demo": settings.demo_mode and not row.profil_referensi,
+                    "kuota_putra": row.kuota_putra if show_quota else None,
+                    "kuota_putri": row.kuota_putri if show_quota else None,
+                    "sisa_kuota_putra": max(0, row.kuota_putra - occ_l) if show_quota else None,
+                    "sisa_kuota_putri": max(0, row.kuota_putri - occ_p) if show_quota else None,
+                    "verifikasi_url": f"{settings.public_frontend_url.rstrip('/')}/status-pesantren/{row.slug}",
+                }
+            )
+        )
+    return results
+
+
+def ponpes_view(db: Session, row: Ponpes, *, editing=False) -> PonpesOut:
+    return ponpes_views(db, [row], editing=editing)[0]
 
 
 def slugify(name: str, nspp: str) -> str:
     normalized = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode().lower()
-    return re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")[:140] + "-" + nspp
+    base = re.sub(r"[^a-z0-9]+", "-", normalized).strip("-")[:140]
+    if not base:
+        base = "ponpes"
+    return f"{base}-{nspp}"

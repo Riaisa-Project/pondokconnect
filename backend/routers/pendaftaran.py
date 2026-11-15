@@ -11,8 +11,15 @@ from sqlalchemy.orm import Session
 
 from backend.auth import ponpes_only
 from backend.database import get_db
+from backend.limiter import limiter
 from backend.models.models import Pendaftaran, User
-from backend.schemas.schemas import PendaftaranCreate, PendaftaranOut, PendaftaranStatus, PendaftaranTracking
+from backend.schemas.schemas import (
+    Paginated,
+    PendaftaranCreate,
+    PendaftaranOut,
+    PendaftaranStatus,
+    PendaftaranTracking,
+)
 from backend.services import audit, get_ponpes, occupied, own_ponpes, require_service
 from backend.uploads import private_file, staged_attachment
 
@@ -24,7 +31,8 @@ def view(row: Pendaftaran):
 
 
 @router.post("/pendaftaran/kirim", status_code=201, response_model=PendaftaranTracking)
-def register(payload: PendaftaranCreate, db: Session = Depends(get_db)):
+@limiter.limit("5/minute")
+def register(payload: PendaftaranCreate, request: Request, db: Session = Depends(get_db)):
     ponpes = get_ponpes(db, payload.ponpes_id, lock=True)
     require_service(db, ponpes, "pendaftaran")
     if db.scalar(
@@ -38,8 +46,9 @@ def register(payload: PendaftaranCreate, db: Session = Depends(get_db)):
         raise HTTPException(409, "Kuota kategori santri telah penuh")
     with staged_attachment(payload.file_kk) as filename:
         row = Pendaftaran(
-            **payload.model_dump(exclude={"file_kk"}),
+            **payload.model_dump(exclude={"file_kk", "consent"}),
             file_kk=filename,
+            consent_at=datetime.now(),
             nomor_registrasi=f"REG-{datetime.now():%Y%m}-{secrets.token_hex(8).upper()}",
         )
         db.add(row)
@@ -98,7 +107,7 @@ def registration_card(no_reg: str, db: Session = Depends(get_db)):
     )
 
 
-@router.get("/admin/pendaftaran")
+@router.get("/admin/pendaftaran", response_model=Paginated[PendaftaranOut])
 def registrations(
     limit: int = Query(20, ge=1, le=100),
     offset: int = Query(0, ge=0),

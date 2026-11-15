@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from backend.config import settings
 from backend.database import get_db
 from backend.models.models import Kecamatan, Pendaftaran, Ponpes
-from backend.services import active_filter, public_filter
+from backend.services import public_filter
 
 router = APIRouter(prefix="/stats", tags=["Statistik publik"])
 
@@ -23,7 +23,7 @@ def summary(db: Session = Depends(get_db)):
         db.execute(
             select(Ponpes.kecamatan_id, func.count(Pendaftaran.id))
             .join(Pendaftaran, Pendaftaran.ponpes_id == Ponpes.id)
-            .where(*active_filter(), Pendaftaran.status_seleksi == "diterima")
+            .where(public_filter(), Pendaftaran.status_seleksi == "diterima")
             .group_by(Ponpes.kecamatan_id)
         ).all()
     )

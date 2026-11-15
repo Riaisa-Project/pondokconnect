@@ -9,7 +9,9 @@ from backend.database import get_db
 from backend.limiter import limiter
 from backend.models.models import Pengaduan, PengaduanPerkembangan, Ponpes, User
 from backend.schemas.schemas import (
+    Paginated,
     PengaduanCreate,
+    PengaduanListItemOut,
     PengaduanOut,
     PengaduanStatus,
     PengaduanTracking,
@@ -74,7 +76,7 @@ def track(kode_tiket: str, db: Session = Depends(get_db)):
     return row
 
 
-@router.get("/admin/pengaduan")
+@router.get("/admin/pengaduan", response_model=Paginated[PengaduanListItemOut])
 def reports(
     limit: int = Query(20, ge=1, le=100),
     offset: int = Query(0, ge=0),
