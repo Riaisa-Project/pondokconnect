@@ -14,8 +14,8 @@ import {
   ZoomIn,
   ZoomOut,
 } from 'lucide-react'
-import { Map3D } from './Scene'
 import { CAMPUS_TARGETS } from '../three/cameraModel'
+const Map3D = lazy(() => import('./Scene').then((m) => ({ default: m.Map3D })))
 const KecamatanMap = lazy(() => import('./KecamatanMap'))
 const campusInfo = {
   masjid: [
@@ -32,7 +32,7 @@ const campusInfo = {
   ],
 }
 export default function Explorer({ districts = [] }) {
-  const [mode, setMode] = useState('campus'),
+  const [mode, setMode] = useState('region'),
     [paused, setPaused] = useState(false),
     [selected, setSelected] = useState(null),
     [campus, setCampus] = useState('masjid'),
@@ -155,20 +155,24 @@ export default function Explorer({ districts = [] }) {
         </button>
       </div>
       {mode === 'campus' ? (
-        <Map3D
-          districts={districts}
-          selected={selected}
-          onChoose={chooseDistrict}
-          mode="campus"
-          paused={paused}
-          command={command}
-          stageRef={stage}
-          onManualChange={manual}
-          onRenderState={renderState}
-          onDistrictHover={setHoveredDistrict}
-          campusSelected={campus}
-          onCampusSelect={chooseCampus}
-        />
+        <Suspense
+          fallback={<div className="explorer-loading">Memuat kampus 3D…</div>}
+        >
+          <Map3D
+            districts={districts}
+            selected={selected}
+            onChoose={chooseDistrict}
+            mode="campus"
+            paused={paused}
+            command={command}
+            stageRef={stage}
+            onManualChange={manual}
+            onRenderState={renderState}
+            onDistrictHover={setHoveredDistrict}
+            campusSelected={campus}
+            onCampusSelect={chooseCampus}
+          />
+        </Suspense>
       ) : (
         <Suspense
           fallback={<div className="scene-loading">Memuat peta sebaran…</div>}

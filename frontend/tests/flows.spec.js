@@ -271,6 +271,9 @@ test('mobile navigation and WebGL fallback stay usable', async ({ page }) => {
   })
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
+  await page
+    .getByRole('button', { name: 'Kampus pesantren', exact: true })
+    .click()
   await expect(page.locator('.compatible-scene svg')).toBeVisible()
   await expect(page.locator('.explorer-stage')).toHaveAttribute(
     'data-renderer',

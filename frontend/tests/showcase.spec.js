@@ -41,6 +41,9 @@ test('3D modes, district choice, pause and reset remain available', async ({
   const errors = []
   page.on('pageerror', (e) => errors.push(e.message))
   await page.goto('/')
+  await page
+    .getByRole('button', { name: 'Kampus pesantren', exact: true })
+    .click()
   await expect(page.locator('.explorer-canvas canvas')).toBeVisible()
   await page.getByRole('button', { name: 'Peta Lamongan', exact: true }).click()
   await page.getByLabel('Jelajahi kecamatan').selectOption({ label: 'Paciran' })
@@ -55,8 +58,6 @@ test('3D modes, district choice, pause and reset remain available', async ({
   await expect(page.locator('.explorer-info')).toContainText(
     'Masjid & ruang ibadah',
   )
-  if (await page.getByRole('button', { name: 'Jeda animasi 3D' }).isVisible())
-    await page.getByRole('button', { name: 'Jeda animasi 3D' }).click()
   await expect(
     page.getByRole('button', { name: 'Jalankan animasi 3D' }),
   ).toBeVisible()

@@ -10,7 +10,7 @@ export function PondokArt({ variant = 0 }) {
   return (
     <div className={`pondok-art art-${variant % 4}`} aria-hidden="true">
       <img
-        src={`/illustrations/campus-${variant % 4}.png`}
+        src={`/illustrations/campus-${variant % 4}.webp`}
         alt=""
         loading="lazy"
         width="800"

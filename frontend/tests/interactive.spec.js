@@ -4,17 +4,23 @@ const camera = (stage) =>
 const target = (stage) =>
   stage.evaluate((el) => JSON.parse(el.dataset.cameraTarget || 'null'))
 const distance = (a, b) => Math.hypot(...a.map((v, i) => v - b[i]))
+async function openCampus(page) {
+  await page
+    .getByRole('button', { name: 'Kampus pesantren', exact: true })
+    .click()
+  await expect(page.locator('.explorer-stage')).toHaveAttribute(
+    'data-renderer',
+    'webgl',
+  )
+}
 
 test('camera commands, object focus and fullscreen control a live scene', async ({
   page,
 }) => {
   await page.goto('/')
+  await openCampus(page)
   const stage = page.locator('.explorer-stage')
-  await expect(stage).toHaveAttribute('data-renderer', 'webgl')
-  await expect(
-    page.getByRole('button', { name: 'Kampus pesantren', exact: true }),
-  ).toHaveAttribute('aria-pressed', 'true')
-  await page.getByRole('button', { name: 'Jeda animasi 3D' }).click()
+  await page.getByRole('button', { name: /animasi 3D/ }).click()
   const initial = await camera(stage)
   await page.getByRole('button', { name: 'Putar kanan 3D' }).click()
   await expect
@@ -57,6 +63,9 @@ for (const failure of ['unavailable', 'lost']) {
         }
       })
     await page.goto('/')
+    await page
+      .getByRole('button', { name: 'Kampus pesantren', exact: true })
+      .click()
     const stage = page.locator('.explorer-stage')
     if (failure === 'lost') {
       await expect(stage).toHaveAttribute('data-renderer', 'webgl')
@@ -72,7 +81,7 @@ for (const failure of ['unavailable', 'lost']) {
     const svg = stage.locator('.compatible-scene svg')
     await expect(svg).toBeVisible()
     await expect.poll(() => svg.locator('path').count()).toBeGreaterThan(20)
-    await page.getByRole('button', { name: 'Jeda animasi 3D' }).click()
+    await page.getByRole('button', { name: /animasi 3D/ }).click()
     await expect.poll(() => camera(stage)).not.toBeNull()
     const initial = await camera(stage)
     const before = await svg.innerHTML()
@@ -130,10 +139,10 @@ test('hover and direct mesh clicks select a building and district pin', async ({
 }) => {
   const { PerspectiveCamera, Vector3 } = await import('three')
   await page.goto('/')
+  await openCampus(page)
   const stage = page.locator('.explorer-stage'),
     canvas = stage.locator('canvas').first()
-  await expect(stage).toHaveAttribute('data-renderer', 'webgl')
-  await page.getByRole('button', { name: 'Jeda animasi 3D' }).click()
+  await page.getByRole('button', { name: /animasi 3D/ }).click()
   await expect.poll(async () => await camera(stage)).not.toBeNull()
   async function point(world) {
     const box = await canvas.boundingBox(),
@@ -175,10 +184,7 @@ test('fullscreen controls stay reachable on a short landscape screen', async ({
 }) => {
   await page.setViewportSize({ width: 800, height: 360 })
   await page.goto('/')
-  await expect(page.locator('.explorer-stage')).toHaveAttribute(
-    'data-renderer',
-    'webgl',
-  )
+  await openCampus(page)
   await page.getByRole('button', { name: 'Buka layar penuh 3D' }).click()
   for (const button of await page.locator('.explorer-controls button').all()) {
     expect(
@@ -202,10 +208,10 @@ test('each classroom and dormitory focuses the building actually clicked', async
 }) => {
   const { PerspectiveCamera, Vector3 } = await import('three')
   await page.goto('/')
+  await openCampus(page)
   const stage = page.locator('.explorer-stage'),
     canvas = stage.locator('canvas').first()
-  await expect(stage).toHaveAttribute('data-renderer', 'webgl')
-  await page.getByRole('button', { name: 'Jeda animasi 3D' }).click()
+  await page.getByRole('button', { name: /animasi 3D/ }).click()
   for (const [world, expected] of [
     [
       [2.2, 0.85, -0.5],

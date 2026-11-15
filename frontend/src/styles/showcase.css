@@ -422,6 +422,14 @@ textarea {
   height: 500px;
   color: #dce4cd;
 }
+.explorer-loading {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  font-size: 12px;
+  background: #143a2f;
+  color: #dbe6cd;
+}
 .explorer-stage .map-fallback {
   position: absolute;
   inset: 125px 35px 200px;

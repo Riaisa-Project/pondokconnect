@@ -77,12 +77,13 @@ export default function KecamatanMap({ districts = [], selected, onChoose }) {
               >
                 {count >= 4 ? (
                   <Tooltip
-                    direction="center"
+                    direction="bottom"
+                    offset={[0, 16]}
                     permanent
                     className="kecamatan-count"
                     opacity={1}
                   >
-                    {count}
+                    {d.nama_kecamatan} · {count}
                   </Tooltip>
                 ) : (
                   <Tooltip direction="top" offset={[0, -6]} opacity={1}>
@@ -97,7 +98,7 @@ export default function KecamatanMap({ districts = [], selected, onChoose }) {
       <aside className="kecamatan-side">
         <div className="kecamatan-legend" aria-hidden="true">
           <span>
-            <em>Jumlah pesantren · {districts.length} kecamatan · gulir</em>
+            <em>{districts.length} kecamatan · gulir</em>
             {['1', '2–3', '4+'].map((label, i) => (
               <span key={label} style={{ marginLeft: i ? 9 : 0 }}>
                 <i
