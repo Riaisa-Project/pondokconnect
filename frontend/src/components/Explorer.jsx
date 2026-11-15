@@ -343,7 +343,7 @@ export default function Explorer({ districts = [] }) {
       <div className="explorer-bottom">
         <span>
           {mode === 'region'
-            ? 'Sumber: OpenStreetMap'
+            ? 'Peta © Esri · titik OSM'
             : 'Diorama arsitektur · bukan kampus sebenarnya'}
         </span>
         {mode === 'region' && (
