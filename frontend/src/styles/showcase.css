@@ -1,7 +1,7 @@
 /* Pondok Connect: emerald, ivory and warm brass, with readable service interfaces. */
 :root {
   --ink: #193f35;
-  --muted: #718077;
+  --muted: #5b6b63;
   --line: #e0e7dd;
   background: #f8faf5;
   color: #233e34;
@@ -27,7 +27,7 @@ h2 em {
   color: #8a9f73;
 }
 .eyebrow {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.15em;
 }
 .button {
@@ -67,7 +67,7 @@ textarea {
   font-weight: 600;
 }
 .field > small {
-  font-size: 11px;
+  font-size: 12px;
 }
 .panel {
   border-radius: 14px;
@@ -110,7 +110,7 @@ textarea {
   gap: 11px;
 }
 .brand small {
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 2px;
 }
 .site-header nav {
@@ -213,7 +213,7 @@ textarea {
 }
 .explorer-stage {
   position: relative;
-  height: 620px;
+  height: 680px;
   width: 100%;
   border-radius: 18px;
   overflow: hidden;
@@ -264,6 +264,7 @@ textarea {
 }
 .explorer-tech {
   padding: 5px 7px;
+  color: #f2e3bd;
   border: 1px solid #d0dfb126;
   border-radius: 4px;
   font-size: 7px;
@@ -287,7 +288,7 @@ textarea {
   align-items: center;
   gap: 7px;
   padding: 8px 11px;
-  font-size: 9px;
+  font-size: 12px;
   color: #c4d6c3;
   border: 0;
   background: transparent;
@@ -332,14 +333,18 @@ textarea {
 }
 .explorer-instruction {
   position: absolute;
-  bottom: 194px;
+  bottom: 204px;
   left: 25px;
   display: flex;
   align-items: center;
   gap: 7px;
-  color: #b3c7af;
-  font-size: 9px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #dbe6cd;
   pointer-events: none;
+  background: #12362bd9;
+  border: 1px solid #e5eed81f;
+  border-radius: 999px;
 }
 .explorer-info {
   position: absolute;
@@ -410,7 +415,7 @@ textarea {
   color: #d9e3cc;
   width: 145px;
   border-color: #9eaf832b;
-  font-size: 9px;
+  font-size: 12px;
   padding: 8px;
 }
 .explorer-stage > .scene-loading {
@@ -436,6 +441,187 @@ textarea {
 .explorer-stage .map-fallback span {
   font-size: 10px;
   text-align: center;
+}
+.kecamatan-map {
+  position: absolute;
+  inset: 118px 25px 178px;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 224px;
+  overflow: hidden;
+  border: 1px solid #e5eed824;
+  border-radius: 12px;
+  background: #143a2f;
+}
+.kecamatan-canvas {
+  position: relative;
+  min-width: 0;
+}
+.kecamatan-map-canvas {
+  height: 100%;
+  width: 100%;
+  background: #dfe7d5;
+}
+.kecamatan-side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 10px 10px 8px;
+  background: #143a2f;
+  border-left: 1px solid #e5eed81f;
+}
+.kecamatan-list {
+  flex: 1;
+  min-height: 0;
+  margin: 6px 0 0;
+  padding: 0 4px 0 0;
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  list-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: #8fae93 #0f2c23;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 16px), transparent);
+}
+.kecamatan-list::-webkit-scrollbar {
+  width: 8px;
+  background: #0f2c23;
+}
+.kecamatan-list::-webkit-scrollbar-thumb {
+  background: #6a8a70;
+  border-radius: 3px;
+}
+.kecamatan-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 30px;
+  padding: 4px 7px;
+  font-size: 12px;
+  color: #cfdcc2;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-radius: 5px;
+}
+.kecamatan-list button:hover {
+  background: #ffffff12;
+}
+.kecamatan-list button[aria-pressed='true'] {
+  color: #142c20;
+  background: #e9c98b;
+}
+.kecamatan-value {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+.kecamatan-note {
+  margin: 6px 2px 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #b9c9ae;
+}
+.kecamatan-map .leaflet-tile-pane {
+  filter: grayscale(0.55) saturate(0.72) brightness(1.03) contrast(0.92);
+}
+.kecamatan-map .leaflet-control-zoom {
+  border: 0;
+  box-shadow: 0 8px 20px #0d2a2033;
+}
+.kecamatan-map .leaflet-tooltip.kecamatan-count {
+  padding: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1c3322;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  text-shadow: 0 1px 0 #f4f0d8cc;
+}
+.kecamatan-map .leaflet-tooltip.kecamatan-count:before {
+  display: none;
+}
+.kecamatan-map .leaflet-control-zoom a {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 17px;
+  line-height: 1;
+  color: #234c3b;
+  background: #f3f5e9;
+  border-color: #cfd9c5;
+}
+.kecamatan-map .leaflet-control-zoom a:hover {
+  color: #1d3a2c;
+  background: #e9c98b;
+}
+.kecamatan-map .leaflet-control-attribution {
+  font-size: 12px;
+  color: #344a3c;
+  background: #f3f5e9d9;
+}
+.kecamatan-map .leaflet-tooltip {
+  padding: 6px 9px;
+  font-size: 12px;
+  color: #eaf0e0;
+  background: #12362b;
+  border: 1px solid #ffffff1f;
+  border-radius: 6px;
+  box-shadow: none;
+}
+.kecamatan-map .leaflet-tooltip strong {
+  font-weight: 600;
+  color: #f2dca8;
+}
+.kecamatan-map .leaflet-tooltip-top:before {
+  border-top-color: #12362b;
+}
+.kecamatan-legend {
+  padding: 2px 2px 6px;
+  color: #dfe8d4;
+  border-bottom: 1px solid #e5eed81a;
+}
+.kecamatan-legend em {
+  display: block;
+  width: 100%;
+  margin-bottom: 3px;
+  font-size: 12px;
+  font-style: normal;
+  color: #c6d4b6;
+}
+.kecamatan-legend > span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+}
+.kecamatan-legend > span > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.kecamatan-legend i {
+  display: inline-block;
+  border-radius: 50%;
+  background: #8fae85;
+  border: 1.5px solid #e6eed8;
+  vertical-align: middle;
+}
+.explorer-campus-options .chip-num {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  font-size: 12px;
+  border-radius: 50%;
+  background: #ffffff1f;
+}
+.explorer-campus-options button[aria-pressed='true'] .chip-num {
+  background: #2e513f24;
 }
 .stats-strip {
   margin-top: 46px;
@@ -525,7 +711,7 @@ textarea {
   color: #6b8757;
 }
 .service-card-top > span:last-child {
-  color: #9cab85;
+  color: #6d785d;
   font-family: var(--font-serif);
   font-size: 15px;
 }
@@ -578,7 +764,7 @@ textarea {
   margin-bottom: 15px;
 }
 .ponpes-card .card-meta > span {
-  font-size: 8px;
+  font-size: 12px;
   letter-spacing: 0.08em;
 }
 .ponpes-card h3 {
@@ -606,7 +792,7 @@ textarea {
 }
 .directory-note {
   margin-top: 24px;
-  font-size: 11px;
+  font-size: 12px;
   gap: 7px;
 }
 .discovery-actions {
@@ -619,7 +805,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  font-size: 11px;
+  font-size: 12px;
   padding: 9px 12px;
   border: 1px solid #d5dfce;
   border-radius: 6px;
@@ -639,7 +825,7 @@ textarea {
   gap: 6px;
 }
 .discovery-actions.compact button {
-  font-size: 9px;
+  font-size: 12px;
   padding: 8px;
   background: #fcfff4e8;
   backdrop-filter: blur(8px);
@@ -722,7 +908,7 @@ textarea {
   border: 0;
   border-bottom: 2px solid transparent;
   font-size: 13px;
-  color: #7a8971;
+  color: #5f6b58;
 }
 .directory-tabs button.active {
   color: #274f35;
@@ -731,20 +917,20 @@ textarea {
 .directory-tabs button > span {
   background: #e5eddb;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 12px;
   padding: 2px 7px;
 }
 .sort-control {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 10px;
-  color: #839078;
+  font-size: 12px;
+  color: #697360;
 }
 .sort-control select {
   background: transparent;
   width: 170px;
-  font-size: 11px;
+  font-size: 12px;
   padding: 9px 12px;
 }
 .filter-bar {
@@ -823,7 +1009,7 @@ textarea {
   margin-bottom: 15px;
 }
 .comparison-table thead th .eyebrow {
-  font-size: 8px;
+  font-size: 12px;
   margin-bottom: 15px;
 }
 .comparison-table thead th .badge {
@@ -853,7 +1039,7 @@ textarea {
 }
 .protection-banner {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.15fr 0.85fr;
   background: #204b39;
   border-radius: 17px;
   overflow: hidden;
@@ -861,56 +1047,164 @@ textarea {
   position: relative;
 }
 .protection-copy {
-  padding: 55px 58px;
+  padding: 52px 56px;
   z-index: 1;
 }
 .protection-copy .eyebrow {
   color: #c8d0a4;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 .protection-copy h2 {
-  font-size: 43px;
-  line-height: 1.25;
+  font-size: 41px;
+  line-height: 1.22;
   color: #f3f1db;
 }
 .protection-copy h2 em {
   color: #c0c69c;
 }
 .protection-copy > p {
-  max-width: 440px;
+  max-width: 46ch;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cfd9c2;
+  margin-block: 20px 22px;
+}
+.protection-promises {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+.protection-promises li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-size: 13px;
-  color: #bec9b3;
-  margin-block: 23px 26px;
+  color: #e2e9d5;
 }
-.protection-copy > small {
-  display: block;
-  margin-top: 18px;
-  font-size: 9px;
-  color: #9fb58c;
+.protection-promises svg {
+  color: #e9c98b;
+  flex-shrink: 0;
 }
-.protection-visual {
+.protection-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 22px;
+}
+.protection-actions .text-link {
+  color: #e6ecd9;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.protection-actions .text-link:hover {
+  color: #fff;
+}
+.protection-flow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+  padding: 52px 48px 44px;
+  border-left: 1px solid #3d6350;
+  background: radial-gradient(
+    ellipse at 30% 0%,
+    rgba(64, 117, 88, 0.35),
+    transparent 65%
+  );
+}
+.protection-flow-title {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #c8d0a4;
+  margin-bottom: 22px;
+}
+.protection-flow ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 20px;
+}
+.protection-flow li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(ellipse at center, #40755840, transparent 70%);
 }
-.protection-visual > .vault-canvas {
+.protection-flow li:not(:last-child)::before {
+  content: '';
   position: absolute;
-  inset: 15px 0 50px;
-  width: 100%;
-  height: auto;
-  min-height: 0;
+  left: 12px;
+  top: 30px;
+  bottom: -20px;
+  width: 1px;
+  background: linear-gradient(#6d9075, rgba(109, 144, 117, 0));
 }
-.vault-status {
-  position: absolute;
-  bottom: 32px;
-  display: flex;
+.step-index {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #86a37c;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f0d59b;
+  background: #27543f;
+}
+.protection-flow strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f3f1db;
+  margin-bottom: 4px;
+}
+.protection-flow p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #c3cfb5;
+}
+.protection-badge {
+  display: inline-flex;
   align-items: center;
+  align-self: flex-start;
   gap: 9px;
-  font-size: 8px;
-  color: #b1ca9a;
-  letter-spacing: 0.15em;
+  margin-top: auto;
+  padding: 7px 13px 7px 11px;
+  border: 1px solid rgba(233, 201, 139, 0.28);
+  border-radius: 999px;
+  background: rgba(233, 201, 139, 0.08);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cbd8bd;
+}
+.protection-badge .live-dot {
+  background: #e9c98b;
+  box-shadow: 0 0 0 4px rgba(233, 201, 139, 0.12);
+}
+@media (max-width: 900px) {
+  .protection-banner {
+    grid-template-columns: 1fr;
+  }
+  .protection-copy {
+    padding: 36px 26px 30px;
+  }
+  .protection-copy h2 {
+    font-size: 30px;
+  }
+  .protection-flow {
+    padding: 28px 26px 34px;
+    border-left: 0;
+    border-top: 1px solid #3d6350;
+  }
 }
 .faq-section {
   display: grid;
@@ -956,7 +1250,7 @@ textarea {
 }
 .faq-number {
   font-family: var(--font-serif);
-  color: #a4b28e;
+  color: #6c755e;
   font-size: 13px;
   margin-top: 3px;
 }
@@ -993,12 +1287,12 @@ textarea {
   font-size: 12px;
 }
 .footer-main > div > a:not(.brand) {
-  font-size: 11px;
+  font-size: 12px;
   color: #b4c6b0;
   padding-block: 10px;
 }
 .footer-bottom {
-  font-size: 9px;
+  font-size: 12px;
   padding-block: 23px;
 }
 .profile-navigation {
@@ -1012,7 +1306,7 @@ textarea {
 .profile-navigation > a {
   font-size: 11px;
   font-weight: 600;
-  color: #778968;
+  color: #667659;
 }
 .profile-navigation .discovery-actions {
   margin-left: auto;
@@ -1077,7 +1371,7 @@ textarea {
   display: flex;
   gap: 10px;
   font-size: 12px;
-  color: #718264;
+  color: #6a7a5e;
   line-height: 1.7;
   align-items: flex-start;
 }
@@ -1136,11 +1430,11 @@ textarea {
   font-size: 12px;
 }
 .admin-identity small {
-  font-size: 10px;
+  font-size: 12px;
 }
 .admin-sidebar nav > button,
 .admin-sidebar nav > a {
-  font-size: 11px;
+  font-size: 12px;
   padding: 14px 12px;
   border-radius: 7px;
 }
@@ -1154,7 +1448,7 @@ textarea {
   font-size: 35px;
 }
 .admin-heading .eyebrow {
-  font-size: 8px;
+  font-size: 12px;
 }
 .admin-content > .panel {
   margin-bottom: 25px;
@@ -1188,7 +1482,7 @@ textarea {
   align-items: flex-end;
   gap: 8px;
   font-size: 11px;
-  color: #788d67;
+  color: #657657;
 }
 .dashboard-date strong {
   font-weight: 500;
@@ -1213,7 +1507,7 @@ textarea {
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
-  color: #7b8d70;
+  color: #6a7960;
 }
 .metric-card-top > span {
   font-size: 10px;
@@ -1235,8 +1529,8 @@ textarea {
   color: #355a3e;
 }
 .metric-card > small {
-  font-size: 8px;
-  color: #8a9881;
+  font-size: 12px;
+  color: #6c7765;
 }
 .dashboard-panels {
   display: grid;
@@ -1250,7 +1544,7 @@ textarea {
   font-size: 24px;
 }
 .dashboard-panels .eyebrow {
-  font-size: 8px;
+  font-size: 12px;
   margin-bottom: 12px;
 }
 .dashboard-panels .section-heading {
@@ -1267,7 +1561,7 @@ textarea {
   justify-content: space-between;
   gap: 10px;
   font-size: 11px;
-  color: #7a8d6c;
+  color: #69795d;
   margin-bottom: 8px;
 }
 .distribution strong {
@@ -1330,7 +1624,7 @@ progress::-moz-progress-bar {
 .dashboard-actions small {
   display: block;
   font-size: 10px;
-  color: #829474;
+  color: #65735a;
   margin-top: 4px;
 }
 .capacity-cards {
@@ -1341,7 +1635,7 @@ progress::-moz-progress-bar {
 }
 .capacity-cards > div > span {
   font-size: 11px;
-  color: #7b8e6d;
+  color: #6a7a5e;
 }
 .capacity-cards strong {
   display: block;
@@ -1356,7 +1650,7 @@ progress::-moz-progress-bar {
 }
 .capacity-cards > div > small {
   font-size: 9px;
-  color: #93a384;
+  color: #6d7962;
 }
 .record summary strong {
   font-size: 13px;
@@ -1582,7 +1876,7 @@ progress::-moz-progress-bar {
   }
   .admin-sidebar nav > button,
   .admin-sidebar nav > a {
-    font-size: 11px;
+    font-size: 12px;
   }
   .admin-identity {
     display: flex;
@@ -1653,7 +1947,7 @@ progress::-moz-progress-bar {
     width: 37px;
   }
   .brand small {
-    font-size: 7px;
+    font-size: 12px;
     letter-spacing: 1.4px;
   }
   .admin-link {
@@ -1668,7 +1962,7 @@ progress::-moz-progress-bar {
     font-size: 8px;
   }
   .utility-bar .demo-label {
-    font-size: 7px;
+    font-size: 12px;
   }
   .site-header nav a {
     font-size: 12px;
@@ -1735,7 +2029,7 @@ progress::-moz-progress-bar {
     left: 17px;
   }
   .explorer-tabs button {
-    font-size: 8px;
+    font-size: 12px;
     padding: 7px 9px;
     gap: 6px;
   }
@@ -1792,7 +2086,7 @@ progress::-moz-progress-bar {
     max-width: 165px;
   }
   .explorer-bottom select {
-    font-size: 8px;
+    font-size: 12px;
     width: 118px;
     padding: 7px;
   }
@@ -1851,10 +2145,10 @@ progress::-moz-progress-bar {
     font-size: 30px;
   }
   .section-heading > p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .section-heading .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
     margin-bottom: 14px;
   }
   .service-grid {
@@ -1888,7 +2182,7 @@ progress::-moz-progress-bar {
   }
   .directory-feature .section-heading .button {
     margin-top: 23px;
-    font-size: 11px;
+    font-size: 12px;
     min-height: 43px;
     padding: 11px 15px;
   }
@@ -1913,7 +2207,7 @@ progress::-moz-progress-bar {
     font-size: 10px;
   }
   .directory-note {
-    font-size: 9px;
+    font-size: 12px;
     align-items: flex-start;
   }
   .protection-banner {
@@ -1929,7 +2223,7 @@ progress::-moz-progress-bar {
     font-size: 12px;
   }
   .protection-copy > small {
-    font-size: 8px;
+    font-size: 12px;
   }
   .protection-visual {
     height: 240px;
@@ -1973,30 +2267,30 @@ progress::-moz-progress-bar {
     padding-top: 5px;
   }
   .closing-section .eyebrow {
-    font-size: 7px;
+    font-size: 12px;
   }
   .closing-section h2 {
     font-size: 32px;
   }
   .closing-section > .button {
     margin-top: 25px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer-main {
     padding-block: 43px;
     gap: 30px 25px;
   }
   .footer-main h3 {
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer-main p {
-    font-size: 11px;
+    font-size: 12px;
   }
   .footer-main > div > a:not(.brand) {
-    font-size: 10px;
+    font-size: 12px;
   }
   .footer-bottom {
-    font-size: 8px;
+    font-size: 12px;
     padding-bottom: 32px;
   }
   .page-heading {
@@ -2009,7 +2303,7 @@ progress::-moz-progress-bar {
     font-size: 12px;
   }
   .page-heading .eyebrow {
-    font-size: 8px;
+    font-size: 12px;
   }
   .directory-tools {
     flex-wrap: wrap;
@@ -2021,15 +2315,15 @@ progress::-moz-progress-bar {
     gap: 25px;
   }
   .directory-tabs button {
-    font-size: 11px;
+    font-size: 12px;
     padding-block: 16px;
   }
   .sort-control {
     margin-left: auto;
-    font-size: 9px;
+    font-size: 12px;
   }
   .sort-control select {
-    font-size: 10px;
+    font-size: 12px;
     padding: 7px 10px;
     width: 158px;
   }
@@ -2038,7 +2332,7 @@ progress::-moz-progress-bar {
     gap: 10px;
   }
   .filter-bar select {
-    font-size: 10px;
+    font-size: 12px;
     flex-basis: calc(50% - 5px);
     padding: 10px;
   }
@@ -2046,11 +2340,11 @@ progress::-moz-progress-bar {
     font-size: 12px;
   }
   .results-label {
-    font-size: 10px;
+    font-size: 12px;
     margin-block: 19px;
   }
   .discovery-actions button {
-    font-size: 10px;
+    font-size: 12px;
     padding: 8px 10px;
   }
   .compare-tray {
@@ -2167,7 +2461,7 @@ progress::-moz-progress-bar {
     padding: 12px;
   }
   .field > small {
-    font-size: 10px;
+    font-size: 12px;
   }
   .form-panel h1 {
     font-size: 34px;
@@ -2193,7 +2487,7 @@ progress::-moz-progress-bar {
   }
   .admin-sidebar nav > button,
   .admin-sidebar nav > a {
-    font-size: 10px;
+    font-size: 12px;
     padding: 11px 10px;
   }
   .admin-sidebar nav {
@@ -2203,7 +2497,7 @@ progress::-moz-progress-bar {
     font-size: 11px;
   }
   .admin-identity small {
-    font-size: 9px;
+    font-size: 12px;
   }
   .dashboard-welcome {
     display: block;
@@ -2237,7 +2531,7 @@ progress::-moz-progress-bar {
     font-size: 32px;
   }
   .metric-card > small {
-    font-size: 8px;
+    font-size: 12px;
   }
   .dashboard-panels {
     grid-template-columns: 1fr;
@@ -2305,7 +2599,7 @@ progress::-moz-progress-bar {
   left: 14px;
   font-size: 7px;
   letter-spacing: 0.14em;
-  color: #d3dfbf;
+  color: #616758;
   background: #183f35c9;
   padding: 5px 8px;
   border-radius: 4px;
@@ -2367,7 +2661,7 @@ h2 em {
 }
 /* Explicit camera controls and world-anchored labels make the live scene discoverable. */
 .explorer-stage {
-  height: 650px;
+  height: 680px;
 }
 .explorer-canvas {
   inset: 72px 0 55px;
@@ -2515,6 +2809,7 @@ h2 em {
 }
 .explorer-expanded .explorer-tech {
   font-size: 9px;
+  color: #f2e3bd;
 }
 .explorer-expanded .explorer-bottom {
   bottom: 26px;
@@ -2729,7 +3024,7 @@ h2 em {
     text-align: right;
   }
   .explorer-expanded .explorer-bottom select {
-    font-size: 8px;
+    font-size: 12px;
     padding: 7px;
     width: 126px;
   }
@@ -2772,7 +3067,7 @@ h2 em {
   align-items: center;
   gap: 8px 16px;
   font-size: 12px;
-  color: #748170;
+  color: #6d7969;
 }
 .location-meta a,
 .location-point-note a {
@@ -2805,7 +3100,7 @@ h2 em {
   line-height: 1.65;
 }
 .location-point-note {
-  color: #75806f;
+  color: #6e7868;
   font-size: 12px;
   line-height: 1.7;
   margin: 14px 0 0;
@@ -2819,7 +3114,7 @@ h2 em {
   font-size: 10px;
 }
 .location-compact .location-directions {
-  font-size: 11px;
+  font-size: 12px;
   padding: 7px 10px;
   margin: 9px 0 5px;
 }
@@ -2852,7 +3147,7 @@ h2 em {
   margin-top: 18px;
 }
 .unmapped-locations > p {
-  color: #75806f;
+  color: #6e7868;
   font-size: 13px;
 }
 .unmapped-locations article {
@@ -2919,7 +3214,7 @@ h2 em {
   margin-top: 10px;
 }
 .sourced-profile-intro {
-  color: #73806d;
+  color: #55614f;
   font-size: 12px;
 }
 .sourced-profile-note {
@@ -2963,7 +3258,7 @@ h2 em {
   flex-wrap: wrap;
   margin-top: 14px;
   font-size: 11px;
-  color: #73806d;
+  color: #55614f;
 }
 .sourced-section-citation a,
 .sourced-contact dd a {
@@ -2973,7 +3268,7 @@ h2 em {
   gap: 6px;
 }
 .sourced-unavailable p {
-  color: #7c8574;
+  color: #707868;
   font-size: 12px;
   margin-bottom: 0;
 }
@@ -2982,7 +3277,7 @@ h2 em {
 }
 .sourced-contact p {
   font-size: 12px;
-  color: #75816e;
+  color: #6e7967;
   line-height: 1.8;
 }
 .sourced-contact dl > div {
@@ -2990,7 +3285,7 @@ h2 em {
 }
 .sourced-contact dt {
   font-size: 11px;
-  color: #78836c;
+  color: #55614f;
 }
 .sourced-contact dd {
   margin: 4px 0 0;
@@ -3004,7 +3299,7 @@ h2 em {
 .sourced-contact small {
   display: block;
   font-size: 11px;
-  color: #75816e;
+  color: #6e7967;
   line-height: 1.8;
   margin-top: 18px;
 }
@@ -3039,7 +3334,7 @@ h2 em {
 }
 .reference-fact-list dt {
   font-size: 11px;
-  color: #78836c;
+  color: #55614f;
   margin-bottom: 5px;
 }
 .reference-fact-list dd {
@@ -3071,4 +3366,44 @@ h2 em {
     width: 100%;
     justify-content: space-between;
   }
+}
+
+/* ---- hub polish 14 Nov 2026: teks mikro ≥12px + aksen emas di chrome ---- */
+.utility-bar {
+  height: auto;
+  min-height: 34px;
+  font-size: 12px;
+}
+.brand small {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+}
+.site-header nav a {
+  font-size: 13px;
+  color: #55605a;
+}
+.site-header nav a.active {
+  color: #1d4433;
+  border-bottom-color: var(--color-gold);
+}
+.admin-link {
+  font-size: 12px;
+}
+.footer-main h3 {
+  font-size: 12px;
+}
+.footer-main > div > a:not(.brand) {
+  font-size: 13.5px;
+}
+.footer-bottom {
+  font-size: 12px;
+}
+.art-caption {
+  font-size: 12px;
+}
+
+.explorer-tech.is-live {
+  color: #f2dca8;
+  background: #e9c98b14;
+  border-color: #e9c98b66;
 }

@@ -61,12 +61,6 @@ export default function PublicProfileContent({ data, offeringsOnly = false }) {
             )}
           </div>
         </div>
-        {data.demo && (
-          <p className="note">
-            Program dan fasilitas pada profil demo adalah contoh. Konfirmasikan
-            informasi resmi kepada pengurus.
-          </p>
-        )}
       </section>
     </>
   )

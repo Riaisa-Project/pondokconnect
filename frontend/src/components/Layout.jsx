@@ -36,6 +36,26 @@ const links = [
   ['/lacak', 'Lacak Layanan'],
   ['/lapor', 'Lapor Aman'],
 ]
+const staticTitles = {
+  '/': 'Beranda',
+  '/pesantren': 'Direktori Pesantren',
+  '/bandingkan': 'Bandingkan pesantren',
+  '/daftar': 'Pendaftaran santri',
+  '/lapor': 'Lapor Aman',
+  '/lacak': 'Lacak Layanan',
+  '/masuk': 'Masuk pengelola',
+  '/ganti-password': 'Ganti password',
+  '/admin': 'Dashboard pengelola',
+  '/privasi': 'Privasi & penggunaan data',
+}
+export function titleFor(pathname) {
+  if (staticTitles[pathname]) return staticTitles[pathname]
+  if (pathname.startsWith('/pesantren/')) return 'Profil pesantren'
+  if (pathname.startsWith('/status-pesantren/')) return 'Status pesantren'
+  if (pathname.startsWith('/verifikasi-ijop/'))
+    return 'Verifikasi status pesantren'
+  return 'Halaman tidak ditemukan'
+}
 export function Layout() {
   const [open, setOpen] = useState(false)
   const { user } = useAuth()
@@ -44,7 +64,7 @@ export function Layout() {
   useEffect(() => {
     setOpen(false)
     window.scrollTo({ top: 0, behavior: 'instant' })
-    document.title = `${links.find(([p]) => p === location.pathname)?.[1] || 'Layanan'} — Pondok Connect Lamongan`
+    document.title = `${titleFor(location.pathname)} — Pondok Connect Lamongan`
   }, [location.pathname])
   return (
     <>
@@ -58,9 +78,7 @@ export function Layout() {
             Portal layanan pesantren Kabupaten Lamongan
           </span>
           <span className="demo-label">
-            {features.data?.demo
-              ? 'Direktori bersumber · Layanan demo'
-              : 'Direktori & layanan pesantren'}
+            Direktori &amp; pengawasan pesantren
           </span>
         </div>
       </div>

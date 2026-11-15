@@ -43,7 +43,9 @@ test('demo deployment still labels sample access and data', async ({
   )
   await page.goto('/masuk')
   await expect(page.locator('.demo-accounts')).toBeVisible()
-  await expect(page.locator('.utility-bar')).toContainText('Layanan demo')
+  await expect(page.locator('.utility-bar')).toContainText(
+    'Direktori & pengawasan pesantren',
+  )
   await page.goto('/lapor')
   await expect(page.locator('.report-aside')).toContainText(
     'Portal demo akademik',

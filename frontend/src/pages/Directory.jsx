@@ -20,6 +20,7 @@ import {
   SelectOptions,
 } from '../components/UI'
 import PonpesCard from '../components/PonpesCard'
+import '../styles/home.css'
 const PonpesMap = lazy(() => import('../components/PonpesMap'))
 export default function Directory() {
   const features = useFeatures()
@@ -61,14 +62,22 @@ export default function Directory() {
         memulai perjalanan.
       </PageHeading>
       <div className="directory-tools">
-        <div className="directory-tabs">
+        <div
+          className="directory-tabs"
+          role="tablist"
+          aria-label="Sumber daftar"
+        >
           <button
+            role="tab"
+            aria-selected={!onlySaved}
             className={!onlySaved ? 'active' : ''}
             onClick={() => change('tersimpan', '')}
           >
             Semua pesantren
           </button>
           <button
+            role="tab"
+            aria-selected={onlySaved}
             className={onlySaved ? 'active' : ''}
             onClick={() => change('tersimpan', '1')}
           >
@@ -150,6 +159,12 @@ export default function Directory() {
           </button>
         </div>
       </div>
+      {type && (
+        <p className="note tipe-hint">
+          Sebagian profil pesantren belum mencantumkan tipe, sehingga pilihan
+          tipe dapat menampilkan 0 hasil.
+        </p>
+      )}
       <div className="results-label">
         <span>
           <SlidersHorizontal size={15} />
@@ -184,7 +199,9 @@ export default function Directory() {
               >
                 {onlySaved
                   ? 'Gunakan tombol Simpan pada kartu pesantren. Gunakan pencarian untuk memeriksa profil yang tersimpan.'
-                  : 'Coba nama lain atau pilih kecamatan yang berbeda.'}
+                  : type
+                    ? 'Sebagian profil belum mencantumkan tipe pesantren, sehingga filter tipe dapat menampilkan 0 hasil. Pilih tipe "Semua tipe" untuk melihat profil lainnya.'
+                    : 'Coba nama lain atau pilih kecamatan yang berbeda.'}
               </Empty>
             ) : map ? (
               <Suspense fallback={<Loading />}>

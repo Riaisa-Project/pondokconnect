@@ -46,8 +46,10 @@ export default function Tracking() {
         Masukkan kode yang Anda terima saat mengirim pendaftaran atau laporan.
       </PageHeading>
       <div className="panel tracking-panel">
-        <div className="tabs" aria-label="Jenis layanan">
+        <div className="tabs" role="tablist" aria-label="Jenis layanan">
           <button
+            role="tab"
+            aria-selected={type === 'pendaftaran'}
             className={type === 'pendaftaran' ? 'active' : ''}
             onClick={() => {
               setType('pendaftaran')
@@ -61,6 +63,8 @@ export default function Tracking() {
             Pendaftaran santri
           </button>
           <button
+            role="tab"
+            aria-selected={type === 'pengaduan'}
             className={type === 'pengaduan' ? 'active' : ''}
             onClick={() => {
               setType('pengaduan')

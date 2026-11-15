@@ -661,7 +661,16 @@ export function AuditLogs() {
                     {data.items.map((row) => (
                       <tr key={row.id}>
                         <td>{date(row.created_at)}</td>
-                        <td>#{row.user_id || '—'}</td>
+                        <td>
+                          {row.nama_user ||
+                            (row.user_id ? `#${row.user_id}` : '—')}
+                          {row.nama_user && row.email_user && (
+                            <>
+                              <br />
+                              <small className="muted">{row.email_user}</small>
+                            </>
+                          )}
+                        </td>
                         <td>{label(row.aksi)}</td>
                         <td>
                           <code>{row.detail}</code>

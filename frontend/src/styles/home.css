@@ -1,0 +1,572 @@
+/* Beranda PondokConnect — polesan visual di atas sistem showcase.
+   Semua kelas berprefix `home-`; tidak ada `!important`.
+   Skala spasi mengikuti mockup: 4 / 8 / 12 / 16 / 24 / 40 / 64. */
+
+/* ---------- utilitas ---------- */
+.home-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- tipografi: tidak ada teks mikro 9–10px ---------- */
+.home-page .eyebrow,
+.home-page .hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.home-page .hero-trust,
+.home-page .hero-footnote {
+  font-size: 12px;
+}
+.home-page .hero h1 em,
+.home-section h2 em {
+  color: color-mix(in srgb, var(--color-forest) 86%, var(--color-paper));
+}
+
+/* garis emas sebagai chrome, bukan hiasan ilustrasi */
+.home-hero .hero-eyebrow::before,
+.home-section .section-heading .eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  flex: none;
+  background: var(--color-gold);
+}
+
+/* ---------- hero + pencarian ---------- */
+.home-page .home-search {
+  gap: 12px;
+  padding: 8px 8px 8px 16px;
+  border-radius: 10px;
+  min-height: 56px;
+}
+.home-page .home-search input {
+  font-size: 15px;
+  padding: 8px 0;
+}
+.home-page .home-search input::placeholder {
+  color: var(--muted);
+}
+.home-page .home-search button {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 8px;
+  background: var(--color-forest);
+}
+.home-page .home-search button:hover {
+  background: color-mix(in srgb, var(--color-forest) 85%, black);
+}
+
+/* ---------- pita statistik ---------- */
+.home-page .home-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.3fr);
+  align-items: stretch;
+  gap: 0;
+  margin-top: 40px;
+  padding: 0;
+  border-block: 1px solid var(--line);
+}
+.home-page .home-stat {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  align-items: center;
+  gap: 0 12px;
+  padding: 24px;
+  border: 0;
+  border-left: 1px solid
+    color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
+}
+.home-page .home-stat:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.home-page .home-stat-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--color-gold) 18%, var(--color-paper));
+  color: var(--color-forest);
+}
+.home-page .home-stat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.home-page .home-stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+.home-page .home-stat-value strong {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-forest);
+}
+.home-page .home-stat-value strong.home-stat-dash {
+  font-size: 26px;
+  color: var(--muted);
+}
+.home-page .home-stat-hint {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.home-page .home-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.home-page .home-stat-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 0 24px 24px;
+  border-top: 0;
+  border-left: 1px solid
+    color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
+  text-align: left;
+  font-size: 12px;
+}
+.home-page .home-stat-note p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.home-page .home-stat-note small {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.home-page .home-note-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-forest);
+}
+
+/* ---------- kartu layanan 3 langkah ---------- */
+.home-page .home-step {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  height: 100%;
+  min-height: 0;
+  padding: 28px;
+  border-radius: 14px;
+  background: #fff;
+}
+.home-page .home-step-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.home-page .home-step-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--color-gold) 16%, var(--color-paper));
+  color: var(--color-forest);
+}
+.home-page .home-step-number {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-forest);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.home-page .home-step h3 {
+  font-size: 20px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  text-wrap: balance;
+}
+.home-page .home-step p {
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: none;
+  margin: 0;
+  color: var(--muted);
+}
+.home-page .home-step-link {
+  justify-self: start;
+  align-self: end;
+  margin-top: 16px;
+  padding-bottom: 2px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-forest);
+  border-bottom: 1.5px solid transparent;
+}
+.home-page .home-step:hover .home-step-link,
+.home-page .home-step:focus-visible .home-step-link {
+  border-bottom-color: var(--color-gold);
+}
+
+/* ---------- kartu pesantren (dipakai juga di /pesantren) ---------- */
+.home-card {
+  display: flex;
+  flex-direction: column;
+}
+.home-card .ponpes-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.home-card .home-card-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.home-card .home-card-meta .home-card-type {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.home-card .home-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.home-badge-source {
+  background: color-mix(in srgb, var(--color-gold) 30%, var(--color-paper));
+  border-color: color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
+  color: var(--color-forest);
+}
+.home-badge-source svg {
+  color: var(--color-forest);
+}
+.home-badge-pending {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--muted);
+}
+.home-card .home-card-title {
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  min-height: 0;
+  margin: 0 0 4px;
+  text-wrap: balance;
+}
+.home-card .home-card-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.home-card .home-card-status {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.home-card .home-card-place {
+  font-size: 12px;
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+.home-card .ponpes-location {
+  font-size: 12px;
+}
+.home-card .location-address {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.home-card .location-address span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.home-card .location-meta a {
+  font-size: 12px;
+}
+.home-card .card-bottom {
+  margin-top: auto;
+}
+.home-card .home-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.home-card .home-card-bottom > span {
+  font-size: 12px;
+}
+.home-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-forest);
+  white-space: nowrap;
+}
+.home-card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.home-page .home-directory-note {
+  font-size: 12px;
+  line-height: 1.6;
+  align-items: flex-start;
+}
+
+/* ---------- kartu 3D Explorer: mikro ≥12px, rail ≥32px ---------- */
+.home-explorer .explorer-top {
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+.home-explorer .explorer-tech {
+  font-size: 12px;
+  padding: 5px 8px;
+}
+.home-explorer .explorer-tabs button {
+  font-size: 12px;
+  padding: 8px 11px;
+}
+.home-explorer .explorer-controls button {
+  width: 36px;
+  height: 36px;
+}
+.home-explorer .explorer-instruction {
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: calc(100% - 50px);
+}
+.home-explorer .explorer-campus-options button {
+  font-size: 12px;
+  min-height: 32px;
+  padding: 6px 10px;
+}
+.home-explorer .world-hotspot {
+  font-size: 12px;
+  padding: 8px 11px;
+}
+.home-explorer .world-building-tip {
+  font-size: 12px;
+}
+.home-explorer .world-tooltip {
+  font-size: 12px;
+}
+.home-explorer .world-tooltip span,
+.home-explorer .world-tooltip small {
+  font-size: 12px;
+}
+.home-explorer .explorer-info {
+  padding: 14px 18px;
+}
+.home-explorer .explorer-info small {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+.home-explorer .explorer-info strong {
+  font-size: 15px;
+  margin-top: 4px;
+}
+.home-explorer .explorer-info p {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.home-explorer .explorer-bottom > span {
+  font-size: 12px;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.home-explorer .explorer-bottom select {
+  font-size: 12px;
+  width: auto;
+  min-width: 150px;
+  padding: 8px;
+}
+.home-explorer .kecamatan-legend strong,
+.home-explorer .kecamatan-legend span,
+.home-explorer .kecamatan-legend small,
+.home-explorer .kecamatan-map .leaflet-tooltip,
+.home-explorer .kecamatan-map .leaflet-control-attribution {
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+  .home-explorer .kecamatan-map {
+    inset: 108px 18px 176px;
+  }
+}
+@media (max-width: 650px) {
+  .home-explorer .kecamatan-map {
+    inset: 98px 14px 158px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-explorer .kecamatan-side {
+    display: none;
+  }
+}
+
+/* ---------- perlindungan ---------- */
+.home-page .home-protection .protection-banner {
+  border-radius: 18px;
+}
+
+/* ---------- tanya jawab ---------- */
+.home-page .home-faq-list {
+  border-top: 1px solid var(--line);
+}
+.home-page .home-faq-list > details {
+  border-bottom: 1px solid var(--line);
+}
+.home-page .home-faq-list summary {
+  padding: 20px 16px;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  border-left: 2px solid transparent;
+}
+.home-page .home-faq-list summary strong {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.home-page .home-faq-list details[open] summary {
+  border-left-color: var(--color-gold);
+  background: color-mix(in srgb, var(--color-gold) 8%, transparent);
+}
+.home-page .home-faq-list details[open] summary strong {
+  font-weight: 800;
+  color: var(--color-forest);
+}
+.home-page .home-faq-list .faq-number {
+  color: var(--color-forest);
+  font-size: 13px;
+}
+.home-page .home-faq-list > details > p {
+  margin: 0 16px 20px 52px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.home-page .home-faq .text-link {
+  font-size: 13px;
+}
+
+/* ---------- caption ilustrasi ---------- */
+.home-page .art-caption {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+/* ---------- responsif ---------- */
+@media (max-width: 1024px) {
+  .home-page .home-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .home-page .home-stat-note {
+    grid-column: 1 / -1;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+}
+@media (max-width: 700px) {
+  .home-page .home-stats {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 24px;
+  }
+  .home-page .home-stat {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding: 16px 0;
+  }
+  .home-page .home-stat:first-child {
+    border-top: 0;
+    padding-top: 24px;
+  }
+  .home-page .home-step {
+    padding: 24px;
+  }
+  .home-page .home-faq-list summary {
+    padding: 16px 12px;
+  }
+  .home-page .home-faq-list > details > p {
+    margin: 0 12px 18px 44px;
+  }
+}
+@media (max-width: 650px) {
+  .home-explorer .explorer-controls {
+    top: 92px;
+    display: grid;
+    grid-template-columns: repeat(2, 32px);
+    gap: 4px;
+  }
+  .home-explorer .explorer-controls button {
+    width: 32px;
+    height: 32px;
+  }
+  .home-explorer .explorer-tabs button {
+    font-size: 12px;
+    padding: 7px 9px;
+  }
+  .home-page .home-search input {
+    font-size: 14px;
+  }
+}
+
+/* rata kolom statistik: baris nilai tinggi tetap supaya label sebaris */
+.home-page .home-stat {
+  align-items: start;
+}
+.home-page .home-stat-body {
+  display: grid;
+  grid-template-rows: 46px auto;
+  align-content: start;
+  min-width: 0;
+}
+.home-page .home-stat {
+  align-content: start;
+}

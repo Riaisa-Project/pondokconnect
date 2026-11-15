@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useQueries } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useSearchParams, Link } from 'react-router-dom'
 import { Copy, Check, X, GitCompareArrows } from 'lucide-react'
 import { get } from '../lib/api'
@@ -24,12 +24,24 @@ export default function Compare() {
     { compare, toggleCompare } = useDiscovery()
   const raw = params.has('pilihan') ? params.get('pilihan') : compare.join(',')
   const slugs = parseSaved(JSON.stringify(raw.split(',')), 3)
-  const queries = useQueries({
-    queries: slugs.map((slug) => ({
-      queryKey: [`/ponpes/${slug}`, null],
-      queryFn: () => get(`/ponpes/${slug}`),
-      retry: false,
-    })),
+  const profiles = useQuery({
+    queryKey: ['compare-ponpes', slugs.join(',')],
+    queryFn: () => get('/ponpes/', { slugs: slugs.join(','), limit: 100 }),
+    enabled: slugs.length > 0,
+    retry: false,
+  })
+  const bySlug = new Map(
+    (profiles.data?.items || []).map((item) => [item.slug, item]),
+  )
+  const queries = slugs.map((slug) => {
+    const data = bySlug.get(slug)
+    return {
+      data,
+      isSuccess: Boolean(data),
+      isPending: profiles.isPending && !data,
+      isError: !profiles.isPending && !data,
+      refetch: profiles.refetch,
+    }
   })
   const [copied, setCopied] = useState(false),
     [error, setError] = useState(null)
@@ -95,8 +107,8 @@ export default function Compare() {
             <div className="button-row">
               <Button
                 variant="ghost"
-                busy={queries.some((q) => q.isFetching)}
-                onClick={() => queries.forEach((q) => q.refetch())}
+                busy={profiles.isFetching}
+                onClick={() => profiles.refetch()}
               >
                 Perbarui data
               </Button>
@@ -111,9 +123,9 @@ export default function Compare() {
             <table className="comparison-table">
               <thead>
                 <tr>
-                  <th>Yang perlu Anda kenali</th>
+                  <th scope="col">Yang perlu Anda kenali</th>
                   {queries.map((query, i) => (
-                    <th key={slugs[i]}>
+                    <th scope="col" key={slugs[i]}>
                       <button
                         className="icon-button remove-comparison"
                         aria-label={`Hapus pilihan ${i + 1}`}
@@ -135,7 +147,7 @@ export default function Compare() {
                           <small>{slugs[i]}</small>
                           <Button
                             variant="ghost"
-                            onClick={() => query.refetch()}
+                            onClick={() => profiles.refetch()}
                           >
                             Coba lagi
                           </Button>

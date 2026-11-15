@@ -145,7 +145,7 @@ test('anonymous report removes identity and Satgas updates progress', async ({
   await page.getByRole('button', { name: 'Simpan', exact: true }).click()
   await expect(page.locator('summary').first()).toContainText('Pendampingan')
   await page.goto('/lacak')
-  await page.getByRole('button', { name: 'Pengaduan', exact: true }).click()
+  await page.getByRole('tab', { name: 'Pengaduan', exact: true }).click()
   await page.getByLabel('Kode tiket pengaduan').fill(ticket)
   await page.getByRole('button', { name: 'Periksa status' }).click()
   await expect(page.locator('.tracking-result')).toContainText('Pendampingan')

@@ -92,7 +92,7 @@ export function Empty({ title = 'Belum ada data', children }) {
     <div className="empty">
       <div className="empty-mark">—</div>
       <h3>{title}</h3>
-      <p>{children}</p>
+      <div className="empty-body">{children}</div>
     </div>
   )
 }

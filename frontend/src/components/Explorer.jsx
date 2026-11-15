@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ArrowUpRight,
@@ -15,7 +15,8 @@ import {
   ZoomOut,
 } from 'lucide-react'
 import { Map3D } from './Scene'
-import { CAMPUS_TARGETS, DISTRICT_POINTS } from '../three/cameraModel'
+import { CAMPUS_TARGETS } from '../three/cameraModel'
+const KecamatanMap = lazy(() => import('./KecamatanMap'))
 const campusInfo = {
   masjid: [
     'Masjid & ruang ibadah',
@@ -34,7 +35,7 @@ export default function Explorer({ districts = [] }) {
   const [mode, setMode] = useState('campus'),
     [paused, setPaused] = useState(false),
     [selected, setSelected] = useState(null),
-    [campus, setCampus] = useState(null),
+    [campus, setCampus] = useState('masjid'),
     [renderer, setRenderer] = useState('loading'),
     [expanded, setExpanded] = useState(false),
     [command, setCommand] = useState({ kind: 'overview', seq: 0 })
@@ -43,6 +44,10 @@ export default function Explorer({ districts = [] }) {
     expandButton = useRef(null),
     closeButton = useRef(null)
   const district = districts.find((d) => d.kecamatan_id === selected)
+  const totalPonpes = districts.reduce(
+    (sum, d) => sum + (d.jumlah_ponpes || 0),
+    0,
+  )
   const renderState = useCallback((value) => setRenderer(value), []),
     manual = useCallback(() => setPaused(true), [])
   function action(kind, target) {
@@ -115,12 +120,16 @@ export default function Explorer({ districts = [] }) {
         <span>
           <span className="live-dot" /> JELAJAH LINGKUNGAN PESANTREN
         </span>
-        <span className={`explorer-tech renderer-${renderer}`}>
-          {renderer === 'webgl'
-            ? '3D AKTIF'
-            : renderer === 'svg'
-              ? '3D COMPATIBLE'
-              : 'MENYIAPKAN 3D'}
+        <span
+          className={`explorer-tech renderer-${renderer}${mode === 'region' ? ' is-live' : ''}`}
+        >
+          {mode === 'region'
+            ? 'PETA AKTIF'
+            : renderer === 'webgl'
+              ? '3D AKTIF'
+              : renderer === 'svg'
+                ? 'MODE RINGAN'
+                : 'MENYIAPKAN 3D'}
         </span>
       </div>
       <div
@@ -145,127 +154,120 @@ export default function Explorer({ districts = [] }) {
           Peta Lamongan
         </button>
       </div>
-      <Map3D
-        districts={districts}
-        selected={selected}
-        onChoose={chooseDistrict}
-        mode={mode}
-        paused={paused}
-        command={command}
-        stageRef={stage}
-        onManualChange={manual}
-        onRenderState={renderState}
-        onDistrictHover={setHoveredDistrict}
-        campusSelected={campus}
-        onCampusSelect={chooseCampus}
-      />
-      {ready && (
+      {mode === 'campus' ? (
+        <Map3D
+          districts={districts}
+          selected={selected}
+          onChoose={chooseDistrict}
+          mode="campus"
+          paused={paused}
+          command={command}
+          stageRef={stage}
+          onManualChange={manual}
+          onRenderState={renderState}
+          onDistrictHover={setHoveredDistrict}
+          campusSelected={campus}
+          onCampusSelect={chooseCampus}
+        />
+      ) : (
+        <Suspense
+          fallback={<div className="scene-loading">Memuat peta sebaran…</div>}
+        >
+          <KecamatanMap
+            districts={districts}
+            selected={selected}
+            onChoose={(id) => chooseDistrict(id)}
+          />
+        </Suspense>
+      )}
+      {ready && mode === 'campus' && (
         <div className="scene-world-labels">
-          {mode === 'campus'
-            ? [
-                ['masjid', 'Masjid', [0, 2.13, -0.55]],
-                ['belajar', 'Ruang belajar', [-2.2, 1.25, -0.5]],
-                ['asrama', 'Asrama', [2.15, 1.25, 1.55]],
-              ].map(([key, text, point]) => (
-                <div
-                  key={key}
-                  className="scene-world-anchor"
-                  data-world-point={point.join(',')}
-                  style={{ visibility: 'hidden' }}
-                >
-                  <button
-                    className={`world-hotspot ${campus === key ? 'active' : ''}`}
-                    aria-label={`Fokus ke ${key === 'belajar' ? 'ruang belajar' : key}`}
-                    aria-pressed={campus === key}
-                    onPointerEnter={() => setPaused(true)}
-                    onFocus={() => setPaused(true)}
-                    onClick={() => chooseCampus(key)}
-                  >
-                    <span className="hotspot-dot" />
-                    {text}
-                    <span className="hotspot-arrow">↗</span>
-                  </button>
-                </div>
-              ))
-            : (() => {
-                const id = hoveredDistrict || selected,
-                  index = districts.findIndex((d) => d.kecamatan_id === id)
-                if (index < 0) return null
-                const [x, z] = DISTRICT_POINTS[index % 27],
-                  d = districts[index]
-                return (
-                  <div
-                    className="scene-world-anchor"
-                    data-world-point={[x * 1.35, 1.03, -z * 1.35].join(',')}
-                    style={{ visibility: 'hidden' }}
-                  >
-                    <div className="world-tooltip">
-                      <strong>{d.nama_kecamatan}</strong>
-                      <span>{d.jumlah_ponpes} profil pesantren</span>
-                      <small>Klik pin untuk mendekat</small>
-                    </div>
-                  </div>
-                )
-              })()}
+          {[
+            ['masjid', 'Masjid', [0, 2.13, -0.55]],
+            ['belajar', 'Ruang belajar', [-2.2, 1.25, -0.5]],
+            ['asrama', 'Asrama', [2.15, 1.25, 1.55]],
+          ].map(([key, text, point]) => (
+            <div
+              key={key}
+              className="scene-world-anchor"
+              data-world-point={point.join(',')}
+              style={{ visibility: 'hidden' }}
+            >
+              <button
+                className={`world-hotspot ${campus === key ? 'active' : ''}`}
+                aria-label={`Fokus ke ${key === 'belajar' ? 'ruang belajar' : key}`}
+                aria-pressed={campus === key}
+                onPointerEnter={() => setPaused(true)}
+                onFocus={() => setPaused(true)}
+                onClick={() => chooseCampus(key)}
+              >
+                <span className="hotspot-dot" />
+                {text}
+                <span className="hotspot-arrow">↗</span>
+              </button>
+            </div>
+          ))}
         </div>
       )}
-      <div className="explorer-controls">
-        <button
-          ref={expanded ? closeButton : expandButton}
-          aria-label={expanded ? 'Tutup layar penuh 3D' : 'Buka layar penuh 3D'}
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? <Minimize2 size={17} /> : <Maximize2 size={17} />}
-        </button>
-        <button
-          aria-label="Putar kiri 3D"
-          disabled={!ready}
-          onClick={() => action('left')}
-        >
-          <RotateCcw size={17} />
-        </button>
-        <button
-          aria-label="Putar kanan 3D"
-          disabled={!ready}
-          onClick={() => action('right')}
-        >
-          <RotateCw size={17} />
-        </button>
-        <button
-          aria-label="Perbesar 3D"
-          disabled={!ready}
-          onClick={() => action('in')}
-        >
-          <ZoomIn size={17} />
-        </button>
-        <button
-          aria-label="Perkecil 3D"
-          disabled={!ready}
-          onClick={() => action('out')}
-        >
-          <ZoomOut size={17} />
-        </button>
-        <button
-          aria-label={paused ? 'Jalankan animasi 3D' : 'Jeda animasi 3D'}
-          disabled={!ready}
-          onClick={() => setPaused(!paused)}
-        >
-          {paused ? <Play size={17} /> : <Pause size={17} />}
-        </button>
-        <button
-          aria-label="Reset tampilan 3D"
-          disabled={!ready}
-          onClick={() => action('overview')}
-        >
-          <Move size={17} />
-        </button>
-      </div>
-      {ready && (
+      {mode === 'campus' && (
+        <div className="explorer-controls">
+          <button
+            ref={expanded ? closeButton : expandButton}
+            aria-label={
+              expanded ? 'Tutup layar penuh 3D' : 'Buka layar penuh 3D'
+            }
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded ? <Minimize2 size={17} /> : <Maximize2 size={17} />}
+          </button>
+          <button
+            aria-label="Putar kiri 3D"
+            disabled={!ready}
+            onClick={() => action('left')}
+          >
+            <RotateCcw size={17} />
+          </button>
+          <button
+            aria-label="Putar kanan 3D"
+            disabled={!ready}
+            onClick={() => action('right')}
+          >
+            <RotateCw size={17} />
+          </button>
+          <button
+            aria-label="Perbesar 3D"
+            disabled={!ready}
+            onClick={() => action('in')}
+          >
+            <ZoomIn size={17} />
+          </button>
+          <button
+            aria-label="Perkecil 3D"
+            disabled={!ready}
+            onClick={() => action('out')}
+          >
+            <ZoomOut size={17} />
+          </button>
+          <button
+            aria-label={paused ? 'Jalankan animasi 3D' : 'Jeda animasi 3D'}
+            disabled={!ready}
+            onClick={() => setPaused(!paused)}
+          >
+            {paused ? <Play size={17} /> : <Pause size={17} />}
+          </button>
+          <button
+            aria-label="Reset tampilan 3D"
+            disabled={!ready}
+            onClick={() => action('overview')}
+          >
+            <Move size={17} />
+          </button>
+        </div>
+      )}
+      {mode === 'campus' && (
         <div className="explorer-instruction">
           <Move size={13} />
-          {mode === 'campus'
-            ? 'Klik bangunan untuk mendekat · geser untuk memutar'
-            : 'Hover pin untuk info · klik untuk mendekat'}
+          Klik bangunan untuk mendekat · geser untuk memutar
         </div>
       )}
       {mode === 'campus' && (
@@ -274,12 +276,22 @@ export default function Explorer({ districts = [] }) {
           role="group"
           aria-label="Bagian kampus ilustratif"
         >
-          {Object.entries(campusInfo).map(([key]) => (
+          {Object.entries(campusInfo).map(([key], index) => (
             <button
               key={key}
+              aria-label={
+                key === 'masjid'
+                  ? 'Masjid'
+                  : key === 'belajar'
+                    ? 'Ruang belajar'
+                    : 'Asrama'
+              }
               aria-pressed={campus === key}
               onClick={() => chooseCampus(key)}
             >
+              <span className="chip-num" aria-hidden="true">
+                {index + 1}
+              </span>
               {key === 'masjid'
                 ? 'Masjid'
                 : key === 'belajar'
@@ -295,14 +307,14 @@ export default function Explorer({ districts = [] }) {
             {mode === 'region'
               ? district
                 ? 'KECAMATAN PILIHAN'
-                : '27 KECAMATAN · SATU KONEKSI'
-              : 'JELAJAH KAMPUS KONSEPTUAL'}
+                : `${districts.length} KECAMATAN · ${totalPonpes} PESANTREN`
+              : 'KAMPUS KONSEPTUAL · 3 ZONA'}
           </small>
           <strong>
             {mode === 'region'
               ? district
                 ? district.nama_kecamatan
-                : 'Temukan pesantren di sekitar Anda.'
+                : 'Sebaran pesantren di Lamongan.'
               : campus
                 ? campusInfo[campus][0]
                 : 'Masjid, ruang belajar, dan kehidupan santri.'}
@@ -310,11 +322,11 @@ export default function Explorer({ districts = [] }) {
           <p>
             {mode === 'region'
               ? district
-                ? `${district.jumlah_ponpes} profil pesantren dalam portal`
-                : 'Klik pin bercahaya untuk melihat lebih dekat.'
+                ? `${district.jumlah_ponpes} pesantren di kecamatan ini. Buka direktori untuk melihat profilnya.`
+                : 'Ukuran dan warna lingkaran = jumlah pesantren. Klik kecamatan untuk melihat daftarnya.'
               : campus
                 ? campusInfo[campus][1]
-                : 'Klik bangunan atau label di dalam scene untuk menjelajah.'}
+                : 'Tiga zona inti pesantren. Pilih satu untuk mengenal perannya.'}
           </p>
         </div>
         {mode === 'region' && district ? (
@@ -331,27 +343,14 @@ export default function Explorer({ districts = [] }) {
       <div className="explorer-bottom">
         <span>
           {mode === 'region'
-            ? 'Peta stilasi · posisi pin ilustratif'
+            ? 'Sumber: OpenStreetMap'
             : 'Diorama arsitektur · bukan kampus sebenarnya'}
         </span>
         {mode === 'region' && (
           <select
             aria-label="Jelajahi kecamatan"
             value={selected || ''}
-            onChange={(e) => {
-              const id = Number(e.target.value) || null
-              const index = districts.findIndex((d) => d.kecamatan_id === id)
-              chooseDistrict(
-                id,
-                index >= 0
-                  ? [
-                      DISTRICT_POINTS[index % 27][0] * 1.35,
-                      0.27,
-                      -DISTRICT_POINTS[index % 27][1] * 1.35,
-                    ]
-                  : null,
-              )
-            }}
+            onChange={(e) => chooseDistrict(Number(e.target.value) || null)}
           >
             <option value="">Pilih kecamatan ↗</option>
             {districts.map((d) => (

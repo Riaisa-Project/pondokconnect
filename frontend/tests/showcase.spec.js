@@ -11,9 +11,9 @@ test('saved profiles, comparison limit, shareable URL and unavailable selections
     .first()
     .getByRole('button', { name: /^Simpan / })
     .click()
-  await page.getByRole('button', { name: /^Tersimpan / }).click()
+  await page.getByRole('tab', { name: /^Tersimpan / }).click()
   await expect(cards).toHaveCount(1)
-  await page.getByRole('button', { name: 'Semua pesantren' }).click()
+  await page.getByRole('tab', { name: 'Semua pesantren' }).click()
   await expect(cards.nth(3)).toBeVisible()
   for (let i = 0; i < 3; i++)
     await cards
@@ -151,11 +151,11 @@ test('inactive profile refetch hides cached details and registration action', as
   await expect(
     page.getByRole('link', { name: 'Daftar santri', exact: true }).first(),
   ).toBeVisible()
-  await page.route('**/api/ponpes/sunan-drajat', (route) =>
+  await page.route('**/api/ponpes/?*', (route) =>
     route.fulfill({
-      status: 404,
+      status: 200,
       contentType: 'application/json',
-      body: '{"detail":"Ponpes aktif tidak ditemukan"}',
+      body: '{"items":[],"total":0,"limit":100,"offset":0}',
     }),
   )
   await page.getByRole('button', { name: 'Perbarui data' }).click()

@@ -1,0 +1,554 @@
+/* Halaman profil pesantren — gaya editorial sesuai mockup 02-profil-pesantren.
+   Semua kelas berprefix `prof-` supaya tidak menabrak showcase.css. */
+
+.prof-page {
+  min-width: 0;
+}
+
+/* ---------- remah roti ---------- */
+.prof-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.prof-crumbs a {
+  color: var(--muted);
+  text-underline-offset: 3px;
+}
+.prof-crumbs a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+.prof-crumbs > span {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- kepala editorial ---------- */
+.prof-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 48px;
+  align-items: end;
+  padding: 22px 0 34px;
+  border-bottom: 1px solid var(--line);
+}
+.prof-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4d5a48;
+}
+.prof-masthead h1 {
+  font-size: clamp(34px, 4vw, 56px);
+  margin: 10px 0 16px;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.prof-addr {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  max-width: 46ch;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.prof-addr > svg {
+  flex: none;
+  margin-top: 3px;
+  color: #628365;
+}
+.prof-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+}
+.prof-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #eef2ee;
+  color: #3c5a4f;
+  font-size: 12px;
+  font-weight: 700;
+}
+.prof-tag-gold {
+  border-color: #e6d3a5;
+  background: #f3e8cf;
+  color: #6b4f1c;
+}
+/* status yang belum dikonfirmasi: outline abu, tanpa latar */
+.prof-tag-plain {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--muted);
+}
+.prof-plate {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 30px -12px rgba(23, 63, 53, 0.22);
+}
+/* teks mikro milik showcase.css dinaikkan dalam konteks profil */
+.prof-page .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+.prof-page .note {
+  font-size: 12.5px;
+}
+.prof-page .profile-offerings li {
+  font-size: 13px;
+}
+.prof-page .profile-offerings h3 {
+  font-size: 13.5px;
+}
+.prof-page .sourced-profile-intro,
+.prof-page .sourced-profile-note {
+  max-width: 70ch;
+}
+/* panel sematan: judul satu tingkat di bawah h2 editorial */
+.prof-page .panel h2,
+.prof-page .panel > h2 {
+  font-size: clamp(22px, 2vw, 28px);
+  margin: 10px 0 12px;
+}
+.prof-page .panel p,
+.prof-page .panel li {
+  max-width: 72ch;
+}
+.prof-page .sourced-profile-sections p {
+  max-width: 68ch;
+}
+.prof-main .panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.prof-plate .pondok-art,
+.prof-plate .pondok-art img {
+  height: 320px;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+/* teks mikro komponen bersama dinaikkan ke 12px dalam konteks profil */
+.prof-page small,
+.prof-page dt,
+.prof-page .sourced-section-citation,
+.prof-page .sourced-section-citation a,
+.prof-page .discovery-actions :is(button, a),
+.prof-page .oversight-card a,
+.prof-page .sourced-contact a,
+.prof-page .sourced-contact small,
+.prof-page .capacity-cards span,
+.prof-page .oversight-card strong,
+.prof-page .capacity-cards small {
+  font-size: 12px;
+}
+.prof-plate .art-caption {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.prof-cite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  margin: 16px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.prof-cite a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration-color: #c9d5cc;
+}
+/* ---------- nav bagian (lengket) ---------- */
+.prof-sections {
+  position: sticky;
+  top: 87px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--color-paper, #fafbf7);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.prof-sections::-webkit-scrollbar {
+  display: none;
+}
+.prof-sections ul {
+  display: flex;
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.prof-sections a {
+  display: block;
+  padding: 13px 0 11px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+.prof-sections a:hover,
+.prof-sections a:focus-visible {
+  border-bottom-color: #d4b16a;
+  color: var(--ink);
+}
+.prof-sections .discovery-actions {
+  margin-left: auto;
+  flex: none;
+  padding-block: 8px;
+}
+
+/* ---------- dua kolom ---------- */
+.prof-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+  gap: 56px;
+  padding: 34px 0 8px;
+  align-items: start;
+}
+.prof-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.prof-main > :is(section, .panel) {
+  padding-bottom: 40px;
+  scroll-margin-top: 150px;
+}
+.prof-main > :is(section, .panel) + :is(section, .panel) {
+  padding-top: 36px;
+  border-top: 1px solid var(--line);
+}
+
+.prof-main h2 {
+  margin: 8px 0 14px;
+  font-size: clamp(24px, 2.4vw, 34px);
+  color: var(--ink);
+}
+.prof-intro {
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #35534a;
+}
+.prof-lead {
+  max-width: 62ch;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #2b4a40;
+}
+.prof-notice {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-left: 3px solid #d4b16a;
+  border-radius: 0 8px 8px 0;
+  background: #fffdf6;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #4a5a52;
+}
+.prof-missing {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* fakta singkat */
+.prof-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 26px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+  overflow: hidden;
+}
+.prof-facts > div {
+  padding: 16px 18px;
+  background: #fff;
+}
+.prof-facts dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prof-facts dd {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+/* blok bersumber */
+.prof-sourced {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.prof-sourced > article {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 26px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+}
+.prof-sourced h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin: 0;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.prof-sourced h3 svg {
+  flex: none;
+  color: #b08d47;
+  transform: translateY(2px);
+}
+.prof-sourced p,
+.prof-sourced li {
+  max-width: 70ch;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #35534a;
+  overflow-wrap: anywhere;
+}
+.prof-sourced ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+.prof-sourced li + li {
+  margin-top: 6px;
+}
+.prof-cite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.prof-cite a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #d4b16a;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* kontak lembaga */
+.prof-contact {
+  padding-top: 26px;
+}
+.prof-contact h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 12px;
+  font-size: 14.5px;
+}
+.prof-contact h3 svg {
+  color: #b08d47;
+}
+.prof-contact dl {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+.prof-contact dl > div {
+  display: grid;
+  gap: 2px;
+}
+.prof-contact dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prof-contact dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.prof-contact dd a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #38664e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prof-contact > small {
+  display: block;
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.prof-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  min-height: 38px;
+}
+.prof-link-button:hover {
+  background: rgba(23, 63, 53, 0.06);
+}
+/* ---------- kolom samping ---------- */
+.prof-aside {
+  position: sticky;
+  top: 132px;
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+.prof-aside .oversight-card {
+  border-radius: 14px;
+}
+.prof-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 22px;
+  box-shadow: 0 1px 2px rgba(23, 63, 53, 0.06);
+}
+.prof-card h3 {
+  margin: 0 0 14px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.prof-kv {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  font-size: 13.5px;
+}
+.prof-kv > div {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+.prof-kv > div:last-child {
+  border: 0;
+  padding-bottom: 0;
+}
+.prof-kv dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.prof-kv dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.prof-card > p {
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.prof-card > p + .prof-link-button {
+  margin-top: 14px;
+}
+
+/* ---------- responsif ---------- */
+@media (max-width: 1080px) {
+  .prof-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .prof-aside {
+    position: static;
+  }
+  .prof-masthead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .prof-sections {
+    top: 87px;
+  }
+}
+@media (max-width: 760px) {
+  .prof-sections {
+    top: 76px;
+    gap: 18px;
+  }
+  .prof-sections ul {
+    gap: 18px;
+  }
+  .prof-sections .discovery-actions {
+    margin-left: 0;
+  }
+  .prof-sourced > article {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .prof-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .prof-plate .pondok-art,
+  .prof-plate .pondok-art img {
+    height: 210px;
+  }
+  .prof-main > section {
+    scroll-margin-top: 130px;
+  }
+}

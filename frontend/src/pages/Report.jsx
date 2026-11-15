@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { CheckCircle2, LockKeyhole, Send, ShieldCheck } from 'lucide-react'
+import { CheckCircle2, Send, ShieldCheck, VenetianMask } from 'lucide-react'
 import { attachment, post } from '../lib/api'
 import { useFeatures } from '../lib/hooks'
 import { categories, formValues, localToday } from '../lib/format'
-import { Vault3D } from '../components/Scene'
+import ModeMark from '../components/ModeMark'
 import PonpesSelect from '../components/PonpesSelect'
 import {
   Alert,
@@ -76,25 +76,35 @@ export default function Report() {
       </PageHeading>
       <div className="form-layout report-layout">
         <aside className="report-aside">
-          <Vault3D locked={secret} />
+          <ModeMark secret={secret} />
           <div className="report-aside-copy">
             <span className="eyebrow">
-              <LockKeyhole size={15} /> AKSES TERBATAS
+              {secret ? 'AKSES TERBATAS' : 'IDENTITAS TERCATAT'}
             </span>
             <h2>
-              Anda memilih
-              <br />
-              cara untuk bercerita.
+              {secret ? (
+                <>
+                  Anda memilih <br />
+                  cara untuk bercerita.
+                </>
+              ) : (
+                <>
+                  Identitas Anda <br />
+                  mempercepat tindak lanjut.
+                </>
+              )}
             </h2>
             <p>
-              Mode rahasia tidak menyimpan nama dan kontak pada kolom identitas.
-              Isi laporan dan bukti hanya dapat dibuka Satgas.
+              {secret
+                ? 'Mode rahasia tidak menyimpan nama dan kontak pada kolom identitas. Isi laporan dan bukti hanya dapat dibuka Satgas.'
+                : 'Mode terbuka menyimpan nama dan kontak agar Satgas dapat menghubungi Anda. Isi laporan dan bukti tetap hanya dibuka Satgas.'}
             </p>
             <div className="aside-note">
-              <ShieldCheck size={22} />
+              {secret ? <ShieldCheck size={22} /> : <VenetianMask size={22} />}
               <span>
-                Hindari menulis identitas dalam uraian atau lampiran jika ingin
-                tetap anonim.
+                {secret
+                  ? 'Hindari menulis identitas dalam uraian atau lampiran jika ingin tetap anonim.'
+                  : 'Nama dan kontak hanya dipakai Satgas untuk menindaklanjuti laporan Anda.'}
               </span>
             </div>
             <small>

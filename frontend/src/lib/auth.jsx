@@ -52,7 +52,13 @@ export function Protected({ children, allowPasswordChange = false }) {
   const { token, user, loading, error, retry } = useAuth()
   const location = useLocation()
   if (!token)
-    return <Navigate to="/masuk" replace state={{ from: location.pathname }} />
+    return (
+      <Navigate
+        to="/masuk"
+        replace
+        state={{ from: location.pathname + location.search }}
+      />
+    )
   if (loading) return <Loading />
   if (error)
     return (
@@ -63,6 +69,11 @@ export function Protected({ children, allowPasswordChange = false }) {
     )
   if (user?.must_change_password && !allowPasswordChange)
     return <Navigate to="/ganti-password" replace />
+  // Rute /ganti-password hanya untuk yang memang wajib mengganti password.
+  // Tanpa penjaga ini, pengguna bisa tertahan di halaman itu setelah ganti
+  // password (login berikutnya masih membawa state lama dari cache).
+  if (allowPasswordChange && user && !user.must_change_password)
+    return <Navigate to="/admin" replace />
   if (!['admin_ponpes', 'satgas_kemenag'].includes(user?.role))
     return (
       <div className="container section">

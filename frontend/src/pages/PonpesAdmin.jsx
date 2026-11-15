@@ -76,7 +76,10 @@ export function MyProfile() {
               · Catatan pemeriksaan dokumen dan operasional dikelola oleh
               Satgas.
             </p>
-            <ProfileFields data={data} />
+            <ProfileFields
+              key={`${data.id}|${data.nama_ponpes}|${data.nama_pengasuh}|${data.tipe_pesantren}|${data.kontak_sekretariat}|${data.alamat_lengkap}|${data.kuota_putra}|${data.kuota_putri}|${data.latitude}|${data.longitude}`}
+              data={data}
+            />
             <p className="note">
               {data.profil_referensi
                 ? 'Isi hanya informasi yang sudah dikonfirmasi. Kolom kosong tetap belum diketahui. Sumber profil rujukan tetap tercatat saat layanan dibuka.'

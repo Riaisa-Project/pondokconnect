@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { date } from '../lib/format'
 import { hasRegistrationSeats } from '../lib/services'
 import { Badge, LinkButton } from './UI'
@@ -134,7 +134,7 @@ export function OversightCard({ data }) {
         <div>
           <strong>Pindai catatan pemeriksaan</strong>
           <Link to={path}>
-            Lihat catatan pengawasan <ArrowUpRight size={13} />
+            Lihat catatan pengawasan <ArrowRight size={13} />
           </Link>
         </div>
       </div>
@@ -173,7 +173,7 @@ export function PublicServices({ data }) {
       )}
       {hasRegistrationSeats(data) && (
         <LinkButton to={`/daftar?ponpes=${data.id}`}>
-          Daftar ke pesantren ini <ArrowUpRight size={17} />
+          Daftar ke pesantren ini <ArrowRight size={17} />
         </LinkButton>
       )}
       <p className="note">

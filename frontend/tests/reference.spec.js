@@ -71,10 +71,19 @@ test('catalog spans districts with transparent historical sources and fits mobil
 test('comparison drops the sourced badge after provenance is no longer valid', async ({
   page,
 }) => {
-  await page.route('**/api/ponpes/al-ishlah-sendangagung', async (route) => {
+  await page.route('**/api/ponpes/?*', async (route) => {
     const response = await route.fetch()
     const body = await response.json()
-    await route.fulfill({ json: { ...body, referensi: null } })
+    await route.fulfill({
+      json: {
+        ...body,
+        items: (body.items || []).map((item) =>
+          item.slug === 'al-ishlah-sendangagung'
+            ? { ...item, referensi: null }
+            : item,
+        ),
+      },
+    })
   })
   await page.goto('/bandingkan?pilihan=al-ishlah-sendangagung')
   await expect(

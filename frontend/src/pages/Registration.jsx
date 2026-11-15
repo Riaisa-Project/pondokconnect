@@ -37,9 +37,12 @@ export default function Registration() {
     setBusy(true)
     setError(null)
     try {
-      const data = formValues(e.currentTarget, ['ponpes_id'])
+      const form = e.currentTarget
+      const data = formValues(form, ['ponpes_id'])
       data.file_kk = await attachment(data.file_kk)
-      delete data.consent
+      // Backend mewajibkan persetujuan eksplisit dan mencatat waktunya (consent_at).
+      // Nilai dibaca dari `form` karena e.currentTarget menjadi null setelah await.
+      data.consent = Boolean(form.elements.consent?.checked)
       const result = await post('/pendaftaran/kirim', data)
       setReceipt(result)
       cache.invalidateQueries({

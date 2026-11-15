@@ -39,7 +39,9 @@ export default function SourcedProfileContent({ data }) {
           <span className="eyebrow">MENGENAL LEBIH DEKAT</span>
           <h2>Profil pesantren</h2>
         </div>
-        <Badge>{available ? 'Rujukan internet' : 'Belum terkonfirmasi'}</Badge>
+        <span className={`prof-tag${available ? ' prof-tag-gold' : ''}`}>
+          {available ? 'Profil bersumber' : 'Belum terkonfirmasi'}
+        </span>
       </div>
       <p className="sourced-profile-intro">
         Informasi lembaga dari penelusuran sumber publik. Diperiksa{' '}

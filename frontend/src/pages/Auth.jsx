@@ -20,9 +20,11 @@ export function Login() {
     setError(null)
     try {
       const result = await login(formValues(e.currentTarget))
-      navigate(result.must_change_password ? '/ganti-password' : '/admin', {
-        replace: true,
-      })
+      const back = location.state?.from
+      navigate(
+        result.must_change_password ? '/ganti-password' : back || '/admin',
+        { replace: true },
+      )
     } catch (e) {
       setError(e)
     } finally {

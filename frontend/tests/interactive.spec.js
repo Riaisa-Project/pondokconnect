@@ -37,9 +37,9 @@ test('camera commands, object focus and fullscreen control a live scene', async 
   await page.getByRole('button', { name: 'Peta Lamongan', exact: true }).click()
   await page.getByLabel('Jelajahi kecamatan').selectOption({ label: 'Paciran' })
   await expect(page.locator('.explorer-info')).toContainText('Paciran')
-  await expect
-    .poll(async () => distance(await target(stage), [1.35, 0.27, -2.7675]))
-    .toBeLessThan(0.05)
+  await expect(
+    page.getByRole('link', { name: 'Jelajahi pesantren Paciran' }),
+  ).toBeVisible()
 })
 
 for (const failure of ['unavailable', 'lost']) {
@@ -68,7 +68,7 @@ for (const failure of ['unavailable', 'lost']) {
         )
     }
     await expect(stage).toHaveAttribute('data-renderer', 'svg')
-    await expect(stage.locator('.explorer-tech')).toHaveText('3D COMPATIBLE')
+    await expect(stage.locator('.explorer-tech')).toHaveText('MODE RINGAN')
     const svg = stage.locator('.compatible-scene svg')
     await expect(svg).toBeVisible()
     await expect.poll(() => svg.locator('path').count()).toBeGreaterThan(20)
@@ -115,30 +115,9 @@ for (const failure of ['unavailable', 'lost']) {
     await page
       .getByRole('button', { name: 'Peta Lamongan', exact: true })
       .click()
-    await expect
-      .poll(async () => distance(await target(stage), [0, 0.2, 0]))
-      .toBeLessThan(0.05)
-    await page.waitForTimeout(500)
-    const { PerspectiveCamera, Vector3 } = await import('three')
-    const bounds = await svg.boundingBox()
-    const view = new PerspectiveCamera(
-      38,
-      bounds.width / bounds.height,
-      0.1,
-      1000,
-    )
-    view.position.set(...(await camera(stage)))
-    view.lookAt(...(await target(stage)))
-    view.updateMatrixWorld()
-    const p = new Vector3(1.35, 0.67, -2.7675).project(view)
-    const x = bounds.x + ((p.x + 1) * bounds.width) / 2,
-      y = bounds.y + ((1 - p.y) * bounds.height) / 2
-    await page.mouse.move(x, y)
-    await expect(stage.locator('.world-tooltip')).toContainText('Paciran')
-    await page.mouse.click(x, y)
-    await expect
-      .poll(async () => distance(await target(stage), [1.35, 0.27, -2.7675]))
-      .toBeLessThan(0.05)
+    await expect(page.locator('.kecamatan-map-canvas')).toBeVisible()
+    await page.locator('.kecamatan-list button', { hasText: 'Paciran' }).click()
+    await expect(page.locator('.explorer-info')).toContainText('Paciran')
     await expect(
       page.getByRole('link', { name: 'Jelajahi pesantren Paciran' }),
     ).toBeVisible()
@@ -186,17 +165,9 @@ test('hover and direct mesh clicks select a building and district pin', async ({
     .poll(async () => distance(await target(stage), [0, 0.6, -0.55]))
     .toBeLessThan(0.05)
   await page.getByRole('button', { name: 'Peta Lamongan', exact: true }).click()
-  await expect
-    .poll(async () => distance(await target(stage), [0, 0.2, 0]))
-    .toBeLessThan(0.05)
-  screen = await point([1.35, 0.67, -2.7675])
-  await page.mouse.move(screen.x, screen.y)
-  await expect(page.locator('.world-tooltip')).toContainText('Paciran')
-  await page.mouse.click(screen.x, screen.y)
+  await expect(page.locator('.kecamatan-map-canvas')).toBeVisible()
+  await page.locator('.kecamatan-list button', { hasText: 'Paciran' }).click()
   await expect(page.locator('.explorer-info')).toContainText('Paciran')
-  await expect
-    .poll(async () => distance(await target(stage), [1.35, 0.27, -2.7675]))
-    .toBeLessThan(0.05)
 })
 
 test('fullscreen controls stay reachable on a short landscape screen', async ({

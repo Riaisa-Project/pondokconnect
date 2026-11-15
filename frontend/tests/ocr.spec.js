@@ -180,6 +180,7 @@ test('manual registration remains usable without OCR or a demo warning in produc
   await page.route('**/api/pendaftaran/kirim', (route) => {
     const sent = route.request().postDataJSON()
     expect(Object.keys(sent).sort()).toEqual([
+      'consent',
       'file_kk',
       'jenis_kelamin',
       'nama_santri',
@@ -188,6 +189,7 @@ test('manual registration remains usable without OCR or a demo warning in produc
       'no_hp_wali',
       'ponpes_id',
     ])
+    expect(sent.consent).toBe(true)
     return route.fulfill({
       status: 201,
       json: {
