@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from backend.auth import ponpes_only
 from backend.database import get_db
+from backend.limiter import limiter
 from backend.models.models import Kecamatan, Pendaftaran, Ponpes, User
 from backend.schemas.schemas import LayananInput, Paginated, PonpesOut, PonpesUpdate, Tipe
 from backend.services import (
@@ -90,7 +91,8 @@ def oversight_status(slug: str, db: Session = Depends(get_db)):
 
 
 @router.get("/ponpes/verifikasi-ijop/{nspp}", response_model=PonpesOut, deprecated=True)
-def verify_ijop(nspp: str, db: Session = Depends(get_db)):
+@limiter.limit("20/minute")  # NSPP is 12 enumerable digits: cap bulk harvesting.
+def verify_ijop(nspp: str, request: Request, db: Session = Depends(get_db)):
     row = db.scalar(select(Ponpes).where(Ponpes.nspp == nspp))
     if not row:
         raise HTTPException(404, "NSPP tidak ditemukan")
