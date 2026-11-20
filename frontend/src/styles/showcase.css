@@ -3439,6 +3439,12 @@ h2 em {
     padding: 6px 0;
     line-height: 1.35;
   }
+  /* Mode 3D tidak ditawarkan di ponsel: di 360px kanvasnya 374px di dalam
+     kartu 324px (terpotong kiri-kanan) dan sering berhenti di "MENYIAPKAN 3D".
+     Kartu cuma menampilkan peta. */
+  .explorer-tabs .tab-campus {
+    display: none;
+  }
   .explorer-stage[data-mode='region'] {
     display: flex;
     flex-direction: column;

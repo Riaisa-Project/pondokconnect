@@ -77,7 +77,7 @@ for (const failure of ['unavailable', 'lost']) {
         )
     }
     await expect(stage).toHaveAttribute('data-renderer', 'svg')
-    await expect(stage.locator('.explorer-tech')).toHaveText('MODE RINGAN')
+    await expect(stage.locator('.explorer-tech')).toHaveText('Ilustrasi')
     const svg = stage.locator('.compatible-scene svg')
     await expect(svg).toBeVisible()
     await expect.poll(() => svg.locator('path').count()).toBeGreaterThan(20)
@@ -251,6 +251,10 @@ test('kartu jelajah di ponsel 360px tidak saling menimpa', async ({ page }) => {
   const map = page.locator('.kecamatan-map')
   await expect(map).toBeVisible()
   await expect(page.locator('.kecamatan-map .leaflet-container')).toBeVisible()
+  // Mode 3D tidak ditawarkan di ponsel — kalau tab-nya muncul lagi, jatuh kembali
+  // ke kanvas yang terpotong.
+  await expect(page.locator('.explorer-tabs .tab-campus')).toBeHidden()
+  await expect(page.locator('.explorer-tabs .tab-region')).toBeVisible()
 
   const boxes = await page.evaluate(() => {
     const r = (s) => document.querySelector(s).getBoundingClientRect()

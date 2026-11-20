@@ -67,6 +67,17 @@ export default function Explorer({ districts = [] }) {
     setMode(next)
     action('overview')
   }
+  // Ponsel: mode 3D tidak ditawarkan — kanvasnya terpotong di layar sempit.
+  // Dipaksa kembali ke peta juga saat layar diputar atau jendela dikecilkan.
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 650px)')
+    const toMap = () => {
+      if (query.matches) setMode('region')
+    }
+    toMap()
+    query.addEventListener('change', toMap)
+    return () => query.removeEventListener('change', toMap)
+  }, [])
   useEffect(() => {
     if (!expanded) return
     const overflow = document.body.style.overflow
@@ -129,7 +140,7 @@ export default function Explorer({ districts = [] }) {
             : renderer === 'webgl'
               ? '3D AKTIF'
               : renderer === 'svg'
-                ? 'MODE RINGAN'
+                ? 'Ilustrasi'
                 : 'MENYIAPKAN 3D'}
         </span>
       </div>
@@ -139,16 +150,16 @@ export default function Explorer({ districts = [] }) {
         aria-label="Mode eksplorasi 3D"
       >
         <button
+          className={`tab-campus ${mode === 'campus' ? 'active' : ''}`}
           aria-pressed={mode === 'campus'}
-          className={mode === 'campus' ? 'active' : ''}
           onClick={() => switchMode('campus')}
         >
           <Building2 size={15} />
           Kampus pesantren
         </button>
         <button
+          className={`tab-region ${mode === 'region' ? 'active' : ''}`}
           aria-pressed={mode === 'region'}
-          className={mode === 'region' ? 'active' : ''}
           onClick={() => switchMode('region')}
         >
           <Map size={15} />
@@ -349,7 +360,7 @@ export default function Explorer({ districts = [] }) {
         <span>
           {mode === 'region'
             ? 'Peta © Esri · titik OSM'
-            : 'Diorama arsitektur · bukan kampus sebenarnya'}
+            : 'Ilustrasi 3D · bukan kampus sebenarnya'}
         </span>
         {mode === 'region' && (
           <select
