@@ -273,4 +273,12 @@ test('kartu jelajah di ponsel 360px tidak saling menimpa', async ({ page }) => {
   expect(boxes.zoomHeight).toBeGreaterThanOrEqual(44)
   expect(boxes.zoomWidth).toBeGreaterThanOrEqual(44)
   expect(boxes.overflow).toBeLessThanOrEqual(0)
+
+  // Mode 3D aktif lalu layar dikecilkan: kartu harus kembali ke peta, bukan
+  // meninggalkan kanvas terpotong yang tab-nya sudah hilang (tidak bisa dibalik).
+  await page.setViewportSize({ width: 1280, height: 800 })
+  await page.getByRole('button', { name: 'Kampus pesantren', exact: true }).click()
+  await expect(page.locator('.explorer-stage')).toHaveAttribute('data-mode', 'campus')
+  await page.setViewportSize({ width: 360, height: 780 })
+  await expect(page.locator('.explorer-stage')).toHaveAttribute('data-mode', 'region')
 })
