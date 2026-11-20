@@ -32,6 +32,10 @@ app = FastAPI(
     title="Pondok Connect Lamongan",
     version="1.1.0",
     description="Pengawasan dan pelaporan pesantren Lamongan, direktori bersumber serta layanan pengurus. Aplikasi tidak menerbitkan IJOP. Login menerima JSON dan menghasilkan token Bearer.",
+    # Swagger/redoc is a free blueprint of every endpoint: off in production, on elsewhere.
+    docs_url=None if settings.app_env == "production" else "/docs",
+    redoc_url=None if settings.app_env == "production" else "/redoc",
+    openapi_url=None if settings.app_env == "production" else "/openapi.json",
 )
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
