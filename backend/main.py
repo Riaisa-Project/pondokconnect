@@ -9,6 +9,8 @@ from slowapi.middleware import SlowAPIMiddleware
 from sqlalchemy import text
 from sqlalchemy.exc import DataError, IntegrityError, OperationalError
 from sqlalchemy.orm import Session
+from starlette.applications import Starlette
+from starlette.routing import Route
 
 from backend.config import settings
 from backend.database import get_db
@@ -150,10 +152,15 @@ for router in (
 
 
 if settings.serve_frontend:
-
-    @app.get("/{path:path}", include_in_schema=False)
-    @limiter.exempt
-    def frontend(path: str):
+    # SPA disajikan sebagai SUB-APP yang di-mount, bukan route catch-all di app utama.
+    #
+    # Kenapa: SlowAPIMiddleware menentukan handler lewat _find_route_handler(), yang
+    # mengambil route ber-Match.FULL TERAKHIR. Catch-all `/{path:path}` (exempt) selalu
+    # menang untuk /api/*, jadi default limit 60/minute mati tanpa error — terbukti
+    # 70 request /api/health semua 200 saat SERVE_FRONTEND=true. Mount tidak punya
+    # atribut .endpoint sehingga dilewati, dan handler API yang terpilih.
+    def frontend(request: Request):
+        path = request.path_params["path"]
         if path == "api" or path.startswith("api/"):
             raise HTTPException(404, "Endpoint API tidak ditemukan")
         root = settings.frontend_dist.resolve()
@@ -169,6 +176,8 @@ if settings.serve_frontend:
         if not index.is_file():
             raise HTTPException(503, "Frontend belum dibangun")
         return FileResponse(index, headers={"Cache-Control": "no-cache"})
+
+    app.mount("/", Starlette(routes=[Route("/{path:path}", endpoint=frontend)]))
 
 
 def custom_openapi():
