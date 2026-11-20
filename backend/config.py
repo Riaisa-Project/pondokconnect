@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     app_env: str = "development"
     demo_mode: bool = True
     demo_accounts_enabled: bool = True
+    demo_admin_password: SecretStr | None = Field(default=None, repr=False)
+    demo_satgas_password: SecretStr | None = Field(default=None, repr=False)
     cors_origins: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     upload_dir: Path = ROOT / "storage/uploads"
     rate_limit_enabled: bool = True

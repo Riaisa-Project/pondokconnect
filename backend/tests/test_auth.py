@@ -36,8 +36,9 @@ def test_mandatory_change_and_revocation(client, db, admin):
     db.commit()
     assert client.get("/admin/ponpes/my", headers=admin).status_code == 403
     assert client.get("/admin/me", headers=admin).status_code == 200
+    assert settings.demo_admin_password is not None
     payload = {
-        "old_password": "admin123",
+        "old_password": settings.demo_admin_password.get_secret_value(),
         "new_password": "NewSecure123!",
         "confirm_password": "NewSecure123!",
     }

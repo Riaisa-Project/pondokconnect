@@ -3415,3 +3415,13 @@ h2 em {
   background: #e9c98b14;
   border-color: #e9c98b66;
 }
+
+/* Layar ≤380px: header terlalu sempit untuk subjudul 12px (164px),
+   sehingga tombol menu terdorong keluar viewport. Subjudul disembunyikan;
+   nama dan nama aksesibel (aria-label) tetap ada. Kalau header ditambah item,
+   sesuaikan breakpoint ini. */
+@media (max-width: 380px) {
+  .brand small {
+    display: none;
+  }
+}

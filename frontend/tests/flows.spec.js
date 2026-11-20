@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test'
 
-async function login(
-  page,
-  email = 'admin@sunandrajat.id',
-  password = 'admin123',
-) {
+import { demoLogin } from './helpers.js'
+
+async function login(page, email, password) {
+  if (!email) return demoLogin(page, 'admin_ponpes')
   await page.goto('/masuk')
   await page.getByLabel('Email pengelola').fill(email)
   await page.getByLabel('Password', { exact: true }).fill(password)
@@ -127,7 +126,7 @@ test('anonymous report removes identity and Satgas updates progress', async ({
   ).toBeVisible()
   const ticket = await page.locator('.copy-block code').textContent()
   expect(ticket).toMatch(/^[a-f0-9]{32}$/)
-  await login(page, 'satgas@kemenag.go.id', 'satgas123')
+  await demoLogin(page, 'satgas_kemenag')
   await page.getByRole('button', { name: 'Pengaduan santri' }).click()
   await page
     .locator('summary')
@@ -161,7 +160,7 @@ test('provisioning, forced password change, oversight and reset', async ({
   page,
   browser,
 }) => {
-  await login(page, 'satgas@kemenag.go.id', 'satgas123')
+  await demoLogin(page, 'satgas_kemenag')
   await page.getByRole('button', { name: 'Tambah pesantren' }).click()
   await page
     .getByLabel('Nama pesantren', { exact: true })

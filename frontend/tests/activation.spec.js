@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { demoLogin } from './helpers.js'
+
 test.skip(
   process.env.REFERENCE_CATALOG_FIXTURE !== '1',
   'Needs the expanded reference catalog',
@@ -17,10 +19,7 @@ test('Satgas records sourced oversight without changing provenance or opening re
   await expect(
     page.getByRole('img', { name: 'QR status pesantren' }),
   ).toBeVisible()
-  await page.goto('/masuk')
-  await page.getByLabel('Email pengelola').fill('satgas@kemenag.go.id')
-  await page.getByLabel('Password', { exact: true }).fill('satgas123')
-  await page.getByRole('button', { name: 'Masuk ke portal' }).click()
+  await demoLogin(page, 'satgas_kemenag')
   await page
     .getByRole('button', { name: 'Daftar pesantren', exact: true })
     .click()

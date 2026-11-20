@@ -49,21 +49,37 @@ def seed(db: Session):
             db.add(Kecamatan(nama_kecamatan=name))
     db.flush()
     accounts = [
-        ("satgas@kemenag.go.id", "satgas123", "Satgas Kemenag (Demo)", "satgas_kemenag"),
-        ("admin@sunandrajat.id", "admin123", "Admin Sunan Drajat (Demo)", "admin_ponpes"),
+        (
+            "satgas@kemenag.go.id",
+            settings.demo_satgas_password,
+            "Satgas Kemenag (Demo)",
+            "satgas_kemenag",
+        ),
+        (
+            "admin@sunandrajat.id",
+            settings.demo_admin_password,
+            "Admin Sunan Drajat (Demo)",
+            "admin_ponpes",
+        ),
     ]
     for email, password, name, role in accounts:
-        if not db.scalar(select(User).where(User.email == email)):
-            db.add(
-                User(
-                    email=email,
-                    password_hash=hash_password(password),
-                    nama_lengkap=name,
-                    no_hp="080000000000",
-                    role=role,
-                    must_change_password=False,
-                )
+        if db.scalar(select(User).where(User.email == email)):
+            continue
+        if password is None:
+            raise RuntimeError(
+                f"Password akun demo {email} belum diisi. Set DEMO_SATGAS_PASSWORD "
+                "atau DEMO_ADMIN_PASSWORD di .env, atau jalankan bootstrap.py."
             )
+        db.add(
+            User(
+                email=email,
+                password_hash=hash_password(password.get_secret_value()),
+                nama_lengkap=name,
+                no_hp="080000000000",
+                role=role,
+                must_change_password=False,
+            )
+        )
     db.flush()
     admin = db.scalar(select(User).where(User.email == "admin@sunandrajat.id"))
     examples = [

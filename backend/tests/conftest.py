@@ -4,6 +4,11 @@ os.environ["JWT_SECRET"] = "test-only-key-" * 5
 os.environ["DATABASE_URL"] = os.getenv("TEST_DATABASE_URL", "sqlite://")
 os.environ["RATE_LIMIT_ENABLED"] = "false"
 os.environ["APP_ENV"] = "test"
+# Kredensial akun demo khusus test (nilainya tidak pernah dipakai di production).
+DEMO_ADMIN_PASSWORD = "test-admin-password"
+DEMO_SATGAS_PASSWORD = "test-satgas-password"
+os.environ["DEMO_ADMIN_PASSWORD"] = DEMO_ADMIN_PASSWORD
+os.environ["DEMO_SATGAS_PASSWORD"] = DEMO_SATGAS_PASSWORD
 
 import pytest
 from fastapi.testclient import TestClient
@@ -67,7 +72,7 @@ def client(db, factory, tmp_path, monkeypatch):
     app.dependency_overrides.clear()
 
 
-def login(client, email="satgas@kemenag.go.id", password="satgas123"):
+def login(client, email="satgas@kemenag.go.id", password=DEMO_SATGAS_PASSWORD):
     response = client.post("/admin/login", json={"email": email, "password": password})
     assert response.status_code == 200, response.text
     return {"Authorization": f"Bearer {response.json()['access_token']}"}
@@ -80,4 +85,4 @@ def satgas(client):
 
 @pytest.fixture
 def admin(client):
-    return login(client, "admin@sunandrajat.id", "admin123")
+    return login(client, "admin@sunandrajat.id", DEMO_ADMIN_PASSWORD)

@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { demoLogin } from './helpers.js'
+
 test('production deployment hides demo credentials and explains optional Groq OCR', async ({
   page,
 }) => {
@@ -38,7 +40,20 @@ test('demo deployment still labels sample access and data', async ({
 }) => {
   await page.route('**/api/system/features', (route) =>
     route.fulfill({
-      json: { demo: true, ocr_available: false, provider: null },
+      json: {
+        demo: true,
+        // Bentuk ini sama dengan /api/system/features saat mode demo.
+        demo_accounts: [
+          {
+            label: 'Satgas',
+            email: 'satgas@kemenag.go.id',
+            role: 'satgas_kemenag',
+            password: 'contoh-sandi',
+          },
+        ],
+        ocr_available: false,
+        provider: null,
+      },
     }),
   )
   await page.goto('/masuk')
@@ -81,10 +96,7 @@ test('reference administrators keep unknown facts blank when saving a profile', 
         json: { ...reference, kuota_putra: 0, kuota_putri: 0 },
       })
   })
-  await page.goto('/masuk')
-  await page.getByLabel('Email pengelola').fill('admin@sunandrajat.id')
-  await page.getByLabel('Password', { exact: true }).fill('admin123')
-  await page.getByRole('button', { name: 'Masuk ke portal' }).click()
+  await demoLogin(page, 'admin_ponpes')
   await page
     .getByRole('button', { name: 'Profil & kuota', exact: true })
     .click()

@@ -40,9 +40,12 @@ def main():
         DATABASE_URL=url.render_as_string(hide_password=False),
         APP_ENV="test",
         DEMO_MODE="true",
+        DEMO_ACCOUNTS_ENABLED="true",
         RATE_LIMIT_ENABLED="false",
         OCR_ENABLED="false",
         GROQ_API_KEY="",
+        DEMO_ADMIN_PASSWORD="e2e-admin-password",
+        DEMO_SATGAS_PASSWORD="e2e-satgas-password",
         UPLOAD_DIR=upload_dir,
     )
     import uvicorn

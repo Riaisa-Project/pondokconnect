@@ -56,6 +56,9 @@ DISTRICTS = (
     "Turi",
 )
 LOGIN_DOMAIN = "pondokconnect.id"
+# Password demo lama yang masih dipakai akun warisan. Bukan default untuk akun
+# baru (baru dibuat acak) — dipakai hanya untuk mendeteksi akun yang perlu
+# dirotasi. Lihat juga seeds.py: akun demo kini wajib dari env DEMO_*_PASSWORD.
 DEMO_PASSWORDS = ("admin123", "satgas123")
 CSV_FIELDS = ("ponpes_id", "slug", "nama_ponpes", "role", "email", "password")
 

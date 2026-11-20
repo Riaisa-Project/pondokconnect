@@ -103,17 +103,20 @@ export function Login() {
           admin05@pondokconnect.id. Kontak email resmi pesantren tercantum pada
           profil lembaga.
         </p>
-        {features.data?.demo &&
-          features.data?.demo_accounts_available !== false && (
-            <details className="demo-accounts">
-              <summary>Akun demo untuk mencoba</summary>
-              <p>
-                <strong>Satgas:</strong> satgas@kemenag.go.id / satgas123
-                <br />
-                <strong>Pengurus:</strong> admin@sunandrajat.id / admin123
-              </p>
-            </details>
-          )}
+        {features.data?.demo_accounts?.length > 0 && (
+          <details className="demo-accounts">
+            <summary>Akun demo untuk mencoba</summary>
+            <p>
+              {features.data.demo_accounts.map((account) => (
+                <span key={account.email}>
+                  <strong>{account.label}:</strong> {account.email} /{' '}
+                  {account.password}
+                  <br />
+                </span>
+              ))}
+            </p>
+          </details>
+        )}
       </form>
     </div>
   )

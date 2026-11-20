@@ -104,12 +104,33 @@ def health(db: Session = Depends(get_db)):
 @app.get("/system/features", tags=["Sistem"])
 def features():
     available = ocr_available()
-    return {
+    demo_accounts_enabled = settings.demo_mode and settings.demo_accounts_enabled
+    payload = {
         "demo": settings.demo_mode,
-        "demo_accounts_available": settings.demo_mode and settings.demo_accounts_enabled,
+        "demo_accounts_available": demo_accounts_enabled,
         "ocr_available": available,
         "provider": "Groq" if available else None,
     }
+    if demo_accounts_enabled:
+        # Hanya dikirim saat mode demo: kredensial ini memang untuk dicoba publik.
+        # Di production `demo_mode` wajib false, jadi kunci ini tidak pernah ada.
+        accounts = []
+        for label, email, password in (
+            ("Satgas", "satgas@kemenag.go.id", settings.demo_satgas_password),
+            ("Pengurus", "admin@sunandrajat.id", settings.demo_admin_password),
+        ):
+            if password is not None:
+                accounts.append(
+                    {
+                        "label": label,
+                        "email": email,
+                        "role": "satgas_kemenag" if label == "Satgas" else "admin_ponpes",
+                        "password": password.get_secret_value(),
+                    }
+                )
+        if accounts:
+            payload["demo_accounts"] = accounts
+    return payload
 
 
 for router in (

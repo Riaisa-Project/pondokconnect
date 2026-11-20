@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
 
+import { demoLogin } from './helpers.js'
+
 test('saved profiles, comparison limit, shareable URL and unavailable selections', async ({
   page,
 }) => {
@@ -89,10 +91,7 @@ test('3D modes, district choice, pause and reset remain available', async ({
 test('dashboard and edited public profile read through to comparison', async ({
   page,
 }) => {
-  await page.goto('/masuk')
-  await page.getByLabel('Email pengelola').fill('admin@sunandrajat.id')
-  await page.getByLabel('Password', { exact: true }).fill('admin123')
-  await page.getByRole('button', { name: 'Masuk ke portal' }).click()
+  await demoLogin(page, 'admin_ponpes')
   await expect(page.locator('.metric-card')).toHaveCount(4)
   await expect(
     page.getByRole('button', { name: 'Pengaduan santri' }),
