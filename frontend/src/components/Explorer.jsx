@@ -112,6 +112,7 @@ export default function Explorer({ districts = [] }) {
       ref={stage}
       className={`explorer-stage ${expanded ? 'explorer-expanded' : ''}`}
       data-renderer={renderer}
+      data-mode={mode}
       role={expanded ? 'dialog' : undefined}
       aria-modal={expanded ? 'true' : undefined}
       aria-label={expanded ? 'Jelajah 3D pesantren' : undefined}
@@ -356,7 +357,7 @@ export default function Explorer({ districts = [] }) {
             value={selected || ''}
             onChange={(e) => chooseDistrict(Number(e.target.value) || null)}
           >
-            <option value="">Pilih kecamatan ↗</option>
+            <option value="">Pilih kecamatan</option>
             {districts.map((d) => (
               <option key={d.kecamatan_id} value={d.kecamatan_id}>
                 {d.nama_kecamatan}

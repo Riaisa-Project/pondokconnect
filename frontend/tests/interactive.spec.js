@@ -242,3 +242,31 @@ test('each classroom and dormitory focuses the building actually clicked', async
       .toBeLessThan(0.05)
   }
 })
+
+// Kartu jelajah di ponsel: panel info tidak boleh menimpa peta, target sentuh ≥44px,
+// dan tidak ada gulir horizontal. Kalau CSS mobile diubah, test ini yang menangkapnya.
+test('kartu jelajah di ponsel 360px tidak saling menimpa', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 780 })
+  await page.goto('/')
+  const map = page.locator('.kecamatan-map')
+  await expect(map).toBeVisible()
+  await expect(page.locator('.kecamatan-map .leaflet-container')).toBeVisible()
+
+  const boxes = await page.evaluate(() => {
+    const r = (s) => document.querySelector(s).getBoundingClientRect()
+    const zoom = document.querySelector('.kecamatan-map .leaflet-control-zoom a')
+    return {
+      mapBottom: r('.kecamatan-map').bottom,
+      infoTop: r('.explorer-info').top,
+      selectHeight: r('.explorer-bottom select').height,
+      zoomHeight: zoom.getBoundingClientRect().height,
+      zoomWidth: zoom.getBoundingClientRect().width,
+      overflow: document.documentElement.scrollWidth - innerWidth,
+    }
+  })
+  expect(boxes.infoTop - boxes.mapBottom).toBeGreaterThanOrEqual(8)
+  expect(boxes.selectHeight).toBeGreaterThanOrEqual(44)
+  expect(boxes.zoomHeight).toBeGreaterThanOrEqual(44)
+  expect(boxes.zoomWidth).toBeGreaterThanOrEqual(44)
+  expect(boxes.overflow).toBeLessThanOrEqual(0)
+})

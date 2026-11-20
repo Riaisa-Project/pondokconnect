@@ -3425,3 +3425,119 @@ h2 em {
     display: none;
   }
 }
+
+/* ---- Ponsel: kartu jelajah jadi kolom yang mengalir, bukan tumpukan absolut ----
+   Sebelumnya semua anak .explorer-stage diposisikan absolut dengan angka px tetap
+   (peta 302px, panel info menimpa 65px terakhir peta). Di mode region kartu
+   dijadikan flex-column: peta dapat tinggi cair clamp(44dvh), panel info pindah
+   ke bawah peta, footer ikut alur, semua target sentuh ≥44px.
+   Mode campus sengaja TIDAK diubah — kanvas 3D-nya butuh posisi absolut. */
+@media (max-width: 650px) {
+  /* teks utilitas sempat nempel ke tepi atas layar (y=0, padding 0) */
+  .utility-bar {
+    height: auto;
+    padding: 6px 0;
+    line-height: 1.35;
+  }
+  .explorer-stage[data-mode='region'] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: auto;
+    padding: 16px 14px 14px;
+  }
+  .explorer-stage[data-mode='region'] > .explorer-top,
+  .explorer-stage[data-mode='region'] > .explorer-tabs,
+  .explorer-stage[data-mode='region'] > .kecamatan-map,
+  .explorer-stage[data-mode='region'] > .explorer-info,
+  .explorer-stage[data-mode='region'] > .explorer-bottom {
+    position: static;
+    inset: auto;
+  }
+  /* badge status kembar dengan tab aktif; di ponsel dilepas supaya label tak wrap */
+  .explorer-stage[data-mode='region'] .explorer-tech {
+    display: none;
+  }
+  .explorer-stage[data-mode='region'] .explorer-top {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+
+  .explorer-stage[data-mode='region'] .explorer-tabs {
+    width: 100%;
+  }
+  .explorer-stage[data-mode='region'] .explorer-tabs button {
+    flex: 1;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .explorer-stage[data-mode='region'] .kecamatan-map {
+    grid-template-columns: minmax(0, 1fr);
+    height: clamp(220px, 44dvh, 340px);
+  }
+  /* daftar 27 baris = scroll di dalam scroll; pemilih kecamatan di bawah sudah cukup */
+  .explorer-stage[data-mode='region'] .kecamatan-side {
+    display: none;
+  }
+
+  .explorer-stage[data-mode='region'] .explorer-info {
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+  .explorer-stage[data-mode='region'] .explorer-info strong {
+    font-size: 16px;
+    line-height: 1.4;
+    text-wrap: balance; /* cegah "Lamongan." jadi baris sendiri */
+  }
+  .explorer-stage[data-mode='region'] .explorer-info small {
+    font-size: 11px;
+  }
+  .explorer-stage[data-mode='region'] .explorer-info p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .explorer-stage[data-mode='region'] .explorer-info > svg {
+    width: 22px;
+    height: 22px;
+    flex: none;
+  }
+
+  .explorer-stage[data-mode='region'] .explorer-bottom > span {
+    font-size: 11px;
+    color: #c6d4b6; /* atribusi Esri/OSM harus terbaca */
+  }
+  .explorer-stage[data-mode='region'] .explorer-bottom select {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    font-size: 13px;
+  }
+
+  /* kontrol zoom 30px = di bawah target sentuh 44px.
+     Leaflet menang lewat urutan (.leaflet-touch .leaflet-bar a spesifisitasnya
+     sama dengan selector 2-kelas), jadi kita naikkan ke 3 kelas. */
+  .kecamatan-map .leaflet-bar a.leaflet-control-zoom-in,
+  .kecamatan-map .leaflet-bar a.leaflet-control-zoom-out {
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 19px;
+  }
+
+  /* atribusi Leaflet (© OpenStreetMap · Esri) = strip putih paling terang di
+     kartu ini dan menggandakan teks footer. Warnai gelap, buang duplikatnya;
+     teks resmi OSM tetap ada (kewajiban lisensi ubin). */
+  .kecamatan-map .leaflet-container .leaflet-control-attribution {
+    background: #143a2fd9;
+    color: #c6d4b6;
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+  .kecamatan-map .leaflet-control-attribution a {
+    color: #dfe9cd;
+  }
+  .explorer-stage[data-mode='region'] .explorer-bottom > span {
+    display: none;
+  }
+}
