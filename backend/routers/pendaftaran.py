@@ -12,7 +12,14 @@ from sqlalchemy.orm import Session
 from backend.auth import ponpes_only
 from backend.database import get_db
 from backend.limiter import limiter
-from backend.models.models import Pendaftaran, User
+from backend.models.models import (
+    CONSUMING,
+    DaftarUlang,
+    Gelombang,
+    Pendaftaran,
+    SeleksiTahapan,
+    User,
+)
 from backend.schemas.schemas import (
     Paginated,
     PendaftaranCreate,
