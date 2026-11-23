@@ -25,7 +25,16 @@ MYSQL = {"mysql_engine": "InnoDB", "mysql_charset": "utf8mb4", "mysql_collate": 
 ROLES = ("satgas_kemenag", "admin_ponpes", "warga")
 TIPE = ("salafiyah", "khalafiyah_modern", "kombinasi")
 IJOP = ("proses_verifikasi", "aktif", "kedaluwarsa", "ditolak")
-SELEKSI = ("menunggu_verifikasi", "lolos_berkas", "diterima", "ditolak")
+# Existing values first: MySQL enum ALTER only appends safely.
+SELEKSI = ("menunggu_verifikasi", "lolos_berkas", "diterima", "ditolak", "cadangan", "daftar_ulang", "gugur")
+JALUR = ("reguler", "tahfidz", "prestasi")
+MONDOK = ("mukim", "non_mukim")
+PENGHASILAN = ("di_bawah_1_5", "1_5_sampai_3", "3_sampai_5", "di_atas_5")
+TAHAPAN_JENIS = ("berkas", "tes", "wawancara", "kesehatan", "lainnya")
+TAHAPAN_STATUS = ("menunggu", "lulus", "tidak_lulus")
+DAFTAR_ULANG_STATUS = ("menunggu_pembayaran", "menunggu_verifikasi", "selesai", "gugur")
+# Statuses that hold a seat. Waitlist and gugur must not consume quota.
+CONSUMING = ("menunggu_verifikasi", "lolos_berkas", "diterima", "daftar_ulang")
 KATEGORI = ("pelecehan_seksual", "kekerasan_fisik", "perundungan_bullying", "pemerasan", "lainnya")
 TINDAKAN = ("masuk_antrian", "penyelidikan_satgas", "pendampingan", "proses_hukum", "selesai", "tidak_valid")
 DOKUMEN = ("belum_dikonfirmasi", "terdaftar")
@@ -106,11 +115,39 @@ class Ponpes(Timestamp, Base):
     )
 
 
+class Gelombang(Timestamp, Base):
+    """Satu periode penerimaan. Semua parameter yang berubah antar-periode ada di sini,
+    sehingga form pendaftaran tetap satu untuk semua gelombang."""
+
+    __tablename__ = "gelombang_psb"
+    __table_args__ = (
+        UniqueConstraint("ponpes_id", "nama"),
+        CheckConstraint("tanggal_tutup >= tanggal_buka", name="gelombang_date_order"),
+        CheckConstraint(
+            "biaya_pendaftaran >= 0 AND kuota_putra >= 0 AND kuota_putri >= 0",
+            name="gelombang_nonnegative",
+        ),
+        MYSQL,
+    )
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    ponpes_id: Mapped[int] = mapped_column(ForeignKey("ponpes.id", ondelete="CASCADE"), index=True)
+    nama: Mapped[str] = mapped_column(String(80))
+    tanggal_buka: Mapped[date] = mapped_column(Date)
+    tanggal_tutup: Mapped[date] = mapped_column(Date)
+    biaya_pendaftaran: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0, server_default="0")
+    kuota_putra: Mapped[int] = mapped_column(default=0, server_default="0")
+    kuota_putri: Mapped[int] = mapped_column(default=0, server_default="0")
+    jalur: Mapped[list[str]] = mapped_column(JSON, default=list)
+    jenjang: Mapped[list[str]] = mapped_column(JSON, default=list)
+    aktif: Mapped[bool] = mapped_column(Boolean, default=True, server_default="1")
+
+
 class Pendaftaran(Timestamp, Base):
     __tablename__ = "pendaftaran_santri"
     __table_args__ = (
         UniqueConstraint("ponpes_id", "nik_santri"),
         Index("ix_pendaftaran_quota", "ponpes_id", "jenis_kelamin", "status_seleksi"),
+        Index("ix_pendaftaran_gelombang_quota", "gelombang_id", "jenis_kelamin", "status_seleksi"),
         MYSQL,
     )
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -127,6 +164,68 @@ class Pendaftaran(Timestamp, Base):
         enum(SELEKSI, "status_seleksi"), default="menunggu_verifikasi", server_default="menunggu_verifikasi"
     )
     consent_at: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    gelombang_id: Mapped[int | None] = mapped_column(
+        ForeignKey("gelombang_psb.id", ondelete="SET NULL"), index=True
+    )
+    jalur: Mapped[str] = mapped_column(String(20), default="reguler", server_default="reguler")
+    jenjang: Mapped[str] = mapped_column(String(20), default="MA", server_default="MA")
+    tipe_mondok: Mapped[str] = mapped_column(
+        enum(MONDOK, "tipe_mondok"), default="mukim", server_default="mukim"
+    )
+    # Snapshot: riwayat tagihan tidak boleh berubah saat gelombang berikutnya menaikkan biaya.
+    biaya_pendaftaran: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0, server_default="0")
+    hubungan_wali: Mapped[str | None] = mapped_column(String(20))
+    nik_wali: Mapped[str | None] = mapped_column(String(16))
+    pekerjaan_wali: Mapped[str | None] = mapped_column(String(60))
+    penghasilan_wali: Mapped[str | None] = mapped_column(enum(PENGHASILAN, "penghasilan_wali"))
+    alamat_wali: Mapped[str | None] = mapped_column(Text)
+    kontak_darurat: Mapped[str | None] = mapped_column(String(20))
+    berkas_dinyatakan: Mapped[list[str] | None] = mapped_column(JSON)
+    nomor_induk: Mapped[str | None] = mapped_column(String(30))
+
+
+class SeleksiTahapan(Timestamp, Base):
+    __tablename__ = "seleksi_tahapan"
+    __table_args__ = (UniqueConstraint("pendaftaran_id", "urutan"), MYSQL)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    pendaftaran_id: Mapped[int] = mapped_column(
+        ForeignKey("pendaftaran_santri.id", ondelete="CASCADE"), index=True
+    )
+    urutan: Mapped[int] = mapped_column(default=1, server_default="1")
+    nama: Mapped[str] = mapped_column(String(80))
+    jenis: Mapped[str] = mapped_column(
+        enum(TAHAPAN_JENIS, "tahapan_jenis"), default="tes", server_default="tes"
+    )
+    jadwal_at: Mapped[datetime | None] = mapped_column(DateTime)
+    lokasi: Mapped[str | None] = mapped_column(String(120))
+    status: Mapped[str] = mapped_column(
+        enum(TAHAPAN_STATUS, "tahapan_status"), default="menunggu", server_default="menunggu"
+    )
+    catatan: Mapped[str | None] = mapped_column(Text)
+
+
+class DaftarUlang(Timestamp, Base):
+    __tablename__ = "daftar_ulang"
+    __table_args__ = MYSQL
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    pendaftaran_id: Mapped[int] = mapped_column(
+        ForeignKey("pendaftaran_santri.id", ondelete="CASCADE"), unique=True
+    )
+    tenggat_at: Mapped[datetime | None] = mapped_column(DateTime)
+    biaya_masuk: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0, server_default="0")
+    infaq: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=0, server_default="0")
+    bukti_bayar: Mapped[str | None] = mapped_column(String(255))
+    berkas_asli: Mapped[list[str] | None] = mapped_column(JSON)
+    pernyataan_at: Mapped[datetime | None] = mapped_column(DateTime)
+    nomor_induk: Mapped[str | None] = mapped_column(String(30))
+    kamar: Mapped[str | None] = mapped_column(String(40))
+    status: Mapped[str] = mapped_column(
+        enum(DAFTAR_ULANG_STATUS, "daftar_ulang_status"),
+        default="menunggu_pembayaran",
+        server_default="menunggu_pembayaran",
+        index=True,
+    )
+    catatan: Mapped[str | None] = mapped_column(Text)
 
 
 class Pengawasan(Timestamp, Base):

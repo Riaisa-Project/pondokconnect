@@ -1,5 +1,6 @@
 import re
 from datetime import date, datetime
+from decimal import Decimal
 from typing import Annotated, Generic, Literal, TypeVar
 from urllib.parse import urlsplit
 
@@ -25,12 +26,35 @@ def parse_iso_date(value):
 
 IsoDate = Annotated[date, BeforeValidator(parse_iso_date)]
 
+
+def parse_iso_datetime(value):
+    if type(value) is datetime:
+        return value
+    if not isinstance(value, str):
+        raise ValueError("Waktu wajib menggunakan format ISO 8601")
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        raise ValueError("Waktu wajib menggunakan format ISO 8601") from None
+    # Simpan waktu lokal tanpa zona; server berjalan pada zona Asia/Jakarta.
+    return parsed.astimezone().replace(tzinfo=None) if parsed.tzinfo else parsed
+
+
+IsoDateTime = Annotated[datetime, BeforeValidator(parse_iso_datetime)]
+
 Name = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=100)]
 Phone = Annotated[str, StringConstraints(pattern=r"^\+?[0-9][0-9 -]{6,19}$", max_length=20)]
 Password = Annotated[str, StringConstraints(min_length=10, max_length=72)]
 Tipe = Literal["salafiyah", "khalafiyah_modern", "kombinasi"]
 Ijop = Literal["proses_verifikasi", "aktif", "kedaluwarsa", "ditolak"]
-Seleksi = Literal["menunggu_verifikasi", "lolos_berkas", "diterima", "ditolak"]
+Seleksi = Literal[
+    "menunggu_verifikasi", "lolos_berkas", "diterima", "ditolak", "cadangan", "daftar_ulang", "gugur"
+]
+Jalur = Literal["reguler", "tahfidz", "prestasi"]
+Mondok = Literal["mukim", "non_mukim"]
+Penghasilan = Literal["di_bawah_1_5", "1_5_sampai_3", "3_sampai_5", "di_atas_5"]
+TahapanJenis = Literal["berkas", "tes", "wawancara", "kesehatan", "lainnya"]
+TahapanStatus = Literal["menunggu", "lulus", "tidak_lulus"]
 Tindakan = Literal[
     "masuk_antrian", "penyelidikan_satgas", "pendampingan", "proses_hukum", "selesai", "tidak_valid"
 ]
@@ -304,6 +328,33 @@ class Attachment(Input):
     content_base64: str = Field(min_length=1, max_length=6990508)
 
 
+class GelombangCreate(Input):
+    ponpes_id: int = Field(gt=0)
+    nama: str = Field(min_length=1, max_length=80)
+    tanggal_buka: IsoDate
+    tanggal_tutup: IsoDate
+    biaya_pendaftaran: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    kuota_putra: int = Field(default=0, ge=0, le=100000)
+    kuota_putri: int = Field(default=0, ge=0, le=100000)
+    jalur: list[Jalur] = Field(default=list)
+    jenjang: list[str] = Field(default=list)
+    aktif: bool = True
+
+
+class GelombangOut(Output):
+    id: int
+    ponpes_id: int
+    nama: str
+    tanggal_buka: date
+    tanggal_tutup: date
+    biaya_pendaftaran: Decimal
+    kuota_putra: int
+    kuota_putri: int
+    jalur: list[Jalur]
+    jenjang: list[str]
+    aktif: bool
+
+
 class PendaftaranCreate(Input):
     ponpes_id: int = Field(gt=0)
     nik_santri: str = Field(pattern=r"^[0-9]{16}$")
@@ -313,6 +364,17 @@ class PendaftaranCreate(Input):
     no_hp_wali: Phone
     consent: bool
     file_kk: Attachment | None = None
+    gelombang_id: int | None = None
+    jalur: Jalur = "reguler"
+    jenjang: str = "MA"
+    tipe_mondok: Mondok = "mukim"
+    hubungan_wali: str | None = None
+    nik_wali: str | None = Field(default=None, pattern=r"^[0-9]{16}$")
+    pekerjaan_wali: str | None = None
+    penghasilan_wali: Penghasilan | None = None
+    alamat_wali: str | None = None
+    kontak_darurat: str | None = None
+    berkas_dinyatakan: list[str] | None = None
 
     @field_validator("consent")
     @classmethod
@@ -341,6 +403,74 @@ class PendaftaranOut(PendaftaranTracking):
     nama_wali: str
     no_hp_wali: str
     has_file_kk: bool = False
+    gelombang_id: int | None = None
+    jalur: Jalur = "reguler"
+    jenjang: str = "MA"
+    tipe_mondok: Mondok = "mukim"
+    hubungan_wali: str | None = None
+    nik_wali: str | None = None
+    pekerjaan_wali: str | None = None
+    penghasilan_wali: Penghasilan | None = None
+    alamat_wali: str | None = None
+    kontak_darurat: str | None = None
+    berkas_dinyatakan: list[str] | None = None
+    nomor_induk: str | None = None
+
+
+class SeleksiTahapanCreate(Input):
+    pendaftaran_id: int = Field(gt=0)
+    urutan: int = Field(default=1, ge=1, le=100)
+    nama: str = Field(min_length=1, max_length=80)
+    jenis: TahapanJenis = "tes"
+    jadwal_at: IsoDateTime | None = None
+    lokasi: str | None = None
+    status: TahapanStatus = "menunggu"
+    catatan: str | None = None
+
+
+class SeleksiTahapanOut(Output):
+    id: int
+    pendaftaran_id: int
+    urutan: int
+    nama: str
+    jenis: TahapanJenis
+    jadwal_at: datetime | None
+    lokasi: str | None
+    status: TahapanStatus
+    catatan: str | None
+
+
+class DaftarUlangCreate(Input):
+    pendaftaran_id: int = Field(gt=0)
+    tenggat_at: IsoDateTime | None = None
+    biaya_masuk: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    infaq: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    bukti_bayar: Attachment | None = None
+    berkas_asli: list[str] | None = None
+    pernyataan_at: IsoDateTime | None = None
+    nomor_induk: str | None = None
+    kamar: str | None = None
+    status: Literal[
+        "menunggu_pembayaran", "menunggu_verifikasi", "selesai", "gugur"
+    ] = "menunggu_pembayaran"
+    catatan: str | None = None
+
+
+class DaftarUlangOut(Output):
+    id: int
+    pendaftaran_id: int
+    tenggat_at: datetime | None
+    biaya_masuk: Decimal
+    infaq: Decimal
+    bukti_bayar: str | None = None
+    berkas_asli: list[str] | None = None
+    pernyataan_at: datetime | None
+    nomor_induk: str | None = None
+    kamar: str | None = None
+    status: Literal[
+        "menunggu_pembayaran", "menunggu_verifikasi", "selesai", "gugur"
+    ]
+    catatan: str | None = None
 
 
 class PengaduanCreate(Input):
