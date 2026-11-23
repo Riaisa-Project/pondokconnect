@@ -393,6 +393,7 @@ class PendaftaranCreate(Input):
     alamat_wali: str | None = None
     kontak_darurat: str | None = None
     berkas_dinyatakan: list[str] | None = None
+    biaya_pendaftaran: Money | None = None
 
     @field_validator("consent")
     @classmethod

@@ -45,11 +45,19 @@ def register(payload: PendaftaranCreate, request: Request, db: Session = Depends
     if occupied(db, ponpes.id, payload.jenis_kelamin) >= capacity:
         raise HTTPException(409, "Kuota kategori santri telah penuh")
     with staged_attachment(payload.file_kk) as filename:
+        # Jika gelombang_id diberikan, ambil biaya pendaftaran dari gelombang.
+        biaya = payload.biaya_pendaftaran
+        if not biaya and payload.gelombang_id:
+            wave = db.get(Gelombang, payload.gelombang_id)
+            if not wave:
+                raise HTTPException(404, "Gelombang tidak ditemukan")
+            biaya = wave.biaya_pendaftaran
         row = Pendaftaran(
-            **payload.model_dump(exclude={"file_kk", "consent"}),
+            **payload.model_dump(exclude={"file_kk", "consent", "gelombang_id", "biaya_pendaftaran"}),
             file_kk=filename,
             consent_at=datetime.now(),
             nomor_registrasi=f"REG-{datetime.now():%Y%m}-{secrets.token_hex(8).upper()}",
+            biaya_pendaftaran=biaya,
         )
         db.add(row)
         db.commit()
