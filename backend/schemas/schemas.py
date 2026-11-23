@@ -473,6 +473,51 @@ class DaftarUlangOut(Output):
     catatan: str | None = None
 
 
+class SeleksiTahapanUpdate(Input):
+    status: TahapanStatus
+    jadwal_at: IsoDateTime | None = None
+    lokasi: str | None = None
+    catatan: str | None = None
+
+
+class DaftarUlangKirim(Input):
+    """Yang dikirim calon santri: bukti transfer + pernyataan wali."""
+
+    bukti_bayar: Attachment | None = None
+    berkas_asli: list[str] | None = None
+    pernyataan: bool
+
+    @field_validator("pernyataan")
+    @classmethod
+    def require_statement(cls, value: bool) -> bool:
+        if not value:
+            raise ValueError("Pernyataan wali diperlukan")
+        return value
+
+
+class DaftarUlangUpdate(Input):
+    status: Literal["menunggu_pembayaran", "menunggu_verifikasi", "selesai", "gugur"]
+    nomor_induk: str | None = Field(default=None, max_length=30)
+    kamar: str | None = Field(default=None, max_length=40)
+    catatan: str | None = None
+
+
+class PendaftaranRincian(PendaftaranTracking):
+    """Jawaban publik untuk satu nomor registrasi. Tanpa data pribadi."""
+
+    gelombang_nama: str | None = None
+    jalur: str = "reguler"
+    jenjang: str = "MA"
+    tipe_mondok: str = "mukim"
+    biaya_pendaftaran: Decimal = Decimal(0)
+    tahapan: list[SeleksiTahapanOut] = Field(default_factory=list)
+    daftar_ulang: DaftarUlangOut | None = None
+    has_bukti_bayar: bool = False
+    sisa_hari_daftar_ulang: int | None = None
+    nomor_induk: str | None = None
+    kamar: str | None = None
+
+
 class PengaduanCreate(Input):
     ponpes_id: int = Field(gt=0)
     kategori_kasus: Literal[
