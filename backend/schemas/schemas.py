@@ -1,6 +1,6 @@
 import re
 from datetime import date, datetime
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 from typing import Annotated, Generic, Literal, TypeVar
 from urllib.parse import urlsplit
 
@@ -41,6 +41,24 @@ def parse_iso_datetime(value):
 
 
 IsoDateTime = Annotated[datetime, BeforeValidator(parse_iso_datetime)]
+
+
+def parse_money(value):
+    """Input memakai strict=True, sedangkan JSON hanya bisa membawa angka/teks.
+
+    Tanpa konversi ini setiap field Decimal mentok 422 sebelum sampai ke handler.
+    """
+    if isinstance(value, Decimal):
+        return value
+    if isinstance(value, bool) or not isinstance(value, (int, float, str)):
+        raise ValueError("Nilai uang wajib angka atau teks desimal")
+    try:
+        return Decimal(str(value))
+    except InvalidOperation:
+        raise ValueError("Nilai uang wajib angka atau teks desimal") from None
+
+
+Money = Annotated[Decimal, BeforeValidator(parse_money)]
 
 Name = Annotated[str, StringConstraints(strip_whitespace=True, min_length=1, max_length=100)]
 Phone = Annotated[str, StringConstraints(pattern=r"^\+?[0-9][0-9 -]{6,19}$", max_length=20)]
@@ -333,11 +351,11 @@ class GelombangCreate(Input):
     nama: str = Field(min_length=1, max_length=80)
     tanggal_buka: IsoDate
     tanggal_tutup: IsoDate
-    biaya_pendaftaran: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    biaya_pendaftaran: Money = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
     kuota_putra: int = Field(default=0, ge=0, le=100000)
     kuota_putri: int = Field(default=0, ge=0, le=100000)
-    jalur: list[Jalur] = Field(default=list)
-    jenjang: list[str] = Field(default=list)
+    jalur: list[Jalur] = Field(default_factory=list)
+    jenjang: list[str] = Field(default_factory=list)
     aktif: bool = True
 
 
@@ -347,7 +365,7 @@ class GelombangOut(Output):
     nama: str
     tanggal_buka: date
     tanggal_tutup: date
-    biaya_pendaftaran: Decimal
+    biaya_pendaftaran: Money
     kuota_putra: int
     kuota_putri: int
     jalur: list[Jalur]
@@ -443,8 +461,8 @@ class SeleksiTahapanOut(Output):
 class DaftarUlangCreate(Input):
     pendaftaran_id: int = Field(gt=0)
     tenggat_at: IsoDateTime | None = None
-    biaya_masuk: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
-    infaq: Decimal = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    biaya_masuk: Money = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
+    infaq: Money = Field(default=Decimal(0), ge=Decimal(0), le=Decimal(100000000))
     bukti_bayar: Attachment | None = None
     berkas_asli: list[str] | None = None
     pernyataan_at: IsoDateTime | None = None
@@ -460,8 +478,8 @@ class DaftarUlangOut(Output):
     id: int
     pendaftaran_id: int
     tenggat_at: datetime | None
-    biaya_masuk: Decimal
-    infaq: Decimal
+    biaya_masuk: Money
+    infaq: Money
     bukti_bayar: str | None = None
     berkas_asli: list[str] | None = None
     pernyataan_at: datetime | None
