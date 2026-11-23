@@ -65,6 +65,7 @@ def register(payload: PendaftaranCreate, request: Request, db: Session = Depends
             consent_at=datetime.now(),
             nomor_registrasi=f"REG-{datetime.now():%Y%m}-{secrets.token_hex(8).upper()}",
             biaya_pendaftaran=biaya,
+            gelombang_id=payload.gelombang_id,
         )
         db.add(row)
         db.commit()
