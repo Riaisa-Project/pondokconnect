@@ -147,13 +147,10 @@ for router in (
     pengaduan.router,
     chat.router,
     ocr.router,
+    psb.router,
 ):
     app.include_router(router)
     app.include_router(router, prefix="/api", include_in_schema=False)
-
-    # PSB is a separate router to keep its endpoints grouped and avoid name collisions.
-    app.include_router(psb.router)
-    app.include_router(psb.router, prefix="/api", include_in_schema=False)
 
 
 if settings.serve_frontend:
