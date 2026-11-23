@@ -6,6 +6,7 @@ import {
   ShieldCheck,
   Users,
   CalendarDays,
+  Upload,
 } from 'lucide-react'
 import { download, get } from '../lib/api'
 import { psbTrackDetail, psbDaftarUlang } from '../lib/psb'
@@ -64,6 +65,22 @@ export default function Tracking() {
         pernyataan: true,
       })
       setResult({ ...result, has_bukti_bayar: false })
+    } catch (e) {
+      setError(e)
+    } finally {
+      setBusy(false)
+    }
+  }
+  async function uploadBukti(file) {
+    setBusy(true)
+    setError(null)
+    try {
+      const attachment = await window.api.attachment(file)
+      await psbDaftarUlang(result.nomor_registrasi, {
+        bukti_bayar: attachment,
+        pernyataan: true,
+      })
+      setResult({ ...result, has_bukti_bayar: true })
     } catch (e) {
       setError(e)
     } finally {
@@ -227,6 +244,20 @@ export default function Tracking() {
               <Button variant="primary" busy={busy} onClick={daftarUlang}>
                 <CalendarDays size={16} />
                 Daftar ulang sekarang
+              </Button>
+            )}
+            {type === 'psb' && result.status_seleksi === 'diterima' && result.has_bukti_bayar && (
+              <Button variant="primary" busy={busy}>
+                <Upload size={16} />
+                Unggah bukti bayar
+                <input
+                  type="file"
+                  accept="application/pdf,image/png,image/jpeg"
+                  onChange={(e) => {
+                    if (e.target.files.length > 0) uploadBukti(e.target.files[0])
+                  }}
+                  style={{ display: 'none' }}
+                />
               </Button>
             )}
           </div>
