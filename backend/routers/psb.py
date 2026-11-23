@@ -235,9 +235,7 @@ def daftar_ulang_proof(
     return private_file(record.bukti_bayar if record else None)
 
 
-@router.post(
-    "/admin/pendaftaran/{registration_id}/tahapan", response_model=SeleksiTahapanOut, status_code=201
-)
+@router.post("/admin/pendaftaran/{registration_id}/tahapan", response_model=SeleksiTahapanOut, status_code=201, operation_id="admin_create_tahapan")
 def add_stage(
     registration_id: int,
     payload: SeleksiTahapanCreate,
@@ -259,7 +257,7 @@ def add_stage(
     return stage
 
 
-@router.put("/admin/tahapan/{tahapan_id}", response_model=SeleksiTahapanOut)
+@router.put("/admin/tahapan/{tahapan_id}", response_model=SeleksiTahapanOut, operation_id="admin_update_tahapan")
 def update_stage(
     tahapan_id: int,
     payload: SeleksiTahapanUpdate,
@@ -285,7 +283,7 @@ def update_stage(
 
 
 @router.post(
-    "/admin/pendaftaran/{registration_id}/daftar-ulang", response_model=DaftarUlangOut, status_code=201
+    "/admin/pendaftaran/{registration_id}/daftar-ulang", response_model=DaftarUlangOut, status_code=201, operation_id="admin_open_daftar_ulang"
 )
 def open_daftar_ulang(
     registration_id: int,
@@ -315,7 +313,7 @@ def open_daftar_ulang(
     return record
 
 
-@router.put("/admin/daftar-ulang/{daftar_ulang_id}", response_model=DaftarUlangOut)
+@router.put("/admin/daftar-ulang/{daftar_ulang_id}", response_model=DaftarUlangOut, operation_id="admin_update_daftar_ulang")
 def decide_daftar_ulang(
     daftar_ulang_id: int,
     payload: DaftarUlangUpdate,
@@ -348,7 +346,7 @@ def decide_daftar_ulang(
     return record
 
 
-@router.get("/admin/papan-daftar-ulang", response_model=list[PendaftaranRincian])
+@router.get("/admin/papan-daftar-ulang", response_model=list[PendaftaranRincian], operation_id="admin_daftar_ulang_board")
 def daftar_ulang_board(user: User = Depends(ponpes_only), db: Session = Depends(get_db)):
     """Pengumuman terbuka: siapa yang dipanggil daftar ulang dan sisa tenggatnya."""
     ponpes = own_ponpes(db, user.id)
