@@ -268,7 +268,8 @@ test('mobile navigation and WebGL fallback stay usable', async ({ page }) => {
         : original.call(this, type, ...args)
     }
   })
-  await page.setViewportSize({ width: 390, height: 844 })
+  // Desktop: tanpa WebGL, kampus harus jatuh ke ilustrasi SVG, bukan kanvas kosong.
+  await page.setViewportSize({ width: 1100, height: 900 })
   await page.goto('/')
   await page
     .getByRole('button', { name: 'Kampus pesantren', exact: true })
@@ -277,6 +278,18 @@ test('mobile navigation and WebGL fallback stay usable', async ({ page }) => {
   await expect(page.locator('.explorer-stage')).toHaveAttribute(
     'data-renderer',
     'svg',
+  )
+  // Ponsel: mode 3D sengaja tidak ditawarkan (kanvas terpotong di layar sempit).
+  await page.setViewportSize({ width: 390, height: 844 })
+  await expect(
+    page.getByRole('button', { name: 'Kampus pesantren', exact: true }),
+  ).toHaveCount(0)
+  await expect(
+    page.getByRole('button', { name: 'Peta Lamongan' }),
+  ).toHaveAttribute('aria-pressed', 'true')
+  await expect(page.locator('.explorer-stage')).toHaveAttribute(
+    'data-mode',
+    'region',
   )
   expect(
     await page.evaluate(
