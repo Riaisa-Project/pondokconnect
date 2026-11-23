@@ -235,8 +235,8 @@ def daftar_ulang_proof(
     return private_file(record.bukti_bayar if record else None)
 
 
-@router.post("/admin/pendaftaran/{registration_id}/tahapan", response_model=SeleksiTahapanOut, status_code=201, operation_id="admin_create_tahapan")
-def add_stage(
+@router.post("/admin/pendaftaran/{registration_id}/tahapan", response_model=SeleksiTahapanOut, status_code=201)
+def psb_add_tahapan(
     registration_id: int,
     payload: SeleksiTahapanCreate,
     request: Request,
@@ -257,8 +257,8 @@ def add_stage(
     return stage
 
 
-@router.put("/admin/tahapan/{tahapan_id}", response_model=SeleksiTahapanOut, operation_id="admin_update_tahapan")
-def update_stage(
+@router.put("/admin/tahapan/{tahapan_id}", response_model=SeleksiTahapanOut)
+def psb_update_tahapan(
     tahapan_id: int,
     payload: SeleksiTahapanUpdate,
     request: Request,
@@ -283,9 +283,9 @@ def update_stage(
 
 
 @router.post(
-    "/admin/pendaftaran/{registration_id}/daftar-ulang", response_model=DaftarUlangOut, status_code=201, operation_id="admin_open_daftar_ulang"
+    "/admin/pendaftaran/{registration_id}/daftar-ulang", response_model=DaftarUlangOut, status_code=201
 )
-def open_daftar_ulang(
+def psb_open_daftar_ulang_admin(
     registration_id: int,
     payload: DaftarUlangCreate,
     request: Request,
@@ -313,8 +313,8 @@ def open_daftar_ulang(
     return record
 
 
-@router.put("/admin/daftar-ulang/{daftar_ulang_id}", response_model=DaftarUlangOut, operation_id="admin_update_daftar_ulang")
-def decide_daftar_ulang(
+@router.put("/admin/daftar-ulang/{daftar_ulang_id}", response_model=DaftarUlangOut)
+def psb_decide_daftar_ulang_admin(
     daftar_ulang_id: int,
     payload: DaftarUlangUpdate,
     request: Request,
@@ -346,8 +346,8 @@ def decide_daftar_ulang(
     return record
 
 
-@router.get("/admin/papan-daftar-ulang", response_model=list[PendaftaranRincian], operation_id="admin_daftar_ulang_board")
-def daftar_ulang_board(user: User = Depends(ponpes_only), db: Session = Depends(get_db)):
+@router.get("/admin/papan-daftar-ulang", response_model=list[PendaftaranRincian])
+def psb_get_daftar_ulang_board(user: User = Depends(ponpes_only), db: Session = Depends(get_db)):
     """Pengumuman terbuka: siapa yang dipanggil daftar ulang dan sisa tenggatnya."""
     ponpes = own_ponpes(db, user.id)
     rows = db.scalars(
