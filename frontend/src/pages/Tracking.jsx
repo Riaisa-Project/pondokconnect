@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import {
   Download,
   FileSearch,
@@ -8,7 +8,7 @@ import {
   CalendarDays,
   Upload,
 } from 'lucide-react'
-import { download, get } from '../lib/api'
+import { attachment, download, get } from '../lib/api'
 import { psbTrackDetail, psbDaftarUlang } from '../lib/psb'
 import { date } from '../lib/format'
 import {
@@ -61,10 +61,9 @@ export default function Tracking() {
     setBusy(true)
     setError(null)
     try {
-      await psbDaftarUlang(result.nomor_registrasi, {
-        pernyataan: true,
-      })
-      setResult({ ...result, has_bukti_bayar: false })
+      setResult(
+        await psbDaftarUlang(result.nomor_registrasi, { pernyataan: true }),
+      )
     } catch (e) {
       setError(e)
     } finally {
@@ -75,12 +74,12 @@ export default function Tracking() {
     setBusy(true)
     setError(null)
     try {
-      const attachment = await window.api.attachment(file)
-      await psbDaftarUlang(result.nomor_registrasi, {
-        bukti_bayar: attachment,
-        pernyataan: true,
-      })
-      setResult({ ...result, has_bukti_bayar: true })
+      setResult(
+        await psbDaftarUlang(result.nomor_registrasi, {
+          bukti_bayar: await attachment(file),
+          pernyataan: true,
+        }),
+      )
     } catch (e) {
       setError(e)
     } finally {
@@ -240,25 +239,13 @@ export default function Tracking() {
                 Unduh bukti PDF
               </Button>
             )}
-            {type === 'psb' && result.status_seleksi === 'diterima' && !result.has_bukti_bayar && (
-              <Button variant="primary" busy={busy} onClick={daftarUlang}>
-                <CalendarDays size={16} />
-                Daftar ulang sekarang
-              </Button>
-            )}
-            {type === 'psb' && result.status_seleksi === 'diterima' && result.has_bukti_bayar && (
-              <Button variant="primary" busy={busy}>
-                <Upload size={16} />
-                Unggah bukti bayar
-                <input
-                  type="file"
-                  accept="application/pdf,image/png,image/jpeg"
-                  onChange={(e) => {
-                    if (e.target.files.length > 0) uploadBukti(e.target.files[0])
-                  }}
-                  style={{ display: 'none' }}
-                />
-              </Button>
+            {type === 'psb' && (
+              <PsbActions
+                result={result}
+                busy={busy}
+                onSign={daftarUlang}
+                onUpload={uploadBukti}
+              />
             )}
           </div>
         )}
@@ -277,6 +264,7 @@ function StatusGuidance({ status, type, result }) {
     'menunggu_verifikasi',
     'lolos_berkas',
     'diterima',
+    'ditolak',
     'cadangan',
     'daftar_ulang',
     'gugur',
@@ -288,7 +276,7 @@ function StatusGuidance({ status, type, result }) {
     'proses_hukum',
     'selesai',
   ]
-  const stages = type === 'pendaftaran' ? registration : report
+  const stages = type === 'pengaduan' ? report : registration
   const labels = {
     menunggu_verifikasi: 'Verifikasi',
     lolos_berkas: 'Berkas lolos',
