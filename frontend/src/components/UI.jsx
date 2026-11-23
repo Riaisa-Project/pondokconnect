@@ -122,6 +122,13 @@ export function Badge({ value, children }) {
     </span>
   )
 }
+export function StatusStep({ status, current, label }) {
+  return (
+    <span className={`step${current ? ' current' : ''}`} data-status={status}>
+      {label}
+    </span>
+  )
+}
 export function PageHeading({ eyebrow, title, children, back }) {
   return (
     <div className="page-heading">

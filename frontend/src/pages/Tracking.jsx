@@ -32,7 +32,7 @@ export default function Tracking() {
     setError(null)
     setResult(null)
     try {
-      if (type === 'pendaftaran') {
+      if (type === 'psb') {
         setResult(await psbTrackDetail(code.trim()))
       } else {
         setResult(await get(`/${type}/lacak/${encodeURIComponent(code.trim())}`))
@@ -330,6 +330,54 @@ function StatusGuidance({ status, type, result }) {
       <small className="note">
         Indikator menunjukkan status saat ini, bukan riwayat waktu setiap tahap.
       </small>
+    </>
+  )
+}
+
+function PsbActions({ result, busy, onSign, onUpload }) {
+  const picker = useRef(null)
+  if (!['diterima', 'daftar_ulang'].includes(result.status_seleksi)) return null
+  if (!result.daftar_ulang)
+    return (
+      <p className="tracking-guidance">
+        Pendaftaran Anda sudah diterima. Pengurus membuka daftar ulang setelah
+        pengumuman — periksa kembali halaman ini memakai nomor registrasi Anda.
+      </p>
+    )
+  if (result.daftar_ulang.status === 'selesai')
+    return (
+      <p className="tracking-guidance">
+        Daftar ulang selesai diverifikasi pengurus. Nomor induk dan kamar
+        tercantum di atas.
+      </p>
+    )
+  return (
+    <>
+      {!result.daftar_ulang.pernyataan_at && (
+        <Button variant="primary" busy={busy} onClick={onSign}>
+          <CalendarDays size={16} />
+          Tanda tangani pernyataan daftar ulang
+        </Button>
+      )}
+      <Button
+        variant="secondary"
+        busy={busy}
+        onClick={() => picker.current?.click()}
+      >
+        <Upload size={16} />
+        {result.has_bukti_bayar
+          ? 'Kirim ulang bukti bayar'
+          : 'Unggah bukti bayar'}
+      </Button>
+      <input
+        ref={picker}
+        hidden
+        type="file"
+        accept="application/pdf,image/png,image/jpeg"
+        onChange={(e) => {
+          if (e.target.files.length > 0) onUpload(e.target.files[0])
+        }}
+      />
     </>
   )
 }
