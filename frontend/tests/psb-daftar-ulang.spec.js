@@ -63,7 +63,10 @@ test('daftar ulang: pernyataan wali lalu unggah bukti bayar dari halaman lacak',
   const record = (await listed.json()).items.find(
     (row) => row.nomor_registrasi === code,
   )
-  expect(record, 'pendaftaran baru harus muncul di daftar pengurus').toBeTruthy()
+  expect(
+    record,
+    'pendaftaran baru harus muncul di daftar pengurus',
+  ).toBeTruthy()
 
   const announced = await api(
     page,
@@ -148,7 +151,9 @@ test('daftar ulang: pernyataan wali lalu unggah bukti bayar dari halaman lacak',
   ).toBe(200)
   const board = await api(page, token, 'GET', '/admin/papan-daftar-ulang')
   expect(board.status()).toBe(200)
-  expect((await board.json()).map((row) => row.nomor_registrasi)).toContain(code)
+  expect((await board.json()).map((row) => row.nomor_registrasi)).toContain(
+    code,
+  )
 
   expect(errors).toEqual([])
 })

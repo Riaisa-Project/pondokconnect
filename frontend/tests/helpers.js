@@ -5,9 +5,13 @@ import { expect } from '@playwright/test'
 export async function demoLogin(page, role) {
   const response = await page.request.get('/api/system/features')
   const features = await response.json()
-  const account = (features.demo_accounts ?? []).find((item) => item.role === role)
+  const account = (features.demo_accounts ?? []).find(
+    (item) => item.role === role,
+  )
   if (!account) {
-    throw new Error(`Akun demo ${role} tidak tersedia: ${JSON.stringify(features)}`)
+    throw new Error(
+      `Akun demo ${role} tidak tersedia: ${JSON.stringify(features)}`,
+    )
   }
   await page.goto('/masuk')
   await page.getByLabel('Email pengelola').fill(account.email)

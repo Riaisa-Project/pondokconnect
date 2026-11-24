@@ -35,7 +35,9 @@ export default function Tracking() {
       if (type === 'psb') {
         setResult(await psbTrackDetail(code.trim()))
       } else {
-        setResult(await get(`/${type}/lacak/${encodeURIComponent(code.trim())}`))
+        setResult(
+          await get(`/${type}/lacak/${encodeURIComponent(code.trim())}`),
+        )
       }
     } catch (e) {
       setError(e)
@@ -148,8 +150,8 @@ export default function Tracking() {
               type === 'pendaftaran'
                 ? 'Nomor registrasi'
                 : type === 'pengaduan'
-                ? 'Kode tiket pengaduan'
-                : 'Nomor registrasi'
+                  ? 'Kode tiket pengaduan'
+                  : 'Nomor registrasi'
             }
           >
             <input
@@ -163,8 +165,8 @@ export default function Tracking() {
                 type === 'pendaftaran'
                   ? 'REG-YYYYMM-XXXXXXXXXXXXXXXX'
                   : type === 'pengaduan'
-                  ? 'Kode tiket 32 karakter'
-                  : 'REG-YYYYMM-XXXXXXXXXXXXXXXX'
+                    ? 'Kode tiket 32 karakter'
+                    : 'REG-YYYYMM-XXXXXXXXXXXXXXXX'
               }
             />
           </Field>
@@ -202,8 +204,8 @@ export default function Tracking() {
                     {result.sisa_hari_daftar_ulang > 0
                       ? `${result.sisa_hari_daftar_ulang} hari lagi`
                       : result.sisa_hari_daftar_ulang === 0
-                      ? 'Hari ini'
-                      : 'Tenggat telah lewat'}
+                        ? 'Hari ini'
+                        : 'Tenggat telah lewat'}
                   </dd>
                 </div>
               )}
@@ -322,7 +324,12 @@ function StatusGuidance({ status, type, result }) {
       {stages.includes(status) && (
         <div className="tracking-steps" aria-label="Tahap layanan saat ini">
           {stages.map((s) => (
-            <StatusStep key={s} status={s} current={s === status} label={labels[s]} />
+            <StatusStep
+              key={s}
+              status={s}
+              current={s === status}
+              label={labels[s]}
+            />
           ))}
         </div>
       )}
