@@ -28,3 +28,24 @@ ssh oracle 'TS=$(date +%Y%m%d-%H%M%S); sudo -n docker exec pondokconnect-db-1 \
 Catatan: tidak ada endpoint DELETE di backend, jadi aktivasi harus lewat API
 supaya tercatat di `audit_logs`. Jangan mengubah `pendaftaran_dibuka` lewat SQL —
 audit trail-nya hilang.
+
+## `fill_identity_pilot.py`
+Mengisi field identitas ponpes 1 (`al-aman-payaman`) yang kosong di produksi:
+`nspp`, `nama_pengasuh`, `tipe_pesantren`.
+
+```bash
+scp scripts/ops/fill_identity_pilot.py oracle:/tmp/
+ssh oracle 'python3 /tmp/fill_identity_pilot.py'
+```
+
+Sumber data (semua eksternal, bukan karangan):
+- `nspp=510035240158` — dokumen Kemenag *Daftar Madrasah di Pondok Pesantren
+  Lamongan* (baris 18: AL AMAN, Jl. Setitet Ringin, Payaman, Solokuro).
+- `nama_pengasuh` + `tipe_pesantren=kombinasi` — alkhoirot.com (daftar pondok Lamongan).
+
+Kenapa SQL untuk NSPP: `nspp` **sengaja tidak ada** di `PonpesUpdate` — NSPP
+diberikan Kemenag, bukan diedit admin ponpes. Jadi diisi lewat SQL, sedangkan
+pengasuh/tipe lewat `PUT /api/admin/ponpes/my` supaya tercatat di `audit_logs`.
+
+Catatan: `PonpesDetail.jsx` menampilkan "NOMOR STATISTIK" untuk nilai `nspp`.
+Label itu memang dipakai untuk NSPP di UI saat ini.
