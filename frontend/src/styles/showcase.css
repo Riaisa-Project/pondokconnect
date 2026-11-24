@@ -452,7 +452,7 @@ textarea {
 }
 .kecamatan-map {
   position: absolute;
-  inset: 118px 25px 178px;
+  inset: 118px 25px 26px;
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 224px;
