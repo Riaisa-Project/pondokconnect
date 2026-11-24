@@ -71,3 +71,16 @@ dan buka `pondokconnect.riaisa.tech/pesantren/<slug>` (harus tampil di UI).
 
 Kenapa SQL, bukan API: `nspp` tidak ada di `PonpesUpdate`. Lihat catatan di
 `fill_identity_pilot.py`.
+
+## `pengasuh_batch.sql`
+Mengisi `nama_pengasuh` + `tipe_pesantren` untuk 3 ponpes yang namanya cocok
+persis dengan alkhoirot.com (nama + desa/kecamatan). Idempoten (guard `slug` +
+`nama_pengasuh IS NULL`). 3 ponpes lain sengaja dilewati — tidak ada padanan
+nama yang meyakinkan; alasannya ada di komentar SQL.
+
+```bash
+scp scripts/ops/pengasuh_batch.sql oracle:/tmp/
+ssh oracle 'sudo docker cp /tmp/pengasuh_batch.sql pondokconnect-db-1:/tmp/ && \
+  sudo docker exec pondokconnect-db-1 sh -c '\''exec mysql -uroot \
+  -p"$MYSQL_ROOT_PASSWORD" pondokconnect_db < /tmp/pengasuh_batch.sql'\'''
+```
