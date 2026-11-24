@@ -49,3 +49,25 @@ pengasuh/tipe lewat `PUT /api/admin/ponpes/my` supaya tercatat di `audit_logs`.
 
 Catatan: `PonpesDetail.jsx` menampilkan "NOMOR STATISTIK" untuk nilai `nspp`.
 Label itu memang dipakai untuk NSPP di UI saat ini.
+
+## `nspp_batch.sql`
+Mengisi `nspp` untuk 7 ponpes yang cocok dengan dokumen Kemenag *Daftar Madrasah
+di Pondok Pesantren Lamongan*. Idempoten (semua UPDATE punya guard `slug`).
+
+```bash
+# backup dulu
+ssh oracle 'sudo docker exec pondokconnect-db-1 sh -c '\''exec mysqldump -uroot \
+  -p"$MYSQL_ROOT_PASSWORD" --single-transaction pondokconnect_db'\'' 2>/dev/null \
+  | gzip > /home/ubuntu/backups/pre-nspp-$(date +%Y%m%d-%H%M%S).sql.gz'
+# apply
+scp scripts/ops/nspp_batch.sql oracle:/tmp/
+ssh oracle 'sudo docker cp /tmp/nspp_batch.sql pondokconnect-db-1:/tmp/ && \
+  sudo docker exec pondokconnect-db-1 sh -c '\''exec mysql -uroot \
+  -p"$MYSQL_ROOT_PASSWORD" pondokconnect_db < /tmp/nspp_batch.sql'\'''
+```
+
+Verifikasi: `curl -s https://pondokconnect.riaisa.tech/api/ponpes/<slug> | jq .nspp`
+dan buka `pondokconnect.riaisa.tech/pesantren/<slug>` (harus tampil di UI).
+
+Kenapa SQL, bukan API: `nspp` tidak ada di `PonpesUpdate`. Lihat catatan di
+`fill_identity_pilot.py`.
