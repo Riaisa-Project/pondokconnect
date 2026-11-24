@@ -392,6 +392,21 @@ code {
 .panel > p {
   margin-bottom: 22px;
 }
+.panel-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+.panel-header > div > h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.panel-header > div > p {
+  font-size: 12px;
+}
 .utility-bar {
   background: #173f35;
   color: #dbe6dc;

@@ -2,7 +2,7 @@ import ProfileContent from '../components/ProfileContent'
 import { documentStatuses, operationalStatuses } from '../components/Oversight'
 import { useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import { Send, Save } from 'lucide-react'
+import { Send, Save, RefreshCw } from 'lucide-react'
 import { useApi } from '../lib/hooks'
 import { get, post, put } from '../lib/api'
 import { date, formValues, selection } from '../lib/format'
@@ -176,10 +176,28 @@ function ServiceSettings({ data }) {
 }
 export function Registrations() {
   const { query, ...paging } = usePaged('/admin/pendaftaran')
+  const [refreshing, setRefreshing] = useState(false)
+  async function reload() {
+    setRefreshing(true)
+    try {
+      await query.refetch()
+    } finally {
+      setRefreshing(false)
+    }
+  }
   return (
     <div className="panel">
-      <h2>Pendaftaran masuk</h2>
-      <p>Tinjau berkas santri dan perbarui hasil seleksi.</p>
+      <div className="panel-header">
+        <div>
+          <h2>Pendaftaran masuk</h2>
+          <p>Tinjau berkas santri dan perbarui hasil seleksi.</p>
+        </div>
+        {/* ponytail: tanpa polling, list hanya fetch saat panel dibuka.
+            Naikkan ke refetchInterval 30s kalau admin perlu auto-update. */}
+        <Button variant="secondary" busy={refreshing} onClick={reload}>
+          <RefreshCw size={16} /> Muat ulang
+        </Button>
+      </div>
       <QueryState query={query}>
         {(data) => (
           <>

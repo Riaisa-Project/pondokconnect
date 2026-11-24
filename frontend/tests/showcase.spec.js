@@ -93,6 +93,11 @@ test('dashboard and edited public profile read through to comparison', async ({
 }) => {
   await demoLogin(page, 'admin_ponpes')
   await expect(page.locator('.metric-card')).toHaveCount(4)
+  await page.getByRole('button', { name: 'Seleksi santri' }).click()
+  const reload = page.getByRole('button', { name: 'Muat ulang' })
+  await expect(reload).toBeVisible()
+  await reload.click()
+  await expect(reload).toBeEnabled()
   await expect(
     page.getByRole('button', { name: 'Pengaduan santri' }),
   ).toHaveCount(0)
