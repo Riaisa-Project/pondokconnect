@@ -84,3 +84,32 @@ ssh oracle 'sudo docker cp /tmp/pengasuh_batch.sql pondokconnect-db-1:/tmp/ && \
   sudo docker exec pondokconnect-db-1 sh -c '\''exec mysql -uroot \
   -p"$MYSQL_ROOT_PASSWORD" pondokconnect_db < /tmp/pengasuh_batch.sql'\'''
 ```
+
+## `psb_batch.sql`
+Membuka layanan PSB (`pendaftaran_dibuka=1`) untuk 6 ponpes bersisa yang sudah
+punya NSPP, sehingga dropdown `/daftar` berisi 7 pesantren (pilot ponpes 1 +
+batch ini). Idempoten (guard `slug` + `pendaftaran_dibuka = 0`).
+
+```bash
+# backup dulu (WAJIB)
+ssh -i ~/.ssh/oracle_key ubuntu@168.110.198.224 \
+  'sudo docker exec pondokconnect-db-1 sh -c "mysqldump -uroot -p\$MYSQL_ROOT_PASSWORD pondokconnect_db" \
+   | gzip > /home/ubuntu/backups/pre-psb-$(date +%Y%m%d-%H%M%S).sql.gz'
+# apply
+scp scripts/ops/psb_batch.sql ubuntu@168.110.198.224:/tmp/
+ssh -i ~/.ssh/oracle_key ubuntu@168.110.198.224 'sudo docker cp /tmp/psb_batch.sql pondokconnect-db-1:/tmp/ && \
+  sudo docker exec pondokconnect-db-1 sh -c "mysql -uroot -p\$MYSQL_ROOT_PASSWORD pondokconnect_db < /tmp/psb_batch.sql"'
+```
+
+Kuota 50/50 di script ini adalah **nilai contoh**, bukan angka resmi. Setiap
+pengurus wajib menggantinya lewat `PUT /api/admin/ponpes/my/layanan`.
+`putri-al-fathimiyah-banjarwati` (pesantren putri) diberi kuota putra 0.
+
+Tidak ada `gelombang_psb` / `biaya_pendaftaran` yang dibuat di sini — itu
+keputusan tiap ponpes. Alur submit tetap jalan tanpa gelombang (biaya kosong).
+
+Verifikasi:
+```bash
+curl -s 'https://pondokconnect.riaisa.tech/api/ponpes/?limit=100&layanan=aktif' | jq .total   # 7
+# dropdown /daftar harus berisi 7 pesantren
+```
