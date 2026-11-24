@@ -69,11 +69,10 @@ export function Protected({ children, allowPasswordChange = false }) {
     )
   if (user?.must_change_password && !allowPasswordChange)
     return <Navigate to="/ganti-password" replace />
-  // Rute /ganti-password hanya untuk yang memang wajib mengganti password.
-  // Tanpa penjaga ini, pengguna bisa tertahan di halaman itu setelah ganti
-  // password (login berikutnya masih membawa state lama dari cache).
-  if (allowPasswordChange && user && !user.must_change_password)
-    return <Navigate to="/admin" replace />
+  // Sengaja tidak ada penjaga "kalau tidak wajib, tendang ke /admin":
+  // menu Ganti password di sidebar mengarah ke rute ini, dan pengelola yang
+  // sudah punya password sendiri harus tetap bisa membukanya. Aman karena
+  // ChangePassword memanggil logout() (hapus token + cache) sebelum ke /masuk.
   if (!['admin_ponpes', 'satgas_kemenag'].includes(user?.role))
     return (
       <div className="container section">
