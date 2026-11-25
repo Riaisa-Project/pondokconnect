@@ -381,7 +381,7 @@ class PendaftaranCreate(Input):
     nama_wali: Name
     no_hp_wali: Phone
     consent: bool
-    file_kk: Attachment | None = None
+    file_kk: Attachment
     gelombang_id: int | None = None
     jalur: Jalur = "reguler"
     jenjang: str = "MA"
@@ -545,7 +545,7 @@ class PengaduanCreate(Input):
     tanggal_kejadian: IsoDate
     lokasi_kejadian: str = Field(min_length=1, max_length=150)
     deskripsi_peristiwa: str = Field(min_length=10, max_length=20000)
-    bukti_lampiran: Attachment | None = None
+    bukti_lampiran: Attachment
     mode_pelapor: Literal["terbuka", "rahasia"] = "terbuka"
     nama_pelapor: Name | None = None
     kontak_pelapor: Name | None = None

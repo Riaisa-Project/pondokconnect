@@ -39,6 +39,8 @@ export default function Registration() {
     try {
       const form = e.currentTarget
       const data = formValues(form, ['ponpes_id'])
+      if (!data.file_kk?.size)
+        throw new Error('Kartu Keluarga wajib diunggah.')
       data.file_kk = await attachment(data.file_kk)
       // Backend mewajibkan persetujuan eksplisit dan mencatat waktunya (consent_at).
       // Nilai dibaca dari `form` karena e.currentTarget menjadi null setelah await.
@@ -170,13 +172,14 @@ export default function Registration() {
             </Field>
           </div>
           <Field
-            label="Kartu Keluarga (opsional)"
-            hint="PDF, PNG, atau JPEG. Maksimum 5 MiB. Hanya pengurus pesantren tujuan yang dapat mengakses berkas."
+            label="Kartu Keluarga"
+            hint="PDF, PNG, atau JPEG. Maksimum 5 MiB. Wajib diunggah. Hanya pengurus pesantren tujuan yang dapat mengakses berkas."
           >
             <input
               name="file_kk"
               type="file"
               accept="application/pdf,image/png,image/jpeg"
+              required
               onChange={(e) => setKkFile(e.target.files?.[0] || null)}
             />
           </Field>

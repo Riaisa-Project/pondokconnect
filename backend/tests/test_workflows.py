@@ -5,6 +5,19 @@ from sqlalchemy import select
 from backend.models.models import Pendaftaran, Pengaduan
 
 
+def _png():
+    """PNG 1x1 minimal — lampiran wajib, harus lolos validasi magic-byte."""
+    return {
+        "filename": "kk.png",
+        "content_base64": base64.b64encode(
+            bytes.fromhex(
+                "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4"
+                "890000000a49444154789c6360000002000154a24f5f0000000049454e44ae426082"
+            )
+        ).decode(),
+    }
+
+
 def registration(**changes):
     return {
         "ponpes_id": 1,
@@ -14,6 +27,7 @@ def registration(**changes):
         "nama_wali": "Wali Test",
         "no_hp_wali": "08123456789",
         "consent": True,
+        "file_kk": _png(),
         **changes,
     }
 
@@ -28,6 +42,7 @@ def complaint(**changes):
         "mode_pelapor": "rahasia",
         "nama_pelapor": "Jangan Disimpan",
         "kontak_pelapor": "081222333444",
+        "bukti_lampiran": _png(),
         **changes,
     }
 

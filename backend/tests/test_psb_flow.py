@@ -184,7 +184,7 @@ def test_psb_flow_from_wave_to_student_number(client, admin):
     assert client.get(f"/pendaftaran/kartu/{number}").content.startswith(b"%PDF")
 
     # Cabang kursi hangus: lewat tenggat/gugur → status gugur dan keluar dari papan.
-    other = client.post("/pendaftaran/kirim", json=reg(nik_santri="2234567890123456", gelombang_id=wave_id))
+    other = client.post("/pendaftaran/kirim", json=reg(nik_santri="2234567890123456", gelombang_id=wave_id, file_kk=PDF))
     other_number = other.json()["nomor_registrasi"]
     other_id = latest_id(client, admin)
     client.put(f"/admin/pendaftaran/{other_id}/status", headers=admin, json={"status_seleksi": "diterima"})

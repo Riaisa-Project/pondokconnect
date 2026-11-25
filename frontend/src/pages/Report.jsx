@@ -37,6 +37,8 @@ export default function Report() {
         throw new Error(
           'Uraian terlalu panjang. Kurangi teks, terutama karakter emoji.',
         )
+      if (!data.bukti_lampiran?.size)
+        throw new Error('Lampiran bukti wajib diunggah.')
       data.bukti_lampiran = await attachment(data.bukti_lampiran)
       setReceipt(await post('/pengaduan/kirim', data))
       window.scrollTo(0, 0)
@@ -187,13 +189,14 @@ export default function Report() {
             />
           </Field>
           <Field
-            label="Lampiran bukti (opsional)"
-            hint="PDF, PNG, atau JPEG. Maksimum 5 MiB."
+            label="Lampiran bukti"
+            hint="PDF, PNG, atau JPEG. Maksimum 5 MiB. Wajib dilampirkan."
           >
             <input
               type="file"
               name="bukti_lampiran"
               accept="application/pdf,image/png,image/jpeg"
+              required
             />
           </Field>
           <Alert error={error} />
