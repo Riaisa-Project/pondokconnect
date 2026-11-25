@@ -20,7 +20,7 @@
 .dash-eyebrow {
   display: block;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1.5;
@@ -244,7 +244,7 @@
 
 .dash-stage-label .dash-zero {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -296,7 +296,7 @@
   border-bottom: 1px solid var(--line);
   background: var(--dash-paper);
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -325,7 +325,7 @@
   align-items: center;
   padding: 4px 10px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -412,7 +412,7 @@
 
 .dash-distribution-label .dash-zero {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 400;
 }
 

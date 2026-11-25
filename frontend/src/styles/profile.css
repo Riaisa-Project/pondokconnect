@@ -12,7 +12,7 @@
   align-items: center;
   gap: 8px;
   padding: 18px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 .prof-crumbs a {
@@ -39,7 +39,7 @@
 }
 .prof-eyebrow {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -56,7 +56,7 @@
   align-items: flex-start;
   gap: 9px;
   max-width: 46ch;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--muted);
   overflow-wrap: anywhere;
@@ -81,7 +81,7 @@
   border-radius: 999px;
   background: #eef2ee;
   color: #3c5a4f;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 .prof-tag-gold {
@@ -105,17 +105,17 @@
 }
 /* teks mikro milik showcase.css dinaikkan dalam konteks profil */
 .prof-page .eyebrow {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.14em;
 }
 .prof-page .note {
-  font-size: 14px;
+  font-size: 16px;
 }
 .prof-page .profile-offerings li {
-  font-size: 14px;
+  font-size: 16px;
 }
 .prof-page .profile-offerings h3 {
-  font-size: 14px;
+  font-size: 16px;
 }
 .prof-page .sourced-profile-intro,
 .prof-page .sourced-profile-note {
@@ -160,10 +160,10 @@
 .prof-page .capacity-cards span,
 .prof-page .oversight-card strong,
 .prof-page .capacity-cards small {
-  font-size: 14px;
+  font-size: 16px;
 }
 .prof-plate .art-caption {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.12em;
 }
 
@@ -173,7 +173,7 @@
   align-items: center;
   gap: 4px 14px;
   margin: 16px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 .prof-cite a {
@@ -214,7 +214,7 @@
   padding: 13px 0 11px;
   border-bottom: 2px solid transparent;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 .prof-sections a:hover,
@@ -257,7 +257,7 @@
 }
 .prof-intro {
   max-width: 62ch;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: #35534a;
 }
@@ -274,12 +274,12 @@
   border-left: 3px solid #d4b16a;
   border-radius: 0 8px 8px 0;
   background: #fffdf6;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
   color: #4a5a52;
 }
 .prof-missing {
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
   color: var(--muted);
 }
@@ -300,7 +300,7 @@
   background: #fff;
 }
 .prof-facts dt {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -308,7 +308,7 @@
 }
 .prof-facts dd {
   margin: 4px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--ink);
   overflow-wrap: anywhere;
@@ -332,7 +332,7 @@
   gap: 9px;
   margin: 0;
   font-family: 'Manrope', system-ui, sans-serif;
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--ink);
 }
@@ -344,7 +344,7 @@
 .prof-sourced p,
 .prof-sourced li {
   max-width: 70ch;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: #35534a;
   overflow-wrap: anywhere;
@@ -362,7 +362,7 @@
   align-items: center;
   gap: 8px 16px;
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 .prof-cite a {
@@ -383,7 +383,7 @@
   align-items: center;
   gap: 9px;
   margin: 0 0 12px;
-  font-size: 14.5px;
+  font-size: 16px;
 }
 .prof-contact h3 svg {
   color: #b08d47;
@@ -398,7 +398,7 @@
   gap: 2px;
 }
 .prof-contact dt {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -410,7 +410,7 @@
   align-items: center;
   gap: 8px 14px;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--ink);
   overflow-wrap: anywhere;
 }
@@ -418,7 +418,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #38664e;
   text-decoration: underline;
@@ -427,7 +427,7 @@
 .prof-contact > small {
   display: block;
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -439,7 +439,7 @@
   border: 1px solid var(--ink);
   border-radius: 8px;
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   min-height: 38px;
 }
@@ -466,7 +466,7 @@
 }
 .prof-card h3 {
   margin: 0 0 14px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--ink);
@@ -475,7 +475,7 @@
   display: grid;
   gap: 12px;
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 .prof-kv > div {
   display: grid;
@@ -488,7 +488,7 @@
   padding-bottom: 0;
 }
 .prof-kv dt {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -501,7 +501,7 @@
   overflow-wrap: anywhere;
 }
 .prof-card > p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--muted);
 }

@@ -71,12 +71,12 @@ h3 {
   line-height: 1.5;
 }
 p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--muted);
 }
 small {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 em {
@@ -98,7 +98,7 @@ textarea {
   background: #fff;
   color: #294439;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 18px;
 }
 input::placeholder,
 textarea::placeholder {
@@ -121,7 +121,7 @@ input[type='checkbox'] {
 input[type='file'] {
   background: #f8faf6;
   padding: 16px;
-  font-size: 14px;
+  font-size: 16px;
 }
 input::file-selector-button {
   background: #e9efe6;
@@ -163,7 +163,7 @@ code {
   overflow-wrap: anywhere;
 }
 .eyebrow {
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.17em;
   font-weight: 700;
   text-transform: uppercase;
@@ -179,7 +179,7 @@ code {
   gap: 7px;
 }
 .text-link {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   display: inline-flex;
   gap: 12px;
@@ -190,7 +190,7 @@ code {
   color: var(--ink);
 }
 .back-link {
-  font-size: 14px;
+  font-size: 16px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -205,7 +205,7 @@ code {
   padding: 13px 21px;
   min-height: 45px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   border: 1px solid transparent;
   transition:
@@ -268,7 +268,7 @@ code {
   white-space: nowrap;
   padding: 5px 9px;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   align-self: flex-start;
 }
@@ -308,7 +308,7 @@ code {
   border: 1px solid #f0d9c8;
   border-radius: 7px;
   color: #995837;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
   overflow-wrap: anywhere;
 }
@@ -326,7 +326,7 @@ code {
   justify-content: center;
   gap: 12px;
   min-height: 220px;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 .spin {
@@ -351,7 +351,7 @@ code {
   margin-bottom: 8px;
 }
 .empty-body {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
 }
@@ -372,7 +372,7 @@ code {
   top: 10px;
 }
 .note {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
   color: #5b6b63;
   display: flex;
@@ -405,7 +405,7 @@ code {
   margin-bottom: 10px;
 }
 .panel-header > div > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .utility-bar {
   background: #173f35;
@@ -474,7 +474,7 @@ code {
   align-items: center;
 }
 .site-header nav a {
-  font-size: 14px;
+  font-size: 16px;
   color: #6c756a;
   display: flex;
   align-items: center;
@@ -488,7 +488,7 @@ code {
   font-weight: 700;
 }
 .admin-link {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   display: flex;
   gap: 10px;
@@ -520,17 +520,17 @@ code {
 }
 .footer-main p {
   color: #a9b9ae;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 20px;
 }
 .footer-main h3 {
-  font-size: 14px;
+  font-size: 16px;
   color: #edeedd;
   margin-bottom: 19px;
   font-weight: 600;
 }
 .footer-main > div > a:not(.brand) {
-  font-size: 14px;
+  font-size: 16px;
   color: #aebfb2;
   display: flex;
   align-items: center;
@@ -547,7 +547,7 @@ code {
   padding-block: 19px;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 16px;
   color: #9db09f;
   gap: 20px;
 }
@@ -586,7 +586,7 @@ code {
   color: #71926e;
 }
 .hero-copy > p {
-  font-size: 14px;
+  font-size: 16px;
   color: #6a756b;
   margin-top: 24px;
   line-height: 1.9;
@@ -611,7 +611,7 @@ code {
   border: 0;
   background: transparent;
   padding: 8px 0;
-  font-size: 14px;
+  font-size: 16px;
   outline-offset: 2px;
 }
 .hero-search button {
@@ -702,7 +702,7 @@ code {
 }
 .map-stamp strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .map-stamp small {
@@ -725,7 +725,7 @@ code {
 }
 .map-caption select {
   width: 160px;
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px 8px;
   border: 0;
   color: #66755d;
@@ -742,10 +742,10 @@ code {
 }
 .map-tooltip strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
 }
 .map-tooltip span {
-  font-size: 14px;
+  font-size: 16px;
   color: #6b855f;
 }
 .map-fallback {
@@ -761,7 +761,7 @@ code {
 }
 .map-fallback > span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   color: #758b6f;
 }
 .scene-loading {
@@ -769,7 +769,7 @@ code {
   display: grid;
   place-items: center;
   color: #8b9a82;
-  font-size: 14px;
+  font-size: 16px;
 }
 .stats-strip {
   display: grid;
@@ -795,12 +795,12 @@ code {
 }
 .stat > span {
   max-width: 90px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #697660;
 }
 .stat-note {
-  font-size: 14px;
+  font-size: 16px;
   color: #70826a;
   text-align: right;
 }
@@ -826,7 +826,7 @@ code {
   margin-bottom: 12px;
 }
 .section-heading > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .service-grid {
   display: grid;
@@ -855,7 +855,7 @@ code {
 }
 .service-card-top > span {
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 16px;
   color: #b2bca6;
 }
 .service-card h3 {
@@ -864,14 +864,14 @@ code {
   margin-bottom: 11px;
 }
 .service-card p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.85;
   max-width: 260px;
   margin-bottom: 23px;
   min-height: 61px;
 }
 .service-card .text-link {
-  font-size: 14px;
+  font-size: 16px;
   color: #546f46;
 }
 .directory-feature {
@@ -950,7 +950,7 @@ code {
   margin-bottom: 9px;
 }
 .ponpes-card .icon-text {
-  font-size: 14px;
+  font-size: 16px;
 }
 .card-bottom {
   display: flex;
@@ -1021,13 +1021,13 @@ code {
   color: #b3c499;
 }
 .safe-copy > p {
-  font-size: 14px;
+  font-size: 16px;
   max-width: 390px;
   color: #a7bfae;
   margin-bottom: 22px;
 }
 .safe-copy .button {
-  font-size: 14px;
+  font-size: 16px;
 }
 .safe-note {
   display: block;
@@ -1051,7 +1051,7 @@ code {
   place-items: center;
 }
 .vault-fallback span {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
 }
 .track-callout {
@@ -1066,7 +1066,7 @@ code {
   margin: 10px 0;
 }
 .track-callout p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .track-callout .button {
   align-self: center;
@@ -1084,7 +1084,7 @@ code {
   line-height: 1.25;
 }
 .page-heading p {
-  font-size: 15px;
+  font-size: 17px;
   margin-top: 15px;
   max-width: 680px;
 }
@@ -1115,7 +1115,7 @@ code {
 }
 .filter-bar > select {
   width: 185px;
-  font-size: 14px;
+  font-size: 16px;
   padding-block: 14px;
 }
 .view-switch {
@@ -1143,7 +1143,7 @@ code {
   justify-content: space-between;
   align-items: center;
   margin: 25px 0 20px;
-  font-size: 14px;
+  font-size: 16px;
   color: #67765d;
 }
 .results-label > span {
@@ -1152,7 +1152,7 @@ code {
   gap: 7px;
 }
 .results-label .text-link {
-  font-size: 14px;
+  font-size: 16px;
 }
 .pagination {
   display: flex;
@@ -1160,7 +1160,7 @@ code {
   align-items: center;
   gap: 20px;
   padding-top: 26px;
-  font-size: 14px;
+  font-size: 16px;
   color: #697460;
 }
 .pagination > div {
@@ -1190,7 +1190,7 @@ code {
 }
 .map-popup a {
   color: #285e3c !important;
-  font-size: 14px;
+  font-size: 16px;
 }
 .detail-art {
   border-radius: 12px;
@@ -1228,7 +1228,7 @@ code {
   display: flex;
   gap: 7px;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #616d58;
 }
 .detail-grid {
@@ -1246,7 +1246,7 @@ code {
   margin: 20px 0;
 }
 .info-grid dt {
-  font-size: 14px;
+  font-size: 16px;
   color: #6e7865;
   display: flex;
   align-items: center;
@@ -1254,13 +1254,13 @@ code {
   margin-bottom: 8px;
 }
 .info-grid dd {
-  font-size: 14px;
+  font-size: 16px;
   color: #3c5740;
   margin: 0;
   overflow-wrap: anywhere;
 }
 .detail-grid .panel > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .steps-inline {
   display: flex;
@@ -1269,7 +1269,7 @@ code {
   margin: 25px 0;
 }
 .steps-inline span {
-  font-size: 14px;
+  font-size: 16px;
   color: #88967b;
 }
 .steps-inline b {
@@ -1297,7 +1297,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #7f9073;
   margin-bottom: 9px;
 }
@@ -1357,7 +1357,7 @@ progress::-moz-progress-bar {
   margin-top: 12px;
 }
 .permit-card > p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 12px 0;
   color: #b0c398;
   overflow-wrap: anywhere;
@@ -1401,13 +1401,13 @@ progress::-moz-progress-bar {
   color: #36583b;
 }
 .qr-box strong {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   display: block;
   margin-bottom: 9px;
 }
 .qr-box a {
-  font-size: 14px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1433,7 +1433,7 @@ progress::-moz-progress-bar {
   font-size: 32px;
 }
 .verification-card > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .verification-data {
   text-align: left;
@@ -1446,7 +1446,7 @@ progress::-moz-progress-bar {
   grid-template-columns: 1fr 1.5fr;
   gap: 20px;
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 .verification-data dt {
   color: #87957b;
@@ -1485,7 +1485,7 @@ progress::-moz-progress-bar {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 15px;
+  font-size: 17px;
   align-self: stretch;
 }
 .field > label {
@@ -1495,7 +1495,7 @@ progress::-moz-progress-bar {
 .field > small {
   font-weight: 400;
   color: #6f7767;
-  font-size: 14px;
+  font-size: 16px;
 }
 .form-section-title {
   display: flex;
@@ -1511,7 +1511,7 @@ progress::-moz-progress-bar {
   place-items: center;
   border-radius: 50%;
   font-family: var(--font-serif);
-  font-size: 14px;
+  font-size: 16px;
   color: #6d785c;
 }
 .form-section-title > h2 {
@@ -1521,7 +1521,7 @@ progress::-moz-progress-bar {
   display: flex;
   gap: 11px;
   align-items: flex-start;
-  font-size: 14px;
+  font-size: 16px;
   color: #697361;
   line-height: 1.8;
 }
@@ -1570,7 +1570,7 @@ progress::-moz-progress-bar {
   left: -10px;
   border: 1px solid #cfdcc4;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 16px;
   color: #769063;
   background: #fafbf7;
   width: 19px;
@@ -1584,14 +1584,14 @@ progress::-moz-progress-bar {
 }
 .process-list strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #5a744f;
   margin-bottom: 7px;
 }
 .process-list span {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.9;
   color: #6a7461;
   max-width: 265px;
@@ -1607,7 +1607,7 @@ progress::-moz-progress-bar {
 }
 .aside-note p,
 .aside-note span {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.9;
 }
 .success-card {
@@ -1656,12 +1656,12 @@ progress::-moz-progress-bar {
   margin-top: 10px;
 }
 .copy-block code {
-  font-size: 15px;
+  font-size: 17px;
   color: #4a693c;
   user-select: all;
 }
 .copy-block .button {
-  font-size: 14px;
+  font-size: 16px;
   padding: 8px 11px;
   min-height: 34px;
   flex-shrink: 0;
@@ -1716,7 +1716,7 @@ progress::-moz-progress-bar {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 0.01em;
   color: #d8e6c2;
 }
@@ -1746,7 +1746,7 @@ progress::-moz-progress-bar {
   margin: 15px 0;
 }
 .report-aside p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #a6bf95;
 }
@@ -1758,7 +1758,7 @@ progress::-moz-progress-bar {
 }
 .report-aside small {
   color: #a8bd96;
-  font-size: 14px;
+  font-size: 16px;
 }
 .privacy-toggle {
   display: flex;
@@ -1771,11 +1771,11 @@ progress::-moz-progress-bar {
   border-radius: 8px;
 }
 .privacy-toggle strong {
-  font-size: 15px;
+  font-size: 17px;
   color: #527443;
 }
 .privacy-toggle p {
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 4px;
 }
 .switch {
@@ -1804,12 +1804,12 @@ progress::-moz-progress-bar {
   transform: translateX(18px);
 }
 .lookup-details summary {
-  font-size: 14px;
+  font-size: 16px;
   color: #80916e;
   cursor: pointer;
 }
 .lookup-details p {
-  font-size: 14px;
+  font-size: 16px;
   margin-block: 12px;
 }
 .input-action {
@@ -1835,7 +1835,7 @@ progress::-moz-progress-bar {
   gap: 9px;
   color: #899879;
   padding: 14px 16px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .tabs button.active {
   border-color: #638c48;
@@ -1866,7 +1866,7 @@ progress::-moz-progress-bar {
   margin: 20px 0 4px;
 }
 .tracking-steps .step {
-  font-size: 14px;
+  font-size: 16px;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 5px 12px;
@@ -1879,10 +1879,10 @@ progress::-moz-progress-bar {
 }
 .tracking-result .badge {
   margin-top: 13px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .tracking-result dl {
-  font-size: 14px;
+  font-size: 16px;
   margin-block: 20px;
 }
 .tracking-result dl > div {
@@ -1890,7 +1890,7 @@ progress::-moz-progress-bar {
 }
 .tracking-result dt {
   color: #8b987d;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 5px;
 }
 .tracking-result dd {
@@ -1901,7 +1901,7 @@ progress::-moz-progress-bar {
   margin: 30px 0 13px;
 }
 .prose p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .chat-widget {
   position: fixed;
@@ -1939,7 +1939,7 @@ progress::-moz-progress-bar {
   min-width: 0;
 }
 .chat-header strong {
-  font-size: 14px;
+  font-size: 16px;
   display: block;
 }
 .chat-header small {
@@ -1977,7 +1977,7 @@ progress::-moz-progress-bar {
   margin: 12px 0;
 }
 .chat-intro p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .bubble {
   max-width: 90%;
@@ -2000,7 +2000,7 @@ progress::-moz-progress-bar {
   color: #94a481;
 }
 .bubble p {
-  font-size: 14px;
+  font-size: 16px;
   color: #617a50;
   white-space: pre-wrap;
   line-height: 1.7;
@@ -2020,7 +2020,7 @@ progress::-moz-progress-bar {
 }
 .chat-compose .field input {
   padding: 8px 9px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .chat-compose > small {
   font-size: 8px;
@@ -2032,7 +2032,7 @@ progress::-moz-progress-bar {
   gap: 8px;
 }
 .chat-send input {
-  font-size: 14px;
+  font-size: 16px;
 }
 .chat-send .button {
   padding-inline: 13px;
@@ -2056,7 +2056,7 @@ progress::-moz-progress-bar {
 }
 .login-story > p {
   max-width: 350px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .login-story .aside-note {
   margin-top: 32px;
@@ -2079,7 +2079,7 @@ progress::-moz-progress-bar {
   margin-bottom: -9px;
 }
 .login-form > p {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
 }
 .login-form > .button {
@@ -2090,7 +2090,7 @@ progress::-moz-progress-bar {
   border: 1px solid #e3e9d9;
   padding: 13px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 16px;
   color: #859371;
 }
 .demo-accounts summary {
@@ -2132,7 +2132,7 @@ progress::-moz-progress-bar {
 }
 .admin-identity strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 .admin-identity small {
@@ -2152,7 +2152,7 @@ progress::-moz-progress-bar {
   align-items: center;
   gap: 10px;
   padding: 13px 12px;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 6px;
   text-align: left;
   color: #889778;
@@ -2191,7 +2191,7 @@ progress::-moz-progress-bar {
   font-size: 25px;
 }
 .admin-content .panel > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .record-list {
   display: flex;
@@ -2226,7 +2226,7 @@ progress::-moz-progress-bar {
 }
 .record summary strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 .record summary small {
@@ -2246,7 +2246,7 @@ progress::-moz-progress-bar {
   margin-bottom: 0;
 }
 .record-body .info-grid dd {
-  font-size: 14px;
+  font-size: 16px;
 }
 .status-editor {
   display: flex;
@@ -2285,7 +2285,7 @@ progress::-moz-progress-bar {
   min-width: 0;
 }
 .management-record strong {
-  font-size: 14px;
+  font-size: 16px;
   display: block;
   line-height: 1.65;
 }
@@ -2300,14 +2300,14 @@ progress::-moz-progress-bar {
   justify-content: flex-end;
 }
 .management-record .button {
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px 13px;
   min-height: 37px;
 }
 .case-description {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.9;
   padding: 20px;
   background: #f0f4e7;
@@ -2321,7 +2321,7 @@ table {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
 }
 th {
@@ -2373,7 +2373,7 @@ td code {
   font-size: 26px;
 }
 .modal .stack > p {
-  font-size: 14px;
+  font-size: 16px;
 }
 .inbox-layout {
   display: grid;
@@ -2404,11 +2404,11 @@ td code {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 16px;
   color: #637d4f;
 }
 .inbox-sessions > button > span {
-  font-size: 14px;
+  font-size: 16px;
   color: #9aab84;
   display: block;
   overflow: hidden;
@@ -2429,10 +2429,10 @@ td code {
 }
 .conversation-heading strong {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
 }
 .conversation-heading small {
-  font-size: 14px;
+  font-size: 16px;
   color: #93a47e;
 }
 .admin-conversation .chat-messages {
@@ -2465,13 +2465,13 @@ td code {
     gap: 17px;
   }
   .site-header nav a {
-    font-size: 14px;
+    font-size: 16px;
   }
   .header-inner {
     gap: 17px;
   }
   .brand {
-    font-size: 16px;
+    font-size: 18px;
   }
   .brand img {
     width: 36px;
@@ -2528,19 +2528,19 @@ td code {
     padding: 23px;
   }
   .service-card h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .service-card p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .ponpes-card-body {
     padding: 19px;
   }
   .ponpes-card h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
   .section-heading > p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .safe-copy h2 {
     font-size: 31px;
@@ -2590,7 +2590,7 @@ td code {
     height: 74px;
   }
   .qr-box strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .detail-overlay h1 {
     font-size: 35px;
@@ -2631,7 +2631,7 @@ td code {
   }
   .site-header nav a {
     padding: 14px 7px;
-    font-size: 14px;
+    font-size: 16px;
     border: 0;
     border-radius: 5px;
   }
@@ -2646,7 +2646,7 @@ td code {
     letter-spacing: -1.8px;
   }
   .hero-copy > p {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 20px;
   }
   .desktop-break {
@@ -2720,7 +2720,7 @@ td code {
     display: none;
   }
   .section-heading .button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 11px 14px;
     flex-shrink: 0;
   }
@@ -2731,10 +2731,10 @@ td code {
     padding: 20px 17px;
   }
   .service-card h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .service-card p {
-    font-size: 14px;
+    font-size: 16px;
     min-height: 80px;
   }
   .service-card .text-link {
@@ -2761,7 +2761,7 @@ td code {
     height: 270px;
   }
   .safe-copy > p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .track-callout h2 {
     font-size: 26px;
@@ -2770,7 +2770,7 @@ td code {
     padding-bottom: 50px;
   }
   .track-callout .button {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 180px;
   }
   .footer-main {
@@ -2779,13 +2779,13 @@ td code {
   }
   .footer-main p,
   .footer-main h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .footer-main > div > a:not(.brand) {
-    font-size: 14px;
+    font-size: 16px;
   }
   .footer-bottom {
-    font-size: 14px;
+    font-size: 16px;
   }
   .page-heading h1 {
     font-size: 36px;
@@ -2802,7 +2802,7 @@ td code {
     flex: 1;
     width: auto;
     min-width: 0;
-    font-size: 14px;
+    font-size: 16px;
   }
   .form-layout {
     grid-template-columns: 1fr;
@@ -2844,7 +2844,7 @@ td code {
     display: none;
   }
   .report-aside p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   .report-aside > .vault-canvas {
@@ -2922,7 +2922,7 @@ td code {
     margin: 0;
   }
   .admin-identity strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .admin-identity small {
     margin-left: auto;
@@ -2935,7 +2935,7 @@ td code {
   .admin-sidebar nav > a,
   .admin-sidebar nav > button {
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .admin-sidebar nav svg {
     width: 15px;
@@ -2957,7 +2957,7 @@ td code {
     font-size: 7px;
   }
   .utility-bar .demo-label {
-    font-size: 14px;
+    font-size: 16px;
   }
   .utility-bar svg {
     display: none;
@@ -2967,7 +2967,7 @@ td code {
     gap: 10px;
   }
   .brand {
-    font-size: 16px;
+    font-size: 18px;
     gap: 8px;
   }
   .brand small {
@@ -3007,7 +3007,7 @@ td code {
     margin-bottom: 22px;
   }
   .hero-copy > p {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 310px;
   }
   .hero-search {
@@ -3016,7 +3016,7 @@ td code {
     padding: 7px 7px 7px 15px;
   }
   .hero-search input {
-    font-size: 14px;
+    font-size: 16px;
   }
   .hero-search button {
     width: 40px;
@@ -3057,7 +3057,7 @@ td code {
     align-items: center;
   }
   .map-caption select {
-    font-size: 14px;
+    font-size: 16px;
     width: 145px;
   }
   .stats-strip {
@@ -3114,19 +3114,19 @@ td code {
     margin-bottom: 8px;
   }
   .service-card p {
-    font-size: 14px;
+    font-size: 16px;
     min-height: 0;
     max-width: none;
     margin-bottom: 16px;
   }
   .service-card .text-link {
-    font-size: 14px;
+    font-size: 16px;
   }
   .directory-feature .section-heading {
     flex-wrap: wrap;
   }
   .section-heading .button {
-    font-size: 14px;
+    font-size: 16px;
     min-height: 38px;
     padding: 10px 14px;
   }
@@ -3152,10 +3152,10 @@ td code {
     font-size: 9px;
   }
   .ponpes-card .icon-text {
-    font-size: 14px;
+    font-size: 16px;
   }
   .card-bottom > span {
-    font-size: 14px;
+    font-size: 16px;
   }
   .directory-footnote {
     font-size: 8px;
@@ -3182,7 +3182,7 @@ td code {
   }
   .safe-copy > p,
   .safe-copy .button {
-    font-size: 14px;
+    font-size: 16px;
   }
   .safe-note {
     font-size: 9px;
@@ -3199,7 +3199,7 @@ td code {
   .track-callout .button {
     align-self: flex-start;
     max-width: none;
-    font-size: 14px;
+    font-size: 16px;
   }
   .footer-main {
     grid-template-columns: 1fr 1fr;
@@ -3210,22 +3210,22 @@ td code {
     grid-column: 1/-1;
   }
   .footer-main p {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 15px;
   }
   .footer-main h3 {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
   }
   .footer-main > div > a:not(.brand) {
-    font-size: 14px;
+    font-size: 16px;
     padding-block: 8px;
   }
   .footer-bottom {
     flex-direction: column;
     gap: 7px;
     padding-block: 18px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .page-heading {
     margin-bottom: 28px;
@@ -3234,10 +3234,10 @@ td code {
     font-size: 34px;
   }
   .page-heading p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .filter-bar > select {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
     flex-basis: calc(50% - 5px);
   }
@@ -3245,10 +3245,10 @@ td code {
     margin-left: auto;
   }
   .filter-bar .search-input input {
-    font-size: 14px;
+    font-size: 16px;
   }
   .results-label {
-    font-size: 14px;
+    font-size: 16px;
   }
   .leaflet-container {
     height: 380px;
@@ -3300,13 +3300,13 @@ td code {
     display: none;
   }
   .report-aside p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .privacy-toggle {
     padding: 15px;
   }
   .privacy-toggle p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .copy-block {
     padding: 17px;
@@ -3315,7 +3315,7 @@ td code {
     flex-wrap: wrap;
   }
   .copy-block code {
-    font-size: 14px;
+    font-size: 16px;
   }
   .success-card {
     padding: 35px 23px;
@@ -3324,7 +3324,7 @@ td code {
     font-size: 33px;
   }
   .success-card p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .success-card .button-row {
     flex-direction: column;
@@ -3339,7 +3339,7 @@ td code {
     margin-bottom: 24px;
   }
   .tabs button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 12px 9px;
     flex: 1;
   }
@@ -3358,7 +3358,7 @@ td code {
   .verification-data > div {
     grid-template-columns: 1fr;
     gap: 6px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .detail-grid {
     grid-template-columns: 1fr;
@@ -3381,7 +3381,7 @@ td code {
     font-size: 32px;
   }
   .detail-overlay p {
-    font-size: 14px;
+    font-size: 16px;
     align-items: flex-start;
   }
   .info-grid {
@@ -3391,7 +3391,7 @@ td code {
     grid-template-columns: 1fr 1fr;
   }
   .info-grid dd {
-    font-size: 14px;
+    font-size: 16px;
   }
   .steps-inline {
     flex-direction: row;
@@ -3417,10 +3417,10 @@ td code {
     gap: 19px;
   }
   .qr-box strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .qr-box a {
-    font-size: 14px;
+    font-size: 16px;
   }
   .chat-widget {
     right: 14px;
@@ -3442,7 +3442,7 @@ td code {
     gap: 10px;
   }
   .chat-trigger {
-    font-size: 14px;
+    font-size: 16px;
   }
   .login-layout {
     grid-template-columns: 1fr;
@@ -3458,7 +3458,7 @@ td code {
     display: none;
   }
   .login-story > p {
-    font-size: 14px;
+    font-size: 16px;
   }
   .login-form {
     padding: 28px;
@@ -3480,12 +3480,12 @@ td code {
   }
   .admin-sidebar nav > a,
   .admin-sidebar nav > button {
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px 8px;
     gap: 6px;
   }
   .admin-identity strong {
-    font-size: 14px;
+    font-size: 16px;
     max-width: 160px;
   }
   .admin-identity small {
@@ -3507,7 +3507,7 @@ td code {
     gap: 10px;
   }
   .record summary strong {
-    font-size: 14px;
+    font-size: 16px;
   }
   .record summary small {
     font-size: 8px;
@@ -3523,7 +3523,7 @@ td code {
     grid-template-columns: 1fr;
   }
   .status-editor .button {
-    font-size: 14px;
+    font-size: 16px;
   }
   .inbox-layout {
     grid-template-columns: 1fr;
@@ -3543,7 +3543,7 @@ td code {
   }
   .admin-conversation .chat-send .button {
     padding-inline: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
   .modal {
     padding: 24px;
@@ -3558,7 +3558,7 @@ td code {
     font-size: 24px;
   }
   .prose p {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
