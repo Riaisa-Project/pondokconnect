@@ -76,7 +76,7 @@ p {
   color: var(--muted);
 }
 small {
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.7;
 }
 em {
@@ -163,7 +163,7 @@ code {
   overflow-wrap: anywhere;
 }
 .eyebrow {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.17em;
   font-weight: 700;
   text-transform: uppercase;
@@ -268,7 +268,7 @@ code {
   white-space: nowrap;
   padding: 5px 9px;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   align-self: flex-start;
 }
@@ -326,7 +326,7 @@ code {
   justify-content: center;
   gap: 12px;
   min-height: 220px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--muted);
 }
 .spin {
@@ -474,7 +474,7 @@ code {
   align-items: center;
 }
 .site-header nav a {
-  font-size: 13px;
+  font-size: 14px;
   color: #6c756a;
   display: flex;
   align-items: center;
@@ -488,7 +488,7 @@ code {
   font-weight: 700;
 }
 .admin-link {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   display: flex;
   gap: 10px;
@@ -586,7 +586,7 @@ code {
   color: #71926e;
 }
 .hero-copy > p {
-  font-size: 13px;
+  font-size: 14px;
   color: #6a756b;
   margin-top: 24px;
   line-height: 1.9;
@@ -611,7 +611,7 @@ code {
   border: 0;
   background: transparent;
   padding: 8px 0;
-  font-size: 13px;
+  font-size: 14px;
   outline-offset: 2px;
 }
 .hero-search button {
@@ -702,7 +702,7 @@ code {
 }
 .map-stamp strong {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
 }
 .map-stamp small {
@@ -745,7 +745,7 @@ code {
   font-size: 14px;
 }
 .map-tooltip span {
-  font-size: 13px;
+  font-size: 14px;
   color: #6b855f;
 }
 .map-fallback {
@@ -761,7 +761,7 @@ code {
 }
 .map-fallback > span {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   color: #758b6f;
 }
 .scene-loading {
@@ -795,12 +795,12 @@ code {
 }
 .stat > span {
   max-width: 90px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
   color: #697660;
 }
 .stat-note {
-  font-size: 13px;
+  font-size: 14px;
   color: #70826a;
   text-align: right;
 }
@@ -855,7 +855,7 @@ code {
 }
 .service-card-top > span {
   font-family: var(--font-serif);
-  font-size: 13px;
+  font-size: 14px;
   color: #b2bca6;
 }
 .service-card h3 {
@@ -864,14 +864,14 @@ code {
   margin-bottom: 11px;
 }
 .service-card p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.85;
   max-width: 260px;
   margin-bottom: 23px;
   min-height: 61px;
 }
 .service-card .text-link {
-  font-size: 13px;
+  font-size: 14px;
   color: #546f46;
 }
 .directory-feature {
@@ -950,7 +950,7 @@ code {
   margin-bottom: 9px;
 }
 .ponpes-card .icon-text {
-  font-size: 13px;
+  font-size: 14px;
 }
 .card-bottom {
   display: flex;
@@ -1021,13 +1021,13 @@ code {
   color: #b3c499;
 }
 .safe-copy > p {
-  font-size: 13px;
+  font-size: 14px;
   max-width: 390px;
   color: #a7bfae;
   margin-bottom: 22px;
 }
 .safe-copy .button {
-  font-size: 13px;
+  font-size: 14px;
 }
 .safe-note {
   display: block;
@@ -1066,7 +1066,7 @@ code {
   margin: 10px 0;
 }
 .track-callout p {
-  font-size: 13px;
+  font-size: 14px;
 }
 .track-callout .button {
   align-self: center;
@@ -1228,7 +1228,7 @@ code {
   display: flex;
   gap: 7px;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #616d58;
 }
 .detail-grid {
@@ -1246,7 +1246,7 @@ code {
   margin: 20px 0;
 }
 .info-grid dt {
-  font-size: 13px;
+  font-size: 14px;
   color: #6e7865;
   display: flex;
   align-items: center;
@@ -1254,7 +1254,7 @@ code {
   margin-bottom: 8px;
 }
 .info-grid dd {
-  font-size: 13px;
+  font-size: 14px;
   color: #3c5740;
   margin: 0;
   overflow-wrap: anywhere;
@@ -1297,7 +1297,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #7f9073;
   margin-bottom: 9px;
 }
@@ -1357,7 +1357,7 @@ progress::-moz-progress-bar {
   margin-top: 12px;
 }
 .permit-card > p {
-  font-size: 13px;
+  font-size: 14px;
   margin: 12px 0;
   color: #b0c398;
   overflow-wrap: anywhere;
@@ -1401,13 +1401,13 @@ progress::-moz-progress-bar {
   color: #36583b;
 }
 .qr-box strong {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   display: block;
   margin-bottom: 9px;
 }
 .qr-box a {
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1495,7 +1495,7 @@ progress::-moz-progress-bar {
 .field > small {
   font-weight: 400;
   color: #6f7767;
-  font-size: 13.5px;
+  font-size: 14px;
 }
 .form-section-title {
   display: flex;
@@ -1661,7 +1661,7 @@ progress::-moz-progress-bar {
   user-select: all;
 }
 .copy-block .button {
-  font-size: 13px;
+  font-size: 14px;
   padding: 8px 11px;
   min-height: 34px;
   flex-shrink: 0;
@@ -1716,7 +1716,7 @@ progress::-moz-progress-bar {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.01em;
   color: #d8e6c2;
 }
@@ -1775,7 +1775,7 @@ progress::-moz-progress-bar {
   color: #527443;
 }
 .privacy-toggle p {
-  font-size: 13.5px;
+  font-size: 14px;
   margin-top: 4px;
 }
 .switch {
@@ -1890,7 +1890,7 @@ progress::-moz-progress-bar {
 }
 .tracking-result dt {
   color: #8b987d;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 5px;
 }
 .tracking-result dd {
@@ -1901,7 +1901,7 @@ progress::-moz-progress-bar {
   margin: 30px 0 13px;
 }
 .prose p {
-  font-size: 13px;
+  font-size: 14px;
 }
 .chat-widget {
   position: fixed;
@@ -1977,7 +1977,7 @@ progress::-moz-progress-bar {
   margin: 12px 0;
 }
 .chat-intro p {
-  font-size: 13px;
+  font-size: 14px;
 }
 .bubble {
   max-width: 90%;
@@ -2020,7 +2020,7 @@ progress::-moz-progress-bar {
 }
 .chat-compose .field input {
   padding: 8px 9px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .chat-compose > small {
   font-size: 8px;
@@ -2032,7 +2032,7 @@ progress::-moz-progress-bar {
   gap: 8px;
 }
 .chat-send input {
-  font-size: 13px;
+  font-size: 14px;
 }
 .chat-send .button {
   padding-inline: 13px;
@@ -2090,7 +2090,7 @@ progress::-moz-progress-bar {
   border: 1px solid #e3e9d9;
   padding: 13px;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 14px;
   color: #859371;
 }
 .demo-accounts summary {
@@ -2191,7 +2191,7 @@ progress::-moz-progress-bar {
   font-size: 25px;
 }
 .admin-content .panel > p {
-  font-size: 13px;
+  font-size: 14px;
 }
 .record-list {
   display: flex;
@@ -2246,7 +2246,7 @@ progress::-moz-progress-bar {
   margin-bottom: 0;
 }
 .record-body .info-grid dd {
-  font-size: 13px;
+  font-size: 14px;
 }
 .status-editor {
   display: flex;
@@ -2300,7 +2300,7 @@ progress::-moz-progress-bar {
   justify-content: flex-end;
 }
 .management-record .button {
-  font-size: 13px;
+  font-size: 14px;
   padding: 10px 13px;
   min-height: 37px;
 }
@@ -2321,7 +2321,7 @@ table {
   border-collapse: collapse;
   text-align: left;
   width: 100%;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
 }
 th {
@@ -2404,11 +2404,11 @@ td code {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: #637d4f;
 }
 .inbox-sessions > button > span {
-  font-size: 13px;
+  font-size: 14px;
   color: #9aab84;
   display: block;
   overflow: hidden;
@@ -2432,7 +2432,7 @@ td code {
   font-size: 14px;
 }
 .conversation-heading small {
-  font-size: 13px;
+  font-size: 14px;
   color: #93a47e;
 }
 .admin-conversation .chat-messages {
@@ -2465,7 +2465,7 @@ td code {
     gap: 17px;
   }
   .site-header nav a {
-    font-size: 13px;
+    font-size: 14px;
   }
   .header-inner {
     gap: 17px;
@@ -2531,7 +2531,7 @@ td code {
     font-size: 15px;
   }
   .service-card p {
-    font-size: 13px;
+    font-size: 14px;
   }
   .ponpes-card-body {
     padding: 19px;
@@ -2590,7 +2590,7 @@ td code {
     height: 74px;
   }
   .qr-box strong {
-    font-size: 13px;
+    font-size: 14px;
   }
   .detail-overlay h1 {
     font-size: 35px;
@@ -2646,7 +2646,7 @@ td code {
     letter-spacing: -1.8px;
   }
   .hero-copy > p {
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 20px;
   }
   .desktop-break {
@@ -2734,7 +2734,7 @@ td code {
     font-size: 14px;
   }
   .service-card p {
-    font-size: 13px;
+    font-size: 14px;
     min-height: 80px;
   }
   .service-card .text-link {
@@ -2761,7 +2761,7 @@ td code {
     height: 270px;
   }
   .safe-copy > p {
-    font-size: 13px;
+    font-size: 14px;
   }
   .track-callout h2 {
     font-size: 26px;
@@ -2770,7 +2770,7 @@ td code {
     padding-bottom: 50px;
   }
   .track-callout .button {
-    font-size: 13px;
+    font-size: 14px;
     max-width: 180px;
   }
   .footer-main {
@@ -2922,7 +2922,7 @@ td code {
     margin: 0;
   }
   .admin-identity strong {
-    font-size: 13px;
+    font-size: 14px;
   }
   .admin-identity small {
     margin-left: auto;
@@ -3016,7 +3016,7 @@ td code {
     padding: 7px 7px 7px 15px;
   }
   .hero-search input {
-    font-size: 13px;
+    font-size: 14px;
   }
   .hero-search button {
     width: 40px;
@@ -3114,13 +3114,13 @@ td code {
     margin-bottom: 8px;
   }
   .service-card p {
-    font-size: 13px;
+    font-size: 14px;
     min-height: 0;
     max-width: none;
     margin-bottom: 16px;
   }
   .service-card .text-link {
-    font-size: 13px;
+    font-size: 14px;
   }
   .directory-feature .section-heading {
     flex-wrap: wrap;
@@ -3152,10 +3152,10 @@ td code {
     font-size: 9px;
   }
   .ponpes-card .icon-text {
-    font-size: 13px;
+    font-size: 14px;
   }
   .card-bottom > span {
-    font-size: 13px;
+    font-size: 14px;
   }
   .directory-footnote {
     font-size: 8px;
@@ -3182,7 +3182,7 @@ td code {
   }
   .safe-copy > p,
   .safe-copy .button {
-    font-size: 13px;
+    font-size: 14px;
   }
   .safe-note {
     font-size: 9px;
@@ -3199,7 +3199,7 @@ td code {
   .track-callout .button {
     align-self: flex-start;
     max-width: none;
-    font-size: 13px;
+    font-size: 14px;
   }
   .footer-main {
     grid-template-columns: 1fr 1fr;
@@ -3339,7 +3339,7 @@ td code {
     margin-bottom: 24px;
   }
   .tabs button {
-    font-size: 13px;
+    font-size: 14px;
     padding: 12px 9px;
     flex: 1;
   }
@@ -3381,7 +3381,7 @@ td code {
     font-size: 32px;
   }
   .detail-overlay p {
-    font-size: 13px;
+    font-size: 14px;
     align-items: flex-start;
   }
   .info-grid {
@@ -3420,7 +3420,7 @@ td code {
     font-size: 14px;
   }
   .qr-box a {
-    font-size: 13px;
+    font-size: 14px;
   }
   .chat-widget {
     right: 14px;
@@ -3442,7 +3442,7 @@ td code {
     gap: 10px;
   }
   .chat-trigger {
-    font-size: 13px;
+    font-size: 14px;
   }
   .login-layout {
     grid-template-columns: 1fr;
@@ -3485,7 +3485,7 @@ td code {
     gap: 6px;
   }
   .admin-identity strong {
-    font-size: 13px;
+    font-size: 14px;
     max-width: 160px;
   }
   .admin-identity small {
@@ -3507,7 +3507,7 @@ td code {
     gap: 10px;
   }
   .record summary strong {
-    font-size: 13px;
+    font-size: 14px;
   }
   .record summary small {
     font-size: 8px;
@@ -3523,7 +3523,7 @@ td code {
     grid-template-columns: 1fr;
   }
   .status-editor .button {
-    font-size: 13px;
+    font-size: 14px;
   }
   .inbox-layout {
     grid-template-columns: 1fr;
@@ -3543,7 +3543,7 @@ td code {
   }
   .admin-conversation .chat-send .button {
     padding-inline: 10px;
-    font-size: 13px;
+    font-size: 14px;
   }
   .modal {
     padding: 24px;

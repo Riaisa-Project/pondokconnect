@@ -12,7 +12,7 @@
   align-items: center;
   gap: 8px;
   padding: 18px 0 0;
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--muted);
 }
 .prof-crumbs a {
@@ -109,13 +109,13 @@
   letter-spacing: 0.14em;
 }
 .prof-page .note {
-  font-size: 12.5px;
+  font-size: 14px;
 }
 .prof-page .profile-offerings li {
   font-size: 14px;
 }
 .prof-page .profile-offerings h3 {
-  font-size: 13.5px;
+  font-size: 14px;
 }
 .prof-page .sourced-profile-intro,
 .prof-page .sourced-profile-note {
@@ -173,7 +173,7 @@
   align-items: center;
   gap: 4px 14px;
   margin: 16px 0 0;
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--muted);
 }
 .prof-cite a {
@@ -274,7 +274,7 @@
   border-left: 3px solid #d4b16a;
   border-radius: 0 8px 8px 0;
   background: #fffdf6;
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.8;
   color: #4a5a52;
 }
@@ -362,7 +362,7 @@
   align-items: center;
   gap: 8px 16px;
   margin-top: 12px;
-  font-size: 12.5px;
+  font-size: 14px;
   color: var(--muted);
 }
 .prof-cite a {
@@ -418,7 +418,7 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 700;
   color: #38664e;
   text-decoration: underline;
@@ -427,7 +427,7 @@
 .prof-contact > small {
   display: block;
   margin-top: 14px;
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -475,7 +475,7 @@
   display: grid;
   gap: 12px;
   margin: 0;
-  font-size: 13.5px;
+  font-size: 14px;
 }
 .prof-kv > div {
   display: grid;
@@ -501,7 +501,7 @@
   overflow-wrap: anywhere;
 }
 .prof-card > p {
-  font-size: 12.5px;
+  font-size: 14px;
   line-height: 1.75;
   color: var(--muted);
 }
