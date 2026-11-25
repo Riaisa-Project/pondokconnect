@@ -1,10 +1,10 @@
 /* Pondok Connect: emerald, ivory and warm brass, with readable service interfaces. */
 :root {
-  --ink: #193f35;
-  --muted: #5b6b63;
+  --ink: #111111;
+  --muted: #333333;
   --line: #e0e7dd;
   background: #f8faf5;
-  color: #233e34;
+  color: #111111;
 }
 body {
   background: #f8faf5;
@@ -1289,7 +1289,7 @@ textarea {
 }
 .footer-main p {
   font-size: 16px;
-  color: #a8bba8;
+  color: #1f1f1f;
 }
 .footer-main h3 {
   font-size: 16px;
@@ -1379,7 +1379,7 @@ textarea {
   display: flex;
   gap: 10px;
   font-size: 16px;
-  color: #6a7a5e;
+  color: #333333;
   line-height: 1.7;
   align-items: flex-start;
 }
@@ -1643,7 +1643,7 @@ progress::-moz-progress-bar {
 }
 .capacity-cards > div > span {
   font-size: 16px;
-  color: #6a7a5e;
+  color: #333333;
 }
 .capacity-cards strong {
   display: block;
@@ -3108,7 +3108,7 @@ h2 em {
   line-height: 1.65;
 }
 .location-point-note {
-  color: #6e7868;
+  color: #333333;
   font-size: 16px;
   line-height: 1.7;
   margin: 14px 0 0;
@@ -3155,7 +3155,7 @@ h2 em {
   margin-top: 18px;
 }
 .unmapped-locations > p {
-  color: #6e7868;
+  color: #333333;
   font-size: 16px;
 }
 .unmapped-locations article {
@@ -3222,7 +3222,7 @@ h2 em {
   margin-top: 10px;
 }
 .sourced-profile-intro {
-  color: #55614f;
+  color: #2a2a2a;
   font-size: 16px;
 }
 .sourced-profile-note {
@@ -3266,7 +3266,7 @@ h2 em {
   flex-wrap: wrap;
   margin-top: 14px;
   font-size: 16px;
-  color: #55614f;
+  color: #2a2a2a;
 }
 .sourced-section-citation a,
 .sourced-contact dd a {
@@ -3276,7 +3276,7 @@ h2 em {
   gap: 6px;
 }
 .sourced-unavailable p {
-  color: #707868;
+  color: #333333;
   font-size: 16px;
   margin-bottom: 0;
 }
@@ -3285,7 +3285,7 @@ h2 em {
 }
 .sourced-contact p {
   font-size: 16px;
-  color: #6e7967;
+  color: #333333;
   line-height: 1.8;
 }
 .sourced-contact dl > div {
@@ -3293,7 +3293,7 @@ h2 em {
 }
 .sourced-contact dt {
   font-size: 16px;
-  color: #55614f;
+  color: #2a2a2a;
 }
 .sourced-contact dd {
   margin: 4px 0 0;
@@ -3307,7 +3307,7 @@ h2 em {
 .sourced-contact small {
   display: block;
   font-size: 16px;
-  color: #6e7967;
+  color: #333333;
   line-height: 1.8;
   margin-top: 18px;
 }
@@ -3342,7 +3342,7 @@ h2 em {
 }
 .reference-fact-list dt {
   font-size: 16px;
-  color: #55614f;
+  color: #2a2a2a;
   margin-bottom: 5px;
 }
 .reference-fact-list dd {

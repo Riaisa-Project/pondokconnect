@@ -1,20 +1,20 @@
 @import 'tailwindcss';
 @theme {
-  --font-sans: 'Manrope', sans-serif;
-  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
   --color-forest: #173f35;
   --color-paper: #fafbf7;
   --color-gold: #d4b16a;
 }
 :root {
   font-family: var(--font-sans);
-  color: #243d35;
+  color: #111111;
   background: #fafbf7;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --ink: #173f35;
-  --muted: #5b6b63;
+  --ink: #111111;
+  --muted: #333333;
   --line: #dfe5dc;
 }
 * {
@@ -170,7 +170,7 @@ code {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #4d5a48;
+  color: #222222;
   line-height: 1.7;
 }
 .icon-text {
@@ -374,7 +374,7 @@ code {
 .note {
   font-size: 16px;
   line-height: 1.8;
-  color: #5b6b63;
+  color: #333333;
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -587,7 +587,7 @@ code {
 }
 .hero-copy > p {
   font-size: 16px;
-  color: #6a756b;
+  color: #333333;
   margin-top: 24px;
   line-height: 1.9;
 }
@@ -936,7 +936,7 @@ code {
   font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 1.2px;
-  color: #717864;
+  color: #333333;
 }
 .card-meta .badge {
   font-size: 8px;
@@ -1490,7 +1490,7 @@ progress::-moz-progress-bar {
 }
 .field > label {
   font-weight: 650;
-  color: #3f5a3b;
+  color: #1f1f1f;
 }
 .field > small {
   font-weight: 400;

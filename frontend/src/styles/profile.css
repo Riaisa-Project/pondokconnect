@@ -43,7 +43,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #4d5a48;
+  color: #222222;
 }
 .prof-masthead h1 {
   font-size: clamp(34px, 4vw, 56px);
@@ -263,7 +263,7 @@
 }
 .prof-lead {
   max-width: 62ch;
-  font-family: 'Lora', Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 18px;
   line-height: 1.75;
   color: #2b4a40;
@@ -331,7 +331,7 @@
   align-items: baseline;
   gap: 9px;
   margin: 0;
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
   font-size: 16px;
   font-weight: 700;
   color: var(--ink);
