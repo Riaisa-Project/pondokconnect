@@ -170,7 +170,7 @@ export default function Report() {
               name="lokasi_kejadian"
               required
               maxLength={150}
-              placeholder="Contoh: area asrama"
+              placeholder="Lokasi kejadian, mis. area asrama"
             />
           </Field>
           <Field

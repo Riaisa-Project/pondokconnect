@@ -27,7 +27,7 @@ h2 em {
   color: #8a9f73;
 }
 .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.15em;
 }
 .button {
@@ -51,7 +51,7 @@ h2 em {
 }
 .note,
 small {
-  font-size: 12px;
+  font-size: 14px;
 }
 input,
 select,
@@ -92,7 +92,7 @@ textarea {
 }
 .utility-bar {
   height: 32px;
-  font-size: 10px;
+  font-size: 13px;
 }
 .site-header {
   position: sticky;
@@ -110,18 +110,18 @@ textarea {
   gap: 11px;
 }
 .brand small {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 2px;
 }
 .site-header nav {
   gap: 28px;
 }
 .site-header nav a {
-  font-size: 12px;
+  font-size: 14px;
   padding-block: 31px;
 }
 .admin-link {
-  font-size: 11px;
+  font-size: 13px;
   padding: 12px 17px;
   background: #fff9;
 }
@@ -182,7 +182,7 @@ textarea {
   background: #245b45;
 }
 .hero-trust {
-  font-size: 10px;
+  font-size: 13px;
   gap: 23px;
   margin-top: 18px;
 }
@@ -194,7 +194,7 @@ textarea {
   gap: 11px;
   align-items: center;
   color: #8e9b87;
-  font-size: 10px;
+  font-size: 13px;
   margin-top: 35px;
 }
 .hero-line {
@@ -288,7 +288,7 @@ textarea {
   align-items: center;
   gap: 7px;
   padding: 8px 11px;
-  font-size: 12px;
+  font-size: 14px;
   color: #c4d6c3;
   border: 0;
   background: transparent;
@@ -339,7 +339,7 @@ textarea {
   align-items: center;
   gap: 7px;
   padding: 4px 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #dbe6cd;
   pointer-events: none;
   background: #12362bd9;
@@ -377,7 +377,7 @@ textarea {
   margin-top: 5px;
 }
 .explorer-info p {
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.6;
   color: #bccbb4;
   margin-top: 4px;
@@ -415,7 +415,7 @@ textarea {
   color: #d9e3cc;
   width: 145px;
   border-color: #9eaf832b;
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px;
 }
 .explorer-stage > .scene-loading {
@@ -426,7 +426,7 @@ textarea {
   display: grid;
   place-items: center;
   min-height: 200px;
-  font-size: 12px;
+  font-size: 14px;
   background: #143a2f;
   color: #dbe6cd;
 }
@@ -447,7 +447,7 @@ textarea {
   margin: 8px 0;
 }
 .explorer-stage .map-fallback span {
-  font-size: 10px;
+  font-size: 13px;
   text-align: center;
 }
 .kecamatan-map {
@@ -506,7 +506,7 @@ textarea {
   width: 100%;
   min-height: 30px;
   padding: 4px 7px;
-  font-size: 12px;
+  font-size: 14px;
   color: #cfdcc2;
   text-align: left;
   background: none;
@@ -526,7 +526,7 @@ textarea {
 }
 .kecamatan-note {
   margin: 6px 2px 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   color: #b9c9ae;
 }
@@ -539,7 +539,7 @@ textarea {
 }
 .kecamatan-map .leaflet-tooltip.kecamatan-count {
   padding: 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #1c3322;
   background: transparent;
@@ -566,13 +566,13 @@ textarea {
   background: #e9c98b;
 }
 .kecamatan-map .leaflet-control-attribution {
-  font-size: 12px;
+  font-size: 14px;
   color: #344a3c;
   background: #f3f5e9d9;
 }
 .kecamatan-map .leaflet-tooltip {
   padding: 6px 9px;
-  font-size: 12px;
+  font-size: 14px;
   color: #eaf0e0;
   background: #12362b;
   border: 1px solid #ffffff1f;
@@ -595,7 +595,7 @@ textarea {
   display: block;
   width: 100%;
   margin-bottom: 3px;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   color: #c6d4b6;
 }
@@ -604,7 +604,7 @@ textarea {
   flex-wrap: wrap;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .kecamatan-legend > span > span {
   display: inline-flex;
@@ -624,7 +624,7 @@ textarea {
   width: 18px;
   height: 18px;
   margin-right: 6px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 50%;
   background: #ffffff1f;
 }
@@ -663,12 +663,12 @@ textarea {
   font-weight: 400;
 }
 .stat > span {
-  font-size: 10px;
+  font-size: 13px;
   margin-top: 6px;
   grid-column: 2;
 }
 .stat-note {
-  font-size: 10px;
+  font-size: 13px;
   padding-left: 24px;
   border-left: 1px solid #d9e1d2;
   align-self: center;
@@ -730,13 +730,13 @@ textarea {
   margin-bottom: 13px;
 }
 .service-card p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.85;
   margin-bottom: 26px;
   max-width: 300px;
 }
 .service-card .text-link {
-  font-size: 11px;
+  font-size: 13px;
 }
 .directory-feature {
   background: #edf2e7;
@@ -772,7 +772,7 @@ textarea {
   margin-bottom: 15px;
 }
 .ponpes-card .card-meta > span {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
 }
 .ponpes-card h3 {
@@ -782,7 +782,7 @@ textarea {
   letter-spacing: -0.015em;
 }
 .ponpes-card .icon-text {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 12px;
 }
 .card-bottom {
@@ -790,7 +790,7 @@ textarea {
   margin-top: 19px;
 }
 .card-bottom > span {
-  font-size: 10px;
+  font-size: 13px;
 }
 .card-arrow {
   width: 33px;
@@ -800,7 +800,7 @@ textarea {
 }
 .directory-note {
   margin-top: 24px;
-  font-size: 12px;
+  font-size: 14px;
   gap: 7px;
 }
 .discovery-actions {
@@ -813,7 +813,7 @@ textarea {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 9px 12px;
   border: 1px solid #d5dfce;
   border-radius: 6px;
@@ -833,7 +833,7 @@ textarea {
   gap: 6px;
 }
 .discovery-actions.compact button {
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px;
   background: #fcfff4e8;
   backdrop-filter: blur(8px);
@@ -868,15 +868,15 @@ textarea {
 }
 .compare-tray strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
 }
 .compare-tray small {
   color: #819177;
-  font-size: 10px;
+  font-size: 13px;
 }
 .compare-tray .button {
   margin-left: auto;
-  font-size: 11px;
+  font-size: 13px;
   padding: 11px 14px;
   min-height: 42px;
   white-space: nowrap;
@@ -893,7 +893,7 @@ textarea {
   box-shadow: 0 8px 40px #173f3530;
   padding: 14px 20px;
   width: min(500px, calc(100% - 30px));
-  font-size: 12px;
+  font-size: 14px;
 }
 .directory-tools {
   display: flex;
@@ -925,20 +925,20 @@ textarea {
 .directory-tabs button > span {
   background: #e5eddb;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 2px 7px;
 }
 .sort-control {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #697360;
 }
 .sort-control select {
   background: transparent;
   width: 170px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 9px 12px;
 }
 .filter-bar {
@@ -949,7 +949,7 @@ textarea {
   gap: 11px;
 }
 .filter-bar select {
-  font-size: 12px;
+  font-size: 14px;
   padding: 13px;
 }
 .search-input input {
@@ -957,7 +957,7 @@ textarea {
 }
 .results-label {
   margin-block: 23px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .compare-toolbar {
   display: flex;
@@ -969,7 +969,7 @@ textarea {
 .compare-toolbar > span {
   display: flex;
   gap: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #718664;
 }
 .comparison-scroll {
@@ -999,7 +999,7 @@ textarea {
 .comparison-table th:first-child {
   width: 180px;
   background: #f5f8ef;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: #597447;
 }
@@ -1017,7 +1017,7 @@ textarea {
   margin-bottom: 15px;
 }
 .comparison-table thead th .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 15px;
 }
 .comparison-table thead th .badge {
@@ -1037,13 +1037,13 @@ textarea {
   gap: 7px;
 }
 .tag-list > span {
-  font-size: 10px;
+  font-size: 13px;
   padding: 5px 9px;
   background: #eef4e8;
   border-radius: 5px;
 }
 .compare-unavailable p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .protection-banner {
   display: grid;
@@ -1126,7 +1126,7 @@ textarea {
   );
 }
 .protection-flow-title {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #c8d0a4;
@@ -1161,7 +1161,7 @@ textarea {
   border: 1px solid #86a37c;
   display: grid;
   place-items: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #f0d59b;
   background: #27543f;
@@ -1189,7 +1189,7 @@ textarea {
   border: 1px solid rgba(233, 201, 139, 0.28);
   border-radius: 999px;
   background: rgba(233, 201, 139, 0.08);
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #cbd8bd;
@@ -1263,7 +1263,7 @@ textarea {
   margin-top: 3px;
 }
 .faq-list p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 25px 25px 33px;
 }
 .closing-section {
@@ -1288,19 +1288,19 @@ textarea {
   gap: 80px;
 }
 .footer-main p {
-  font-size: 12px;
+  font-size: 14px;
   color: #a8bba8;
 }
 .footer-main h3 {
-  font-size: 12px;
+  font-size: 14px;
 }
 .footer-main > div > a:not(.brand) {
-  font-size: 12px;
+  font-size: 14px;
   color: #b4c6b0;
   padding-block: 10px;
 }
 .footer-bottom {
-  font-size: 12px;
+  font-size: 14px;
   padding-block: 23px;
 }
 .profile-navigation {
@@ -1312,7 +1312,7 @@ textarea {
   margin-bottom: 32px;
 }
 .profile-navigation > a {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: #667659;
 }
@@ -1378,7 +1378,7 @@ textarea {
 .profile-offerings li {
   display: flex;
   gap: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #6a7a5e;
   line-height: 1.7;
   align-items: flex-start;
@@ -1388,7 +1388,7 @@ textarea {
   color: #8da570;
 }
 .profile-offerings p {
-  font-size: 12px;
+  font-size: 14px;
 }
 #program,
 #tentang,
@@ -1399,7 +1399,7 @@ textarea {
   font-size: 33px;
 }
 .info-grid dt {
-  font-size: 11px;
+  font-size: 13px;
 }
 .info-grid dd {
   font-size: 13px;
@@ -1435,14 +1435,14 @@ textarea {
   margin-bottom: 28px;
 }
 .admin-identity strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .admin-identity small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .admin-sidebar nav > button,
 .admin-sidebar nav > a {
-  font-size: 12px;
+  font-size: 14px;
   padding: 14px 12px;
   border-radius: 7px;
 }
@@ -1456,7 +1456,7 @@ textarea {
   font-size: 35px;
 }
 .admin-heading .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
 }
 .admin-content > .panel {
   margin-bottom: 25px;
@@ -1481,7 +1481,7 @@ textarea {
   font-size: 37px;
 }
 .dashboard-welcome p {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 14px;
 }
 .dashboard-date {
@@ -1489,7 +1489,7 @@ textarea {
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: #657657;
 }
 .dashboard-date strong {
@@ -1518,7 +1518,7 @@ textarea {
   color: #6a7960;
 }
 .metric-card-top > span {
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.7;
 }
 .metric-card-top > svg {
@@ -1537,7 +1537,7 @@ textarea {
   color: #355a3e;
 }
 .metric-card > small {
-  font-size: 12px;
+  font-size: 14px;
   color: #6c7765;
 }
 .dashboard-panels {
@@ -1552,7 +1552,7 @@ textarea {
   font-size: 24px;
 }
 .dashboard-panels .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 12px;
 }
 .dashboard-panels .section-heading {
@@ -1568,12 +1568,12 @@ textarea {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-size: 11px;
+  font-size: 13px;
   color: #69795d;
   margin-bottom: 8px;
 }
 .distribution strong {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #4d6a3e;
 }
@@ -1626,12 +1626,12 @@ progress::-moz-progress-bar {
 }
 .dashboard-actions strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 .dashboard-actions small {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   color: #65735a;
   margin-top: 4px;
 }
@@ -1642,7 +1642,7 @@ progress::-moz-progress-bar {
   margin-block: 23px;
 }
 .capacity-cards > div > span {
-  font-size: 11px;
+  font-size: 13px;
   color: #6a7a5e;
 }
 .capacity-cards strong {
@@ -1654,7 +1654,7 @@ progress::-moz-progress-bar {
   color: #567445;
 }
 .capacity-cards strong small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .capacity-cards > div > small {
   font-size: 9px;
@@ -1664,7 +1664,7 @@ progress::-moz-progress-bar {
   font-size: 13px;
 }
 .record summary small {
-  font-size: 10px;
+  font-size: 13px;
 }
 .chat-widget {
   z-index: 47;
@@ -1700,7 +1700,7 @@ progress::-moz-progress-bar {
   padding: 16px;
   background: #f0f5e9;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #71845f;
   line-height: 1.85;
 }
@@ -1734,7 +1734,7 @@ progress::-moz-progress-bar {
     gap: 18px;
   }
   .site-header nav a {
-    font-size: 10px;
+    font-size: 13px;
   }
   .brand {
     font-size: 19px;
@@ -1847,10 +1847,10 @@ progress::-moz-progress-bar {
     font-size: 16px;
   }
   .service-card p {
-    font-size: 11px;
+    font-size: 13px;
   }
   .service-card .text-link {
-    font-size: 10px;
+    font-size: 13px;
   }
   .protection-copy {
     padding: 35px;
@@ -1884,7 +1884,7 @@ progress::-moz-progress-bar {
   }
   .admin-sidebar nav > button,
   .admin-sidebar nav > a {
-    font-size: 12px;
+    font-size: 14px;
   }
   .admin-identity {
     display: flex;
@@ -1899,7 +1899,7 @@ progress::-moz-progress-bar {
     padding: 23px;
   }
   .metric-card-top > span {
-    font-size: 10px;
+    font-size: 13px;
   }
   .dashboard-panels .panel {
     padding: 28px;
@@ -1955,7 +1955,7 @@ progress::-moz-progress-bar {
     width: 37px;
   }
   .brand small {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1.4px;
   }
   .admin-link {
@@ -1970,10 +1970,10 @@ progress::-moz-progress-bar {
     font-size: 8px;
   }
   .utility-bar .demo-label {
-    font-size: 12px;
+    font-size: 14px;
   }
   .site-header nav a {
-    font-size: 12px;
+    font-size: 14px;
   }
   .site-header nav {
     top: 75px;
@@ -1999,7 +1999,7 @@ progress::-moz-progress-bar {
     padding: 7px 7px 7px 12px;
   }
   .hero-search input {
-    font-size: 11px;
+    font-size: 13px;
     padding-left: 10px;
   }
   .hero-search button {
@@ -2037,7 +2037,7 @@ progress::-moz-progress-bar {
     left: 17px;
   }
   .explorer-tabs button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 7px 9px;
     gap: 6px;
   }
@@ -2064,7 +2064,7 @@ progress::-moz-progress-bar {
     padding: 14px 15px;
   }
   .explorer-info strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .explorer-info p {
     font-size: 8px;
@@ -2094,7 +2094,7 @@ progress::-moz-progress-bar {
     max-width: 165px;
   }
   .explorer-bottom select {
-    font-size: 12px;
+    font-size: 14px;
     width: 118px;
     padding: 7px;
   }
@@ -2105,7 +2105,7 @@ progress::-moz-progress-bar {
     height: 125px;
   }
   .explorer-stage .map-fallback strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .explorer-stage .map-fallback span {
     font-size: 8px;
@@ -2153,10 +2153,10 @@ progress::-moz-progress-bar {
     font-size: 30px;
   }
   .section-heading > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .section-heading .eyebrow {
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 14px;
   }
   .service-grid {
@@ -2178,19 +2178,19 @@ progress::-moz-progress-bar {
     font-size: 18px;
   }
   .service-card p {
-    font-size: 12px;
+    font-size: 14px;
     max-width: none;
     margin-bottom: 22px;
   }
   .service-card .text-link {
-    font-size: 11px;
+    font-size: 13px;
   }
   .directory-feature .section-heading {
     display: block;
   }
   .directory-feature .section-heading .button {
     margin-top: 23px;
-    font-size: 12px;
+    font-size: 14px;
     min-height: 43px;
     padding: 11px 15px;
   }
@@ -2209,13 +2209,13 @@ progress::-moz-progress-bar {
     min-height: 0;
   }
   .ponpes-card .icon-text {
-    font-size: 11px;
+    font-size: 13px;
   }
   .card-bottom > span {
-    font-size: 10px;
+    font-size: 13px;
   }
   .directory-note {
-    font-size: 12px;
+    font-size: 14px;
     align-items: flex-start;
   }
   .protection-banner {
@@ -2228,10 +2228,10 @@ progress::-moz-progress-bar {
     font-size: 33px;
   }
   .protection-copy > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .protection-copy > small {
-    font-size: 12px;
+    font-size: 14px;
   }
   .protection-visual {
     height: 240px;
@@ -2252,21 +2252,21 @@ progress::-moz-progress-bar {
     font-size: 32px;
   }
   .faq-section > div:first-child > p {
-    font-size: 12px;
+    font-size: 14px;
     margin-block: 20px;
   }
   .faq-section .text-link {
-    font-size: 11px;
+    font-size: 13px;
   }
   .faq-list summary {
     padding-block: 23px;
     gap: 13px;
   }
   .faq-list summary strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .faq-list p {
-    font-size: 11px;
+    font-size: 13px;
     margin-left: 28px;
   }
   .closing-section {
@@ -2275,30 +2275,30 @@ progress::-moz-progress-bar {
     padding-top: 5px;
   }
   .closing-section .eyebrow {
-    font-size: 12px;
+    font-size: 14px;
   }
   .closing-section h2 {
     font-size: 32px;
   }
   .closing-section > .button {
     margin-top: 25px;
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-main {
     padding-block: 43px;
     gap: 30px 25px;
   }
   .footer-main h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-main p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-main > div > a:not(.brand) {
-    font-size: 12px;
+    font-size: 14px;
   }
   .footer-bottom {
-    font-size: 12px;
+    font-size: 14px;
     padding-bottom: 32px;
   }
   .page-heading {
@@ -2308,10 +2308,10 @@ progress::-moz-progress-bar {
     font-size: 37px;
   }
   .page-heading p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .page-heading .eyebrow {
-    font-size: 12px;
+    font-size: 14px;
   }
   .directory-tools {
     flex-wrap: wrap;
@@ -2323,15 +2323,15 @@ progress::-moz-progress-bar {
     gap: 25px;
   }
   .directory-tabs button {
-    font-size: 12px;
+    font-size: 14px;
     padding-block: 16px;
   }
   .sort-control {
     margin-left: auto;
-    font-size: 12px;
+    font-size: 14px;
   }
   .sort-control select {
-    font-size: 12px;
+    font-size: 14px;
     padding: 7px 10px;
     width: 158px;
   }
@@ -2340,19 +2340,19 @@ progress::-moz-progress-bar {
     gap: 10px;
   }
   .filter-bar select {
-    font-size: 12px;
+    font-size: 14px;
     flex-basis: calc(50% - 5px);
     padding: 10px;
   }
   .filter-bar .search-input input {
-    font-size: 12px;
+    font-size: 14px;
   }
   .results-label {
-    font-size: 12px;
+    font-size: 14px;
     margin-block: 19px;
   }
   .discovery-actions button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 8px 10px;
   }
   .compare-tray {
@@ -2365,7 +2365,7 @@ progress::-moz-progress-bar {
     padding: 8px;
   }
   .compare-tray strong {
-    font-size: 10px;
+    font-size: 13px;
   }
   .compare-tray small {
     display: none;
@@ -2388,7 +2388,7 @@ progress::-moz-progress-bar {
   .comparison-table th,
   .comparison-table td {
     padding: 17px;
-    font-size: 11px;
+    font-size: 13px;
   }
   .comparison-table th:first-child {
     width: 110px;
@@ -2398,15 +2398,15 @@ progress::-moz-progress-bar {
     font-size: 15px;
   }
   .comparison-table .button {
-    font-size: 10px;
+    font-size: 13px;
     padding: 10px 12px;
     min-height: 37px;
   }
   .compare-toolbar > span {
-    font-size: 10px;
+    font-size: 13px;
   }
   .compare-toolbar .button {
-    font-size: 10px;
+    font-size: 13px;
     padding: 10px 14px;
   }
   .profile-navigation {
@@ -2444,19 +2444,19 @@ progress::-moz-progress-bar {
     font-size: 13px;
   }
   .profile-offerings li {
-    font-size: 11px;
+    font-size: 13px;
   }
   .profile-description {
-    font-size: 12px;
+    font-size: 14px;
   }
   .detail-grid .quota-panel h2 {
     font-size: 29px;
   }
   .info-grid dt {
-    font-size: 10px;
+    font-size: 13px;
   }
   .info-grid dd {
-    font-size: 12px;
+    font-size: 14px;
   }
   .field {
     font-size: 15px;
@@ -2478,13 +2478,13 @@ progress::-moz-progress-bar {
     font-size: 27px;
   }
   .form-panel > p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .form-panel {
     gap: 23px;
   }
   .button {
-    font-size: 12px;
+    font-size: 14px;
   }
   .admin-shell {
     padding-block: 30px;
@@ -2495,17 +2495,17 @@ progress::-moz-progress-bar {
   }
   .admin-sidebar nav > button,
   .admin-sidebar nav > a {
-    font-size: 12px;
+    font-size: 14px;
     padding: 11px 10px;
   }
   .admin-sidebar nav {
     gap: 5px;
   }
   .admin-identity strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .admin-identity small {
-    font-size: 12px;
+    font-size: 14px;
   }
   .dashboard-welcome {
     display: block;
@@ -2539,7 +2539,7 @@ progress::-moz-progress-bar {
     font-size: 32px;
   }
   .metric-card > small {
-    font-size: 12px;
+    font-size: 14px;
   }
   .dashboard-panels {
     grid-template-columns: 1fr;
@@ -2567,7 +2567,7 @@ progress::-moz-progress-bar {
     padding: 25px;
   }
   .chat-trigger {
-    font-size: 11px;
+    font-size: 13px;
   }
   .profile-navigation + .detail-grid {
     margin-top: 0;
@@ -2698,7 +2698,7 @@ h2 em {
   color: #e9efd9;
   border-radius: 8px;
   box-shadow: 0 5px 18px #122e2440;
-  font-size: 10px;
+  font-size: 13px;
   cursor: pointer;
   transition:
     border-color 0.2s,
@@ -2739,7 +2739,7 @@ h2 em {
   border-radius: 8px;
   box-shadow: 0 8px 25px #122e2430;
   pointer-events: none;
-  font-size: 11px;
+  font-size: 13px;
 }
 .world-tooltip strong,
 .world-tooltip span,
@@ -2810,10 +2810,10 @@ h2 em {
 .explorer-expanded .explorer-instruction {
   left: 25px;
   bottom: 120px;
-  font-size: 10px;
+  font-size: 13px;
 }
 .explorer-expanded .explorer-top {
-  font-size: 10px;
+  font-size: 13px;
 }
 .explorer-expanded .explorer-tech {
   font-size: 9px;
@@ -2823,7 +2823,7 @@ h2 em {
   bottom: 26px;
 }
 .explorer-expanded .world-hotspot {
-  font-size: 12px;
+  font-size: 14px;
   padding: 10px 14px;
 }
 @media (max-width: 650px) {
@@ -2855,7 +2855,7 @@ h2 em {
     font-size: 6px;
   }
   .world-tooltip {
-    font-size: 10px;
+    font-size: 13px;
     padding: 9px 12px;
   }
   .explorer-instruction {
@@ -2871,7 +2871,7 @@ h2 em {
     min-height: 98px;
   }
   .explorer-info strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .explorer-info p {
     font-size: 8px;
@@ -2992,7 +2992,7 @@ h2 em {
     gap: 8px;
   }
   .explorer-expanded .explorer-info strong {
-    font-size: 11px;
+    font-size: 13px;
     margin-top: 3px;
   }
   .explorer-expanded .explorer-info p {
@@ -3032,7 +3032,7 @@ h2 em {
     text-align: right;
   }
   .explorer-expanded .explorer-bottom select {
-    font-size: 12px;
+    font-size: 14px;
     padding: 7px;
     width: 126px;
   }
@@ -3074,7 +3074,7 @@ h2 em {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 16px;
-  font-size: 12px;
+  font-size: 14px;
   color: #6d7969;
 }
 .location-meta a,
@@ -3096,7 +3096,7 @@ h2 em {
   border-radius: 7px;
   padding: 8px 12px;
   margin: 12px 0 0;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
 }
 .location-directions:hover {
@@ -3109,20 +3109,20 @@ h2 em {
 }
 .location-point-note {
   color: #6e7868;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   margin: 14px 0 0;
 }
 .location-compact .location-address {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 9px;
 }
 .location-compact .location-meta,
 .location-compact .location-unverified {
-  font-size: 10px;
+  font-size: 13px;
 }
 .location-compact .location-directions {
-  font-size: 12px;
+  font-size: 14px;
   padding: 7px 10px;
   margin: 9px 0 5px;
 }
@@ -3201,7 +3201,7 @@ h2 em {
   padding: 14px;
 }
 .ocr-field-choices legend {
-  font-size: 12px;
+  font-size: 14px;
   color: #5a6c50;
   padding: 0 6px;
 }
@@ -3223,7 +3223,7 @@ h2 em {
 }
 .sourced-profile-intro {
   color: #55614f;
-  font-size: 12px;
+  font-size: 14px;
 }
 .sourced-profile-note {
   border-left: 3px solid #a7b78b;
@@ -3265,7 +3265,7 @@ h2 em {
   gap: 10px 18px;
   flex-wrap: wrap;
   margin-top: 14px;
-  font-size: 11px;
+  font-size: 13px;
   color: #55614f;
 }
 .sourced-section-citation a,
@@ -3277,14 +3277,14 @@ h2 em {
 }
 .sourced-unavailable p {
   color: #707868;
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 0;
 }
 .sourced-contact {
   padding-top: 24px;
 }
 .sourced-contact p {
-  font-size: 12px;
+  font-size: 14px;
   color: #6e7967;
   line-height: 1.8;
 }
@@ -3292,7 +3292,7 @@ h2 em {
   margin: 15px 0;
 }
 .sourced-contact dt {
-  font-size: 11px;
+  font-size: 13px;
   color: #55614f;
 }
 .sourced-contact dd {
@@ -3301,12 +3301,12 @@ h2 em {
   overflow-wrap: anywhere;
 }
 .sourced-contact dd a {
-  font-size: 11px;
+  font-size: 13px;
   margin-left: 12px;
 }
 .sourced-contact small {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   color: #6e7967;
   line-height: 1.8;
   margin-top: 18px;
@@ -3323,7 +3323,7 @@ h2 em {
 .reference-provenance p,
 .reference-provenance small {
   color: #71816c;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .reference-provenance small {
@@ -3341,7 +3341,7 @@ h2 em {
   border-bottom: 1px solid #e5e9dc;
 }
 .reference-fact-list dt {
-  font-size: 11px;
+  font-size: 13px;
   color: #55614f;
   margin-bottom: 5px;
 }
@@ -3353,7 +3353,7 @@ h2 em {
 .reference-note {
   display: flex;
   gap: 8px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: #76816e;
   margin-top: 20px;
@@ -3380,10 +3380,10 @@ h2 em {
 .utility-bar {
   height: auto;
   min-height: 34px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .brand small {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1.6px;
 }
 .site-header nav a {
@@ -3395,19 +3395,19 @@ h2 em {
   border-bottom-color: var(--color-gold);
 }
 .admin-link {
-  font-size: 12px;
+  font-size: 14px;
 }
 .footer-main h3 {
-  font-size: 12px;
+  font-size: 14px;
 }
 .footer-main > div > a:not(.brand) {
   font-size: 13.5px;
 }
 .footer-bottom {
-  font-size: 12px;
+  font-size: 14px;
 }
 .art-caption {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .explorer-tech.is-live {
@@ -3465,7 +3465,7 @@ h2 em {
     display: none;
   }
   .explorer-stage[data-mode='region'] .explorer-top {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.1em;
   }
 
@@ -3497,7 +3497,7 @@ h2 em {
     text-wrap: balance; /* cegah "Lamongan." jadi baris sendiri */
   }
   .explorer-stage[data-mode='region'] .explorer-info small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .explorer-stage[data-mode='region'] .explorer-info p {
     font-size: 13px;
@@ -3510,7 +3510,7 @@ h2 em {
   }
 
   .explorer-stage[data-mode='region'] .explorer-bottom > span {
-    font-size: 11px;
+    font-size: 13px;
     color: #c6d4b6; /* atribusi Esri/OSM harus terbaca */
   }
   .explorer-stage[data-mode='region'] .explorer-bottom select {
@@ -3537,7 +3537,7 @@ h2 em {
   .kecamatan-map .leaflet-container .leaflet-control-attribution {
     background: #143a2fd9;
     color: #c6d4b6;
-    font-size: 11px;
+    font-size: 13px;
     padding: 2px 6px;
   }
   .kecamatan-map .leaflet-control-attribution a {
