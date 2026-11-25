@@ -193,7 +193,7 @@ textarea {
   display: flex;
   gap: 11px;
   align-items: center;
-  color: #8e9b87;
+  color: #333333;
   font-size: 16px;
   margin-top: 35px;
 }
@@ -1059,7 +1059,7 @@ textarea {
   z-index: 1;
 }
 .protection-copy .eyebrow {
-  color: #c8d0a4;
+  color: #e8eecf;
   margin-bottom: 22px;
 }
 .protection-copy h2 {
@@ -1068,13 +1068,13 @@ textarea {
   color: #f3f1db;
 }
 .protection-copy h2 em {
-  color: #c0c69c;
+  color: #ece8cc;
 }
 .protection-copy > p {
   max-width: 46ch;
   font-size: 17px;
   line-height: 1.7;
-  color: #cfd9c2;
+  color: #eef4ea;
   margin-block: 20px 22px;
 }
 .protection-promises {
@@ -1129,7 +1129,7 @@ textarea {
   font-size: 16px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #c8d0a4;
+  color: #e8eecf;
   margin-bottom: 22px;
 }
 .protection-flow ol {
@@ -1177,7 +1177,7 @@ textarea {
   margin: 0;
   font-size: 16px;
   line-height: 1.6;
-  color: #c3cfb5;
+  color: #e6efdc;
 }
 .protection-badge {
   display: inline-flex;
@@ -1192,7 +1192,7 @@ textarea {
   font-size: 16px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #cbd8bd;
+  color: #eef4e8;
 }
 .protection-badge .live-dot {
   background: #e9c98b;
@@ -1288,20 +1288,25 @@ textarea {
   gap: 80px;
 }
 .footer-main p {
-  font-size: 16px;
-  color: #1f1f1f;
+  font-size: 17px;
+  color: #eef4ec;
 }
 .footer-main h3 {
-  font-size: 16px;
+  font-size: 17px;
+  color: #ffffff;
 }
 .footer-main > div > a:not(.brand) {
-  font-size: 16px;
-  color: #b4c6b0;
+  font-size: 17px;
+  color: #f0f6ee;
   padding-block: 10px;
 }
 .footer-bottom {
   font-size: 16px;
   padding-block: 23px;
+  color: #dbe7d6;
+}
+.site-footer .brand-light small {
+  color: #cfe0c8;
 }
 .profile-navigation {
   display: flex;
@@ -2650,7 +2655,7 @@ h2 em {
   color: #7b915f;
 }
 .protection-copy h2 em {
-  color: #c0c69c;
+  color: #ece8cc;
 }
 .admin-sidebar nav > button,
 .admin-sidebar nav > a {
@@ -3398,10 +3403,10 @@ h2 em {
   font-size: 16px;
 }
 .footer-main h3 {
-  font-size: 16px;
+  font-size: 17px;
 }
 .footer-main > div > a:not(.brand) {
-  font-size: 16px;
+  font-size: 17px;
 }
 .footer-bottom {
   font-size: 16px;
