@@ -18,12 +18,12 @@
 /* ---------- tipografi: tidak ada teks mikro 9–10px ---------- */
 .home-page .eyebrow,
 .home-page .hero-eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.1em;
 }
 .home-page .hero-trust,
 .home-page .hero-footnote {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-page .hero h1 em,
 .home-section h2 em {
@@ -123,12 +123,12 @@
   color: var(--muted);
 }
 .home-page .home-stat-hint {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--muted);
 }
 .home-page .home-stat-label {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.4;
   color: var(--muted);
@@ -143,15 +143,15 @@
   border-left: 1px solid
     color-mix(in srgb, var(--color-gold) 60%, var(--color-line));
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-page .home-stat-note p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--muted);
 }
 .home-page .home-stat-note small {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   color: var(--muted);
 }
@@ -159,7 +159,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-forest);
 }
@@ -210,7 +210,7 @@
   text-wrap: balance;
 }
 .home-page .home-step p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
   max-width: none;
   margin: 0;
@@ -221,7 +221,7 @@
   align-self: end;
   margin-top: 16px;
   padding-bottom: 2px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-forest);
   border-bottom: 1.5px solid transparent;
@@ -250,7 +250,7 @@
   margin-bottom: 12px;
 }
 .home-card .home-card-meta .home-card-type {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
   line-height: 1.4;
@@ -270,7 +270,7 @@
   padding: 4px 10px;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -300,19 +300,19 @@
   text-underline-offset: 4px;
 }
 .home-card .home-card-status {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 .home-card .home-card-place {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0 0 8px;
   color: var(--muted);
 }
 .home-card .ponpes-location {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-card .location-address {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .home-card .location-address span {
@@ -322,7 +322,7 @@
   overflow: hidden;
 }
 .home-card .location-meta a {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-card .card-bottom {
   margin-top: auto;
@@ -335,14 +335,14 @@
   flex-wrap: wrap;
 }
 .home-card .home-card-bottom > span {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-card-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   min-height: 40px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-forest);
   white-space: nowrap;
@@ -352,22 +352,22 @@
   text-underline-offset: 4px;
 }
 .home-page .home-directory-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   align-items: flex-start;
 }
 
 /* ---------- kartu 3D Explorer: mikro ≥12px, rail ≥32px ---------- */
 .home-explorer .explorer-top {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.03em;
 }
 .home-explorer .explorer-tech {
-  font-size: 12px;
+  font-size: 14px;
   padding: 5px 8px;
 }
 .home-explorer .explorer-tabs button {
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 11px;
 }
 .home-explorer .explorer-controls button {
@@ -375,34 +375,34 @@
   height: 36px;
 }
 .home-explorer .explorer-instruction {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   max-width: calc(100% - 50px);
 }
 .home-explorer .explorer-campus-options button {
-  font-size: 12px;
+  font-size: 14px;
   min-height: 32px;
   padding: 6px 10px;
 }
 .home-explorer .world-hotspot {
-  font-size: 12px;
+  font-size: 14px;
   padding: 8px 11px;
 }
 .home-explorer .world-building-tip {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-explorer .world-tooltip {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-explorer .world-tooltip span,
 .home-explorer .world-tooltip small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .home-explorer .explorer-info {
   padding: 14px 18px;
 }
 .home-explorer .explorer-info small {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.04em;
 }
 .home-explorer .explorer-info strong {
@@ -410,12 +410,12 @@
   margin-top: 4px;
 }
 .home-explorer .explorer-info p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   margin-top: 2px;
 }
 .home-explorer .explorer-bottom > span {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -423,7 +423,7 @@
   overflow: hidden;
 }
 .home-explorer .explorer-bottom select {
-  font-size: 12px;
+  font-size: 14px;
   width: auto;
   min-width: 150px;
   padding: 8px;
@@ -433,7 +433,7 @@
 .home-explorer .kecamatan-legend small,
 .home-explorer .kecamatan-map .leaflet-tooltip,
 .home-explorer .kecamatan-map .leaflet-control-attribution {
-  font-size: 12px;
+  font-size: 14px;
 }
 @media (max-width: 900px) {
   .home-explorer .kecamatan-map {
@@ -484,7 +484,7 @@
 }
 .home-page .home-faq-list .faq-number {
   color: var(--color-forest);
-  font-size: 13px;
+  font-size: 14px;
 }
 .home-page .home-faq-list > details > p {
   margin: 0 16px 20px 52px;
@@ -492,12 +492,12 @@
   line-height: 1.7;
 }
 .home-page .home-faq .text-link {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* ---------- caption ilustrasi ---------- */
 .home-page .art-caption {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.06em;
 }
 
@@ -549,7 +549,7 @@
     height: 32px;
   }
   .home-explorer .explorer-tabs button {
-    font-size: 12px;
+    font-size: 14px;
     padding: 7px 9px;
   }
   .home-page .home-search input {

@@ -39,7 +39,7 @@
 }
 .prof-eyebrow {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@
   border-radius: 999px;
   background: #eef2ee;
   color: #3c5a4f;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 .prof-tag-gold {
@@ -105,14 +105,14 @@
 }
 /* teks mikro milik showcase.css dinaikkan dalam konteks profil */
 .prof-page .eyebrow {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.14em;
 }
 .prof-page .note {
   font-size: 12.5px;
 }
 .prof-page .profile-offerings li {
-  font-size: 13px;
+  font-size: 14px;
 }
 .prof-page .profile-offerings h3 {
   font-size: 13.5px;
@@ -160,10 +160,10 @@
 .prof-page .capacity-cards span,
 .prof-page .oversight-card strong,
 .prof-page .capacity-cards small {
-  font-size: 12px;
+  font-size: 14px;
 }
 .prof-plate .art-caption {
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 0.12em;
 }
 
@@ -214,7 +214,7 @@
   padding: 13px 0 11px;
   border-bottom: 2px solid transparent;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 .prof-sections a:hover,
@@ -300,7 +300,7 @@
   background: #fff;
 }
 .prof-facts dt {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -398,7 +398,7 @@
   gap: 2px;
 }
 .prof-contact dt {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -439,7 +439,7 @@
   border: 1px solid var(--ink);
   border-radius: 8px;
   color: var(--ink);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   min-height: 38px;
 }
@@ -488,7 +488,7 @@
   padding-bottom: 0;
 }
 .prof-kv dt {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
