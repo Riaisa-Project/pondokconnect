@@ -56,18 +56,18 @@ small {
 input,
 select,
 textarea {
-  font-size: 14px;
-  padding: 13px 15px;
+  font-size: 16px;
+  padding: 14px 16px;
 }
 .field {
-  font-size: 13px;
-  gap: 9px;
+  font-size: 15px;
+  gap: 10px;
 }
 .field > label {
   font-weight: 600;
 }
 .field > small {
-  font-size: 12px;
+  font-size: 13.5px;
 }
 .panel {
   border-radius: 14px;
@@ -2459,17 +2459,17 @@ progress::-moz-progress-bar {
     font-size: 12px;
   }
   .field {
-    font-size: 12px;
-    gap: 9px;
+    font-size: 15px;
+    gap: 10px;
   }
   .field input,
   .field select,
   .field textarea {
-    font-size: 13px;
-    padding: 12px;
+    font-size: 16px;
+    padding: 14px;
   }
   .field > small {
-    font-size: 12px;
+    font-size: 13.5px;
   }
   .form-panel h1 {
     font-size: 34px;

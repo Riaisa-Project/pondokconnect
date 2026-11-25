@@ -115,6 +115,7 @@ export default function Report() {
           </div>
         </aside>
         <form className="panel form-panel" onSubmit={submit}>
+          <h2 className="report-form-title">Buat laporan</h2>
           <div className="privacy-toggle">
             <div>
               <strong>Mode rahasia</strong>

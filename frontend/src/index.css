@@ -71,12 +71,12 @@ h3 {
   line-height: 1.5;
 }
 p {
-  font-size: 14px;
-  line-height: 1.85;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--muted);
 }
 small {
-  font-size: 11px;
+  font-size: 12.5px;
   line-height: 1.7;
 }
 em {
@@ -93,12 +93,12 @@ textarea {
   max-width: 100%;
   width: 100%;
   border: 1px solid #dce2db;
-  border-radius: 7px;
-  padding: 12px 14px;
+  border-radius: 9px;
+  padding: 14px 16px;
   background: #fff;
   color: #294439;
   line-height: 1.5;
-  font-size: 13px;
+  font-size: 16px;
 }
 input::placeholder,
 textarea::placeholder {
@@ -1084,7 +1084,7 @@ code {
   line-height: 1.25;
 }
 .page-heading p {
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 15px;
   max-width: 680px;
 }
@@ -1484,18 +1484,18 @@ progress::-moz-progress-bar {
 .field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 12px;
+  gap: 10px;
+  font-size: 15px;
   align-self: stretch;
 }
 .field > label {
-  font-weight: 600;
-  color: #476043;
+  font-weight: 650;
+  color: #3f5a3b;
 }
 .field > small {
   font-weight: 400;
   color: #6f7767;
-  font-size: 12px;
+  font-size: 13.5px;
 }
 .form-section-title {
   display: flex;
@@ -1667,8 +1667,19 @@ progress::-moz-progress-bar {
   flex-shrink: 0;
 }
 .report-layout {
-  grid-template-columns: 0.85fr 1.4fr;
+  grid-template-columns: 0.72fr 2.2fr;
   gap: 30px;
+}
+.report-layout .form-panel {
+  max-width: 46rem;
+  width: 100%;
+}
+.report-form-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 2px 0 18px;
+  color: #24301f;
 }
 .report-aside {
   background: #1b4839;
@@ -1730,12 +1741,13 @@ progress::-moz-progress-bar {
   color: #a0bf8d;
 }
 .report-aside h2 {
-  font-size: 31px;
-  line-height: 1.4;
+  font-size: 30px;
+  line-height: 1.35;
   margin: 15px 0;
 }
 .report-aside p {
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1.6;
   color: #a6bf95;
 }
 .report-aside .aside-note {
@@ -1759,11 +1771,11 @@ progress::-moz-progress-bar {
   border-radius: 8px;
 }
 .privacy-toggle strong {
-  font-size: 12px;
+  font-size: 15px;
   color: #527443;
 }
 .privacy-toggle p {
-  font-size: 12px;
+  font-size: 13.5px;
   margin-top: 4px;
 }
 .switch {
